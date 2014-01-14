@@ -317,7 +317,7 @@ Hyphenation</h3>
 #    An extre-         Een boom met prui-
 #    mely long         men die men als ei-
 #    English           eren beschrijft be-
-#    word over-        treft de omgvang.
+#    word over-        treft hun omvang.
 #    looking a         Iemand wilde pluk-
 #    nice sen-         ken zonder toestem-
 #    temce as          ming te hebben. Er
@@ -485,14 +485,14 @@ Applications that hyphenate</h3>
 <a name="rfc.section.3"></a><h3>3.&nbsp;
 Basic format</h3>
 
-<p><sup><small>41</small></sup>This section describes the basic format for hyphenation patterns. These are usually stored in computer files but can also be in databases or memory. The structure will be described step by step in which the grammar for this format is extended and example usage is illustrated. The syntax of all examples complies to the grammar of this format.
+<p><sup><small>41</small></sup>This section describes the basic format for hyphenation patterns. These are usually stored in computer files, but they can also reside in databases or memory. The structure will be described step by step, extending the grammar for this format and illustrating usage in example. The syntax of all examples complies to the grammar of this format.
 </p>
 <a name="main_structure"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
 Main structure</h3>
 
-<p><sup><small>42</small></sup>In order to support as many languages as possible, this format for hyphenation definitions MUST use the Unicode character in an UTF-8 encoding.  A set of hyphenation definitions MAY have one or more lines. Each line MAY have, in the following order:
+<p><sup><small>42</small></sup>In order to support as many languages as possible, this format for hyphenation definitions MUST use the Unicode character in a UTF-8 encoding.  A set of hyphenation definitions MAY have one or more lines. Each line MAY have, in the following order:
             </p>
 <ol class="text">
 <li><sup><small>43</small></sup>a hyphenation definition,
@@ -538,7 +538,7 @@ Main structure</h3>
 # ελληνική
 # γλώσσα
 </pre></div>
-<p><sup><small>51</small></sup>This completes the description of the the main structure which is processed in a line-by-line way.
+<p><sup><small>51</small></sup>This complets the description of the the main structure which is processed in a line-by-line fashion.
 </p>
 <a name="general_hyphenation_definition"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -588,7 +588,7 @@ Hyphenation definition in general</h3>
            | [#xE000-#xFFFD]
            | [#x10000-#x10FFFF]
 </pre></div>
-<p><sup><small>62</small></sup>Instead of providing a hyphenation definition it is possible to repeat the word after the delimiter without providing any hyphenation information. The grammar rule for definition will allow this. A hyphenation definition repeating the word means that this word SHALL NOT be hyphenated at all. A hyphenation definition MAY be given, but when non is provided for a certain word then hyphenation for that word is undefined. Some minimal examples in the format as it is described until here are:
+<p><sup><small>62</small></sup>Instead of providing a hyphenation definition it is possible to repeat the word after the delimiter without providing any hyphenation information. The grammar rule for definition will allow this. A hyphenation definition repeating the word means that this word SHALL NOT be hyphenated at all. A hyphenation definition MAY be given, but when none is provided for a certain word, then hyphenation for that word is undefined. Some very short examples in the format as it is so far described are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># too short English words not allowed to be hyphenated
 #a;a
 #at;at
@@ -622,7 +622,7 @@ Hyphenation definition for a word</h3>
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Definition
          ::= Cluster ( Hyphen Cluster )*
 </pre></div>
-<p><sup><small>64</small></sup>A character cluster here MUST consist of at least one character. This basic form is already supported by the current hyphenation algorithm and is key to the concept of hyphenation. More intricate schemes of clusters and hyphenations will be discussed later on but are already referred to in the following EBNF bridging from cluster to character clusters:
+<p><sup><small>64</small></sup>A character cluster here MUST consist of at least one character. This basic form is already supported by the current hyphenation algorithm and is key to the concept of hyphenation. More intricate schemes of clusters and hyphenations will be discussed later on, but are already referred to in the following EBNF bridging from cluster to character clusters:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Cluster
          ::= ( CharacterCluster
              | SubstitutionCluster
@@ -630,9 +630,9 @@ Hyphenation definition for a word</h3>
 CharacterCluster
          ::= Character+
 </pre></div>
-<p><sup><small>65</small></sup>The concatenation of different clusters only applies in combination with a substitution cluster or heteronym cluster, as will be demonstrated later on. This is because consecutive character clusters have the same syntax as a single character cluster. These are merely more characters added in the same way and will therefore MUST NOT be regarded as separate character clusters.
+<p><sup><small>65</small></sup>The concatenation of different clusters only applies in combination with a substitution cluster or a heteronym cluster, as will be demonstrated later on. This is because consecutive character clusters have the same syntax as a single character cluster. These are merely more characters added in the same way and will therefore MUST NOT be regarded as separate character clusters.
 </p>
-<p><sup><small>66</small></sup>The final construct required to allow for simple hyphenation definitions is a reserved character to separate the clusters of characters which are also known as morphemes. Here one or more TILDE characters '~' or U+007E MUST be used as a morpheme hyphen. In the following rules allow also for more intricate hyphenation yet the morpheme hyphen is:
+<p><sup><small>66</small></sup>The final construct required to allow for simple hyphenation definitions is a reserved character to separate the clusters of characters which are also known as morphemes. Here one or more TILDE characters '~' or U+007E MUST be used as a morpheme hyphen. In the following, rules allow also for more intricate hyphenation yet, the morpheme hyphen is:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Hyphen
          ::= MorphemeHyphen
            | SuffixHyphen
@@ -667,7 +667,7 @@ kung-fu;kung~-fu # possible is "kung-" "-fu"
 </pre></div>
 <p><sup><small>68</small></sup>Up to this point the functionality of the previous format for hyphenation patterns as used by patgen2 is similar. Everything described in this format from this point onwards is newly proposed functionality.
 </p>
-<p><sup><small>69</small></sup>A hyphenation point SHALL be defined by one or more tildes. A hyphenation point of higher priority MUST have at least a tilde extra compared to lower priority hyphenation points. Some examples to illustrate prioritised hyphenation definitions in words are:
+<p><sup><small>69</small></sup>A hyphenation point SHALL be defined by one or more tildes. A hyphenation point of higher priority MUST have at least one additional tilde compared to lower priority hyphenation points. Some examples to illustrate prioritised hyphenation definitions in words are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English words with prioritised hyphenation
 ergonomic;er~go~~no~mic # because of (er + go) + (no + mic)
 thesauruses;the~sau~~rus~es
@@ -676,14 +676,14 @@ thesauruses;the~sau~~rus~es
 portemonnaie;por~te~~mon~naie # because of (por + te) + (mon naie)
 atmosphère;at~mo~~sphè~re # because of (at + mo) + (sphè + re)
 </pre></div>
-<p><sup><small>70</small></sup>The structure of the words is broken down in the comments with the use of brackets '(' and ')' and plus sign '+'. This is a form of syllabification which is extended with semantic information and is used only as a suggestion of advise for hyphenation points. This is not part of the format but is only used to explain the examples of the format.
+<p><sup><small>70</small></sup>The structure of the words is broken down in the comments with the use of brackets '(' and ')' and plus sign '+'. This is a form of syllabification that reflects semantic information. It is not a part of the format but is only used to explain the examples of the format.
 </p>
 <a name="word_prefix"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3.4"></a><h3>3.4.&nbsp;
 Hyphenation definition for a word prefix</h3>
 
-<p><sup><small>71</small></sup>Many languages allow usage of a prefix to alter the meaning of a word. Here a VERTICAL LINE U+007C or '|' MAY be used to indicate a hyphenation point for a prefix. This enables reusing the hyphenation definition of the word. Hyphenation directly after a prefix has a small priority over a normal hyphenation point. Prefixes are semantically built from right to left for a left-to-right script. Therefore priority amongst prefixes are from left to right for a left-to-right script. Syntax for defining hyphenation of a prefix should comply to the following EBNF:
+<p><sup><small>71</small></sup>Many languages allow usage of a prefix to alter the meaning of a word. Here a VERTICAL LINE U+007C or '|' MAY be used to indicate a hyphenation point for a prefix. This enables reuse of the hyphenation definition of the word. Hyphenation directly after a prefix has a small priority over a normal hyphenation point. Prefixes are semantically built from right to left for a left-to-right script. Therefore, priority amongst prefixes is from left to right for a left-to-right script. Syntax for defining hyphenation of a prefix should comply to the following EBNF:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>PrefixHyphen
          ::= '|' | #x007C
 </pre></div>

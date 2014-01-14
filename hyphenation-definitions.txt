@@ -289,7 +289,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    #    An extre-         Een boom met prui-
    #    mely long         men die men als ei-
    #    English           eren beschrijft be-
-   #    word over-        treft de omgvang.
+   #    word over-        treft hun omvang.
    #    looking a         Iemand wilde pluk-
    #    nice sen-         ken zonder toestem-
    #    temce as          ming te hebben. Er
@@ -508,16 +508,16 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 3.  Basic format
 <41>
    This section describes the basic format for hyphenation patterns.
-   These are usually stored in computer files but can also be in
-   databases or memory.  The structure will be described step by step in
-   which the grammar for this format is extended and example usage is
-   illustrated.  The syntax of all examples complies to the grammar of
-   this format.
+   These are usually stored in computer files, but they can also reside
+   in databases or memory.  The structure will be described step by
+   step, extending the grammar for this format and illustrating usage in
+   example.  The syntax of all examples complies to the grammar of this
+   format.
 
 3.1.  Main structure
 <42>
    In order to support as many languages as possible, this format for
-   hyphenation definitions MUST use the Unicode character in an UTF-8
+   hyphenation definitions MUST use the Unicode character in a UTF-8
    encoding.  A set of hyphenation definitions MAY have one or more
    lines.  Each line MAY have, in the following order:
 <43>
@@ -594,8 +594,8 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # &#947;&#955;&#974;&#963;&#963;&#945;
 
 <51>
-   This completes the description of the the main structure which is
-   processed in a line-by-line way.
+   This complets the description of the the main structure which is
+   processed in a line-by-line fashion.
 
 3.2.  Hyphenation definition in general
 <52>
@@ -693,9 +693,9 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    information.  The grammar rule for definition will allow this.  A
    hyphenation definition repeating the word means that this word SHALL
    NOT be hyphenated at all.  A hyphenation definition MAY be given, but
-   when non is provided for a certain word then hyphenation for that
-   word is undefined.  Some minimal examples in the format as it is
-   described until here are:
+   when none is provided for a certain word, then hyphenation for that
+   word is undefined.  Some very short examples in the format as it is
+   so far described are:
    # too short English words not allowed to be hyphenated
    #a;a
    #at;at
@@ -743,7 +743,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    A character cluster here MUST consist of at least one character.
    This basic form is already supported by the current hyphenation
    algorithm and is key to the concept of hyphenation.  More intricate
-   schemes of clusters and hyphenations will be discussed later on but
+   schemes of clusters and hyphenations will be discussed later on, but
    are already referred to in the following EBNF bridging from cluster
    to character clusters:
    Cluster
@@ -755,7 +755,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 <65>
    The concatenation of different clusters only applies in combination
-   with a substitution cluster or heteronym cluster, as will be
+   with a substitution cluster or a heteronym cluster, as will be
    demonstrated later on.  This is because consecutive character
    clusters have the same syntax as a single character cluster.  These
    are merely more characters added in the same way and will therefore
@@ -765,7 +765,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    definitions is a reserved character to separate the clusters of
    characters which are also known as morphemes.  Here one or more TILDE
    characters '~' or U+007E MUST be used as a morpheme hyphen.  In the
-   following rules allow also for more intricate hyphenation yet the
+   following, rules allow also for more intricate hyphenation yet, the
    morpheme hyphen is:
    Hyphen
             ::= MorphemeHyphen
@@ -814,9 +814,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    functionality.
 <69>
    A hyphenation point SHALL be defined by one or more tildes.  A
-   hyphenation point of higher priority MUST have at least a tilde extra
-   compared to lower priority hyphenation points.  Some examples to
-   illustrate prioritised hyphenation definitions in words are:
+   hyphenation point of higher priority MUST have at least one
+   additional tilde compared to lower priority hyphenation points.  Some
+   examples to illustrate prioritised hyphenation definitions in words
+   are:
    # English words with prioritised hyphenation
    ergonomic;er~go~~no~mic # because of (er + go) + (no + mic)
    thesauruses;the~sau~~rus~es
@@ -828,10 +829,9 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 <70>
    The structure of the words is broken down in the comments with the
    use of brackets '(' and ')' and plus sign '+'.  This is a form of
-   syllabification which is extended with semantic information and is
-   used only as a suggestion of advise for hyphenation points.  This is
-   not part of the format but is only used to explain the examples of
-   the format.
+   syllabification that reflects semantic information.  It is not a part
+   of the format but is only used to explain the examples of the format.
+
 
 
 
@@ -845,13 +845,13 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 <71>
    Many languages allow usage of a prefix to alter the meaning of a
    word.  Here a VERTICAL LINE U+007C or '|' MAY be used to indicate a
-   hyphenation point for a prefix.  This enables reusing the hyphenation
-   definition of the word.  Hyphenation directly after a prefix has a
-   small priority over a normal hyphenation point.  Prefixes are
-   semantically built from right to left for a left-to-right script.
-   Therefore priority amongst prefixes are from left to right for a
-   left-to-right script.  Syntax for defining hyphenation of a prefix
-   should comply to the following EBNF:
+   hyphenation point for a prefix.  This enables reuse of the
+   hyphenation definition of the word.  Hyphenation directly after a
+   prefix has a small priority over a normal hyphenation point.
+   Prefixes are semantically built from right to left for a left-to-
+   right script.  Therefore, priority amongst prefixes is from left to
+   right for a left-to-right script.  Syntax for defining hyphenation of
+   a prefix should comply to the following EBNF:
    PrefixHyphen
             ::= '|' | #x007C
 
