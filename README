@@ -2,13 +2,18 @@ This repository is used to draft an IETF RFC open standard in which a format for
 
 This repository contains an XML file with the draft RFC. Exports to plain text and HTML were made with the Makefile which calls xml2rfc, http://xml.resource.org
 
-The converted HTML file is:
-  https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.html
-The converted text file is:
-  https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.txt
 The raw XML file is:
   https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.xml
-The XML can be rendered directly via:
+This is the preferred file to review. Please download it in a directory which also contains a copy of:
+  https://raw.github.com/SvGeloven/hyphenation-definitions/master/rfc2629.xslt
+
+The converted HTML file is:
+  https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.html
+This can also be used for reviewing purposes.
+
+The converted text file is:
+  https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.txt
+The XML can be rendered directly without downloading anything, but takes time and lacks line numbers, via:
   http://xml.resource.org/cgi-bin/xml2rfc-dev.cgi?mode=html&url=https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.xml
 
 For TeX specific discussion, see:
