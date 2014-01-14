@@ -1,0 +1,409 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta content="Railroad Diagram Generator 1.31.721" name="generator"><style type="text/css">
+    ::-moz-selection
+    {
+      color: #FFFCF0;
+      background: #0F0C00;
+    }
+    ::selection
+    {
+      color: #FFFCF0;
+      background: #0F0C00;
+    }      
+    .ebnf a
+    {
+      text-decoration: none;
+    }
+    .ebnf a:hover
+    {
+      color: #050400;
+      text-decoration: underline;
+    }    
+    .signature
+    {
+      color: #806600;
+      font-size: 11px;
+      text-align: right;
+    }
+    body
+    {
+      font: normal 12px Verdana, sans-serif;
+      color: #0F0C00;
+      background: #FFFCF0;
+    }
+    a:link, a:visited
+    {
+      color: #0F0C00;
+    }
+    a:link.signature, a:visited.signature
+    {
+      color: #806600;
+    }
+    a.button, #tabs li a
+    {
+      padding: 0.25em 0.5em;
+      border: 1px solid #806600;
+      background: #F1E8C6;
+      color: #806600;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.button:hover, #tabs li a:hover
+    {
+      color: #050400;
+      background: #FFF6D1;
+      border-color: #050400;       
+    }     
+    #tabs
+    {
+      padding: 3px 10px;
+      margin-left: 0;
+      margin-top: 58px;
+      border-bottom: 1px solid #0F0C00;
+    }  
+    #tabs li
+    {
+      list-style: none;
+      margin-left: 5px;
+      display: inline;
+    }
+    #tabs li a
+    {     
+      border-bottom: 1px solid #0F0C00;
+    }
+    #tabs li a.active
+    {
+      color: #0F0C00;
+      background: #FFFCF0;
+      border-color: #0F0C00;
+      border-bottom: 1px solid #FFFCF0;
+      outline: none;
+    }
+    #divs div
+    {
+      display: none;
+      overflow:auto;
+    }
+    #divs div.active
+    {
+      display: block;
+    }
+    #text
+    {
+      border-color: #806600;
+      background: #FFFEFA;
+      color: #050400;
+    }
+    .small
+    {
+      vertical-align: top;
+      text-align: right;
+      font-size: 9px;
+      font-weight: normal;
+      line-height: 120%;
+    }
+    td.small
+    {
+      padding-top: 0px;
+    }
+    .hidden
+    {
+      visibility: hidden;
+    }
+    td:hover .hidden 
+    {
+      visibility: visible;
+    }
+    div.download
+    {
+      display: none;
+      background: #FFFCF0;
+      position: absolute;
+      right: 34px;
+      top: 94px;
+      padding: 10px;
+      border: 1px dotted #0F0C00;
+    }
+    #divs div.ebnf, div.ebnf
+    {
+      display: block;
+      padding-left: 16px;
+      padding-top: 2px; 
+      padding-bottom: 2px; 
+      background: #FFF6D1;
+    }
+    table.palette
+    {
+      border-top: 1px solid #050400;
+      border-right: 1px solid #050400;
+      margin-bottom: 4px
+    }
+    td.palette
+    {
+      border-bottom: 1px solid #050400;
+      border-left: 1px solid #050400;
+    }
+    a.palette
+    {
+      padding: 2px 3px 2px 10px;
+      text-decoration: none;
+    }
+    .palette
+    {
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      -ms-user-select: none;
+    }
+  </style></head>
+   <body>
+      <p style="font-size: 14px; font-weight:bold"><a name="HyphenationDefinitions">HyphenationDefinitions:</a></p><img border="0" height="100" src="diagram/HyphenationDefinitions.png" usemap="#HyphenationDefinitions.map" width="774"><map name="HyphenationDefinitions.map">
+         <area coords="109,33,153,65" href="#EOL" shape="rect" title="EOL">
+         <area coords="233,33,391,65" href="#HyphenationDefinition" shape="rect" title="HyphenationDefinition">
+         <area coords="451,33,545,65" href="#WhiteSpace" shape="rect" title="WhiteSpace">
+         <area coords="605,33,685,65" href="#Comment" shape="rect" title="Comment"></map><p>
+         <div class="ebnf"><pre><a href="#HyphenationDefinitions" title="HyphenationDefinitions">HyphenationDefinitions</a>
+         ::= ( <a href="#EOL" title="EOL">EOL</a>* <a href="#HyphenationDefinition" title="HyphenationDefinition">HyphenationDefinition</a>? <a href="#WhiteSpace" title="WhiteSpace">WhiteSpace</a>? <a href="#Comment" title="Comment">Comment</a>? )*</pre></div>
+      </p>
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="EOL">EOL:</a></p><img border="0" height="190" src="diagram/EOL.png" width="376"><p>
+         <div class="ebnf"><pre><a href="#EOL" title="EOL">EOL</a>      ::= ( '\r' | #x000D ) ( '\n' | #x000A )?
+           | ( '\n' | #x000A )</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HyphenationDefinitions" title="HyphenationDefinitions">HyphenationDefinitions</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="WhiteSpace">WhiteSpace:</a></p><img border="0" height="184" src="diagram/WhiteSpace.png" width="226"><p>
+         <div class="ebnf"><pre><a href="#WhiteSpace" title="WhiteSpace">WhiteSpace</a>
+         ::= ( ( ' ' | #x0009 ) | ( '\t' | #x0020 ) )+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HyphenationDefinitions" title="HyphenationDefinitions">HyphenationDefinitions</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Comment">Comment:</a></p><img border="0" height="200" src="diagram/Comment.png" width="390"><p>
+         <div class="ebnf"><pre><a href="#Comment" title="Comment">Comment</a>  ::= '#' ( [#x0009] | [#x0020-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF] )*</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HyphenationDefinitions" title="HyphenationDefinitions">HyphenationDefinitions</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HyphenationDefinition">HyphenationDefinition:</a></p><img border="0" height="36" src="diagram/HyphenationDefinition.png" usemap="#HyphenationDefinition.map" width="304"><map name="HyphenationDefinition.map">
+         <area coords="29,1,83,33" href="#Word" shape="rect" title="Word">
+         <area coords="103,1,177,33" href="#Delimiter" shape="rect" title="Delimiter">
+         <area coords="197,1,275,33" href="#Definition" shape="rect" title="Definition"></map><p>
+         <div class="ebnf"><pre><a href="#HyphenationDefinition" title="HyphenationDefinition">HyphenationDefinition</a>
+         ::= <a href="#Word" title="Word">Word</a> <a href="#Delimiter" title="Delimiter">Delimiter</a> <a href="#Definition" title="Definition">Definition</a></pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HyphenationDefinitions" title="HyphenationDefinitions">HyphenationDefinitions</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Delimiter">Delimiter:</a></p><img border="0" height="80" src="diagram/Delimiter.png" width="186"><p>
+         <div class="ebnf"><pre><a href="#Delimiter" title="Delimiter">Delimiter</a>
+         ::= ';'
+           | #x003B</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HyphenationDefinition" title="HyphenationDefinition">HyphenationDefinition</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Word">Word:</a></p><img border="0" height="52" src="diagram/Word.png" usemap="#Word.map" width="282"><map name="Word.map">
+         <area coords="29,17,111,49" href="#Character" shape="rect" title="Character">
+         <area coords="151,17,233,49" href="#Character" shape="rect" title="Character"></map><p>
+         <div class="ebnf"><pre><a href="#Word" title="Word">Word</a>     ::= <a href="#Character" title="Character">Character</a> <a href="#Character" title="Character">Character</a>+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HyphenationDefinition" title="HyphenationDefinition">HyphenationDefinition</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Character">Character:</a></p><img border="0" height="520" src="diagram/Character.png" width="260"><p>
+         <div class="ebnf"><pre><a href="#Character" title="Character">Character</a>
+         ::= [#x0021-#x0022]
+           | [#x0024-#x002D]
+           | [#x0030-#x003A]
+           | [#x003C]
+           | [#x003E-#x005A]
+           | [#x005C]
+           | [#x005E]
+           | [#x0060-#x007A]
+           | [#x007F-#x00A5]
+           | [#x00A7-#xD7FF]
+           | [#xE000-#xFFFD]
+           | [#x10000-#x10FFFF]</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a></li>
+            <li><a href="#Word" title="Word">Word</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Definition">Definition:</a></p><img border="0" height="80" src="diagram/Definition.png" usemap="#Definition.map" width="166"><map name="Definition.map">
+         <area coords="49,45,113,77" href="#Cluster" shape="rect" title="Cluster">
+         <area coords="49,1,117,33" href="#Hyphen" shape="rect" title="Hyphen"></map><p>
+         <div class="ebnf"><pre><a href="#Definition" title="Definition">Definition</a>
+         ::= <a href="#Cluster" title="Cluster">Cluster</a> ( <a href="#Hyphen" title="Hyphen">Hyphen</a> <a href="#Cluster" title="Cluster">Cluster</a> )*</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HyphenationDefinition" title="HyphenationDefinition">HyphenationDefinition</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Hyphen">Hyphen:</a></p><img border="0" height="300" src="diagram/Hyphen.png" usemap="#Hyphen.map" width="268"><map name="Hyphen.map">
+         <area coords="49,1,183,33" href="#MorphemeHyphen" shape="rect" title="MorphemeHyphen">
+         <area coords="49,45,151,77" href="#SuffixHyphen" shape="rect" title="SuffixHyphen">
+         <area coords="49,89,151,121" href="#PrefixHyphen" shape="rect" title="PrefixHyphen">
+         <area coords="49,133,185,165" href="#CompoundHyphen" shape="rect" title="CompoundHyphen">
+         <area coords="49,177,219,209" href="#CompoundSuffixHyphen" shape="rect" title="CompoundSuffixHyphen">
+         <area coords="49,221,219,253" href="#CompoundPrefixHyphen" shape="rect" title="CompoundPrefixHyphen">
+         <area coords="49,265,201,297" href="#UnfavourableHyphen" shape="rect" title="UnfavourableHyphen"></map><p>
+         <div class="ebnf"><pre><a href="#Hyphen" title="Hyphen">Hyphen</a>   ::= <a href="#MorphemeHyphen" title="MorphemeHyphen">MorphemeHyphen</a>
+           | <a href="#SuffixHyphen" title="SuffixHyphen">SuffixHyphen</a>
+           | <a href="#PrefixHyphen" title="PrefixHyphen">PrefixHyphen</a>
+           | <a href="#CompoundHyphen" title="CompoundHyphen">CompoundHyphen</a>
+           | <a href="#CompoundSuffixHyphen" title="CompoundSuffixHyphen">CompoundSuffixHyphen</a>
+           | <a href="#CompoundPrefixHyphen" title="CompoundPrefixHyphen">CompoundPrefixHyphen</a>
+           | <a href="#UnfavourableHyphen" title="UnfavourableHyphen">UnfavourableHyphen</a></pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Definition" title="Definition">Definition</a></li>
+            <li><a href="#Series" title="Series">Series</a></li>
+            <li><a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="MorphemeHyphen">MorphemeHyphen:</a></p><img border="0" height="96" src="diagram/MorphemeHyphen.png" width="226"><p>
+         <div class="ebnf"><pre><a href="#MorphemeHyphen" title="MorphemeHyphen">MorphemeHyphen</a>
+         ::= ( '~' | #x007E )+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Hyphen" title="Hyphen">Hyphen</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="SuffixHyphen">SuffixHyphen:</a></p><img border="0" height="80" src="diagram/SuffixHyphen.png" width="186"><p>
+         <div class="ebnf"><pre><a href="#SuffixHyphen" title="SuffixHyphen">SuffixHyphen</a>
+         ::= '¦'
+           | #x00A6</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Hyphen" title="Hyphen">Hyphen</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="PrefixHyphen">PrefixHyphen:</a></p><img border="0" height="80" src="diagram/PrefixHyphen.png" width="188"><p>
+         <div class="ebnf"><pre><a href="#PrefixHyphen" title="PrefixHyphen">PrefixHyphen</a>
+         ::= '|'
+           | #x007C</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Hyphen" title="Hyphen">Hyphen</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="CompoundHyphen">CompoundHyphen:</a></p><img border="0" height="96" src="diagram/CompoundHyphen.png" width="228"><p>
+         <div class="ebnf"><pre><a href="#CompoundHyphen" title="CompoundHyphen">CompoundHyphen</a>
+         ::= ( '=' | #x003D )+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Hyphen" title="Hyphen">Hyphen</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="CompoundSuffixHyphen">CompoundSuffixHyphen:</a></p><img border="0" height="96" src="diagram/CompoundSuffixHyphen.png" width="376"><p>
+         <div class="ebnf"><pre><a href="#CompoundSuffixHyphen" title="CompoundSuffixHyphen">CompoundSuffixHyphen</a>
+         ::= ( '=' | #x003D )+ ( '¦' | #x00A6 )</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Hyphen" title="Hyphen">Hyphen</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="CompoundPrefixHyphen">CompoundPrefixHyphen:</a></p><img border="0" height="96" src="diagram/CompoundPrefixHyphen.png" width="378"><p>
+         <div class="ebnf"><pre><a href="#CompoundPrefixHyphen" title="CompoundPrefixHyphen">CompoundPrefixHyphen</a>
+         ::= ( '|' | #x007C ) ( '=' | #x003D )+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Hyphen" title="Hyphen">Hyphen</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="UnfavourableHyphen">UnfavourableHyphen:</a></p><img border="0" height="376" src="diagram/UnfavourableHyphen.png" width="376"><p>
+         <div class="ebnf"><pre><a href="#UnfavourableHyphen" title="UnfavourableHyphen">UnfavourableHyphen</a>
+         ::= ( ( '~' | #x007E ) | ( '|' | #x007C ) | ( '¦' | #x00A6 ) | ( '=' | #x003D ) )? ( '.' | #x002E )+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Hyphen" title="Hyphen">Hyphen</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Cluster">Cluster:</a></p><img border="0" height="140" src="diagram/Cluster.png" usemap="#Cluster.map" width="278"><map name="Cluster.map">
+         <area coords="69,17,195,49" href="#CharacterCluster" shape="rect" title="CharacterCluster">
+         <area coords="69,61,209,93" href="#SubstitutionCluster" shape="rect" title="SubstitutionCluster">
+         <area coords="69,105,203,137" href="#HeteronymCluster" shape="rect" title="HeteronymCluster"></map><p>
+         <div class="ebnf"><pre><a href="#Cluster" title="Cluster">Cluster</a>  ::= ( <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> | <a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a> | <a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a> )+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Definition" title="Definition">Definition</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="CharacterCluster">CharacterCluster:</a></p><img border="0" height="52" src="diagram/CharacterCluster.png" usemap="#CharacterCluster.map" width="180"><map name="CharacterCluster.map">
+         <area coords="49,17,131,49" href="#Character" shape="rect" title="Character"></map><p>
+         <div class="ebnf"><pre><a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a>
+         ::= <a href="#Character" title="Character">Character</a>+</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Cluster" title="Cluster">Cluster</a></li>
+            <li><a href="#Series" title="Series">Series</a></li>
+            <li><a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="SubstitutionCluster">SubstitutionCluster:</a></p><img border="0" height="134" src="diagram/SubstitutionCluster.png" usemap="#SubstitutionCluster.map" width="828"><map name="SubstitutionCluster.map">
+         <area coords="77,1,203,33" href="#CharacterCluster" shape="rect" title="CharacterCluster">
+         <area coords="291,1,417,33" href="#CharacterCluster" shape="rect" title="CharacterCluster">
+         <area coords="457,1,525,33" href="#Hyphen" shape="rect" title="Hyphen">
+         <area coords="565,1,691,33" href="#CharacterCluster" shape="rect" title="CharacterCluster">
+         <area coords="291,83,359,115" href="#Hyphen" shape="rect" title="Hyphen">
+         <area coords="399,83,525,115" href="#CharacterCluster" shape="rect" title="CharacterCluster"></map><p>
+         <div class="ebnf"><pre><a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a>
+         ::= '{' <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> '/' ( <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> ( <a href="#Hyphen" title="Hyphen">Hyphen</a> <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a>? )? | <a href="#Hyphen" title="Hyphen">Hyphen</a> <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a>? ) '}'</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Cluster" title="Cluster">Cluster</a></li>
+            <li><a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Series">Series:</a></p><img border="0" height="206" src="diagram/Series.png" usemap="#Series.map" width="450"><map name="Series.map">
+         <area coords="69,45,195,77" href="#CharacterCluster" shape="rect" title="CharacterCluster">
+         <area coords="69,1,137,33" href="#Hyphen" shape="rect" title="Hyphen">
+         <area coords="255,45,323,77" href="#Hyphen" shape="rect" title="Hyphen">
+         <area coords="69,155,137,187" href="#Hyphen" shape="rect" title="Hyphen">
+         <area coords="69,111,195,143" href="#CharacterCluster" shape="rect" title="CharacterCluster">
+         <area coords="255,155,381,187" href="#CharacterCluster" shape="rect" title="CharacterCluster"></map><p>
+         <div class="ebnf"><pre><a href="#Series" title="Series">Series</a>   ::= <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> ( <a href="#Hyphen" title="Hyphen">Hyphen</a> <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> )* <a href="#Hyphen" title="Hyphen">Hyphen</a>?
+           | <a href="#Hyphen" title="Hyphen">Hyphen</a> ( <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> <a href="#Hyphen" title="Hyphen">Hyphen</a> )* <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a>?</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a></li>
+         </ul>
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HeteronymCluster">HeteronymCluster:</a></p><img border="0" height="96" src="diagram/HeteronymCluster.png" usemap="#HeteronymCluster.map" width="814"><map name="HeteronymCluster.map">
+         <area coords="95,1,153,33" href="#Series" shape="rect" title="Series">
+         <area coords="95,45,235,77" href="#SubstitutionCluster" shape="rect" title="SubstitutionCluster">
+         <area coords="275,45,333,77" href="#Series" shape="rect" title="Series">
+         <area coords="461,1,601,33" href="#SubstitutionCluster" shape="rect" title="SubstitutionCluster">
+         <area coords="661,1,719,33" href="#Series" shape="rect" title="Series"></map><p>
+         <div class="ebnf"><pre><a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a>
+         ::= '[' ( <a href="#Series" title="Series">Series</a> | <a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a> <a href="#Series" title="Series">Series</a>? ) '/' <a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a>? <a href="#Series" title="Series">Series</a>? ']'</pre></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#Cluster" title="Cluster">Cluster</a></li>
+         </ul>
+      </p><br><hr>
+      <p>
+         <table border="0" class="signature">
+            <tr>
+               <td style="width: 100%">&nbsp;</td>
+               <td valign="top">
+                  <nobr class="signature">... generated by <a class="signature" href="http://www.bottlecaps.de/rr/ui" name="Railroad-Diagram-Generator" target="_blank" title="http://www.bottlecaps.de/rr/ui">Railroad Diagram Generator</a></nobr>
+               </td>
+               <td><a href="http://www.bottlecaps.de/rr/ui" name="Railroad-Diagram-Generator" target="_blank" title="http://www.bottlecaps.de/rr/ui"><img border="0" height="16" src="diagram/rr-1.31.721.png" width="16"></a></td>
+            </tr>
+         </table>
+      </p>
+   </body>
+</html>

@@ -1,0 +1,62 @@
+/* Hyphenation Definitions 0.8
+ * TODO URL
+ *
+ * Reserved characters
+ * tab                      U+09   CHARACTER TABULATION  '\t'
+ * line feed                U+0A   LINE FEED (LF)        '\n'
+ * carriage return          U+0D   CARRIAGE RETURN (CR)  '\r'
+ * space                    U+20   SPACE                 ' '
+ * begin comment            U+23   NUMBER SIGN           '#'
+ * undesirable hyphen       U+2E   FULL STOP             '.'
+ * cluster separator        U+2F   SOLIDUS               '/'
+ * delimiter                U+3B   SEMICOLON             ';'
+ * compound hyphen          U+3D   EQUALS SIGN           '='
+ * begin heteronym cluster  U+5B   LEFT SQUARE BRACKET   '['
+ * end heteronym cluster    U+5D   RIGHT SQUARE BRACKET  ']'
+ * begin changing cluster   U+7B   LEFT CURLY BRACKET    '{'
+ * prefix hyphen            U+7C   VERTICAL LINE         '|'
+ * end changing cluster     U+7D   RIGHT CURLY BRACKET   '}'
+ * morpheme hyphen          U+7E   TILDE                 '~'
+ */
+HyphenationDefinitions
+         ::= ( EndOfLine* ( HyphenationDefinition? WhiteSpace? Comment? ) )*
+Comment
+         ::= '#' ( [#x9] | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF] )*
+EndOfLine
+         ::= ( ( '\r' | #x0D ) ( '\n' | #x0A )? ) | ( '\n' | #x0A )
+WhiteSpace
+         ::= ( ( ' ' | #x09 ) | ( '\t' | #x20 ) )+
+HyphenationDefinition
+         ::= Word Delimiter Definition
+Delimiter
+         ::= ( ';' | #x3B )
+Word
+         ::= Character Character Character+
+Character
+         ::= [#x21-#x22] | [#x24-#x2D] | [#x30-#x3A] | #x3C | [#x3E-#x5A] | #x5C | #x5E | [#x60-#x7A] | [#x7F-#x2026] | [#x2028-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFF]
+Definition
+         ::= Cluster ( Hyphen Cluster )*
+Hyphen
+         ::= MorphemeHyphen | PrefixHyphen | CompoundHyphen | CompoundSuffixHyphen | CompoundPrefixHyphen | UndesirableHyphen
+MorphemeHyphen
+         ::= ( '~' | #x7E )+
+PrefixHyphen
+         ::= ( '|' | #x7C )
+CompoundHyphen
+         ::= ( '=' | #x3D )+
+CompoundSuffixHyphen
+         ::= ( '~' | #x7E ) ( '=' | #x3D )+
+CompoundPrefixHyphen
+         ::= ( '|' | #x7C ) ( '=' | #x3D )+
+UndesirableHyphen
+         ::= ( ( '~' | #x7E ) | ( '|' | #x7C ) | ( '=' | #x3D ) )? ( '.' | #x2E )+
+Cluster
+         ::= ( CharacterCluster | ChangingCluster | HeteronymCluster )+
+CharacterCluster
+         ::= Character+
+ChangingCluster
+         ::= '{' CharacterCluster '/' ( CharacterCluster ( Hyphen CharacterCluster? )? | Hyphen CharacterCluster? ) '}'
+Series
+         ::= ( CharacterCluster (Hyphen CharacterCluster)* Hyphen? ) | ( Hyphen (CharacterCluster Hyphen)* CharacterCluster? )
+HeteronymCluster
+         ::= '[' ( Series | (ChangingCluster Series? ) ) '/' ChangingCluster? Series? ']'

@@ -1,0 +1,1302 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>A standard for prioritised and dynamic hyphenation definitions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="A standard for prioritised and dynamic hyphenation definitions">
+<meta name="keywords" content="lexicology, orthography, hyphenation, standard">
+<meta name="generator" content="xml2rfc v1.36 (http://xml.resource.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+
+<table border="0" cellpadding="0" cellspacing="2" width="30" align="right">
+    <tr>
+        <td class="RFCbug">
+                <span class="RFC">&nbsp;RFC&nbsp;</span><br /><span class="hotText">&nbsp;TODO&nbsp;</span>
+        </td>
+    </tr>
+    <tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a><br /></td></tr>
+</table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">Internet Engineering Task Force (IETF)</td><td class="header">S. van Geloven</td></tr>
+<tr><td class="header">Request for Comments: TODO</td><td class="header">OpenTaal</td></tr>
+<tr><td class="header">Category: Informational</td><td class="header">January 2014</td></tr>
+<tr><td class="header">ISSN: 2070-1721</td><td class="header">&nbsp;</td></tr>
+</table></td></tr></table>
+<h1><br />A standard for prioritised and dynamic hyphenation definitions</h1>
+
+<h3>Abstract</h3>
+
+<p><sup><small>1</small></sup>This document describes a standard for hyphenation definitions enabling the generation of prioritised and dynamic hyphenation patterns. In the early nineteen-eighties, automatic hyphenation of lexical items has been made possible by a hyphenator using language-specific hyphenation patterns. These patterns are generated by the hyphenation software community from hyphenated word lists. The initial design was based on the English orthography and limited character encoding. Support for extended encodings was added in the 1990s mostly for Western languages. However, the hyphenated word list format remained rather unchanged. This complicated the support of specific morphological or phonological structures, requiring hyphenation priority in compounds or dynamic hyphenation resulting in altered spelling. Although over 70 languages are supported now, hyphenation is suboptimal and impossible for languages relying on a universal character encoding. This limited method of hyphenation has been catering to digital typesetting over three decades. Unfortunately, recently implemented hyphenation in layout engines for web page rendering is built upon the same outdated technology. An improved hyphenator and extended hyphenation patterns are necessary to overcome current limitations and support a wider range of languages. To achieve this, the software community needs a standard format for hyphenation definitions in universal human-readable hyphenated word lists. A context-free grammar was developed with unambiguous and fine-grained control allowing enhanced hyphenation. All language-specific cases are illustrated with examples and lexicological theory. Our standard for hyphenation definitions enables improved automatic hyphenation for printed media and web documents.
+</p>
+<h3>Status of this Memo</h3>
+<p>
+This document is not an Internet Standards Track specification; it is published for informational purposes.</p>
+<p>
+This document is a product of the Internet Engineering Task Force (IETF). It represents the consensus of the IETF community. It has received public review and has been approved for publication by the Internet Engineering Steering Group (IESG). Not all documents approved by the IESG are a candidate for any level of Internet Standard; see Section 2 of RFC 5741.</p>
+<p>
+Information about the current status of this document, any errata, and how to provide feedback on it may be obtained at http://www.rfc-editor.org/info/rfcTODO.</p>
+
+<h3>Copyright Notice</h3>
+<p>
+Copyright (c) 2014 IETF Trust and the persons identified as the
+document authors.  All rights reserved.</p>
+<p>
+This document is subject to BCP 78 and the IETF Trust's Legal
+Provisions Relating to IETF Documents
+(http://trustee.ietf.org/license-info) in effect on the date of
+publication of this document.  Please review these documents
+carefully, as they describe your rights and restrictions with respect
+to this document. Code Components extracted from this document must
+include Simplified BSD License text as described in Section 4.e of
+the Trust Legal Provisions and are provided without warranty as
+described in the Simplified BSD License.</p>
+<a name="toc"></a><hr />
+
+<table border="0" cellpadding="0" cellspacing="2" width="30" align="right">
+    <tr>
+        <td class="RFCbug">
+                <span class="RFC">&nbsp;RFC&nbsp;</span><br /><span class="hotText">&nbsp;TODO&nbsp;</span>
+        </td>
+    </tr>
+    <tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a><br /></td></tr>
+</table>
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#introduction">1.</a>&nbsp;
+Introduction<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor1">1.1.</a>&nbsp;
+Requirements language<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor2">1.2.</a>&nbsp;
+Language tags<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor3">1.3.</a>&nbsp;
+Character encoding<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">1.4.</a>&nbsp;
+Format description<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor5">1.5.</a>&nbsp;
+Design decisions<br />
+<a href="#anchor6">2.</a>&nbsp;
+Hyphenation<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#general_hyphenation">2.1.</a>&nbsp;
+Hyphenation in general<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#automated_hyphenation">2.2.</a>&nbsp;
+Automated hyphenation<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#history">2.3.</a>&nbsp;
+History<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#applications">2.4.</a>&nbsp;
+Applications that hyphenate<br />
+<a href="#basic">3.</a>&nbsp;
+Basic format<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#main_structure">3.1.</a>&nbsp;
+Main structure<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor7">3.2.</a>&nbsp;
+Hyphenation definition in general<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#word">3.3.</a>&nbsp;
+Hyphenation definition for a word<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#word_prefix">3.4.</a>&nbsp;
+Hyphenation definition for a word prefix<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#word_suffix">3.5.</a>&nbsp;
+Hyphenation definition for a word suffix<br />
+<a href="#extended">4.</a>&nbsp;
+Extended format<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#compound">4.1.</a>&nbsp;
+Hyphenation definition for a compound<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#compound_prefix">4.2.</a>&nbsp;
+Hyphenation definition for a compound prefix<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#compound_suffix">4.3.</a>&nbsp;
+Hyphenation definition for a compound suffix<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#compound_interfix">4.4.</a>&nbsp;
+Hyphenation definition for a compound interfix<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#unfavourable">4.5.</a>&nbsp;
+Unfavourable hyphenation<br />
+<a href="#dynamic-hyphenation">5.</a>&nbsp;
+Dynamic hyphenation<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#alternated_spelling">5.1.</a>&nbsp;
+Hyphenation with alternated spelling<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#heteronym">5.2.</a>&nbsp;
+Hyphenation of heteronyms<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#nested">5.3.</a>&nbsp;
+Nested hyphenation<br />
+<a href="#priority">6.</a>&nbsp;
+Hyphenation priority<br />
+<a href="#reserved">7.</a>&nbsp;
+Reserved characters<br />
+<a href="#rfc.references1">8.</a>&nbsp;
+References<br />
+<a href="#grammar">Appendix&nbsp;A.</a>&nbsp;
+Grammar<br />
+<a href="#acknowledgements">Appendix&nbsp;B.</a>&nbsp;
+Acknowledgements<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Author's Address<br />
+</p>
+<br clear="all" />
+
+<a name="introduction"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3>
+
+<p><sup><small>2</small></sup>The last decades has seen automated hyphenation of text being born and has experienced several growth spurts. The hyphenation patterns currently used by the hyphenation algorithm cannot offer prioritised or dynamic hyphenation, unfortunately. To enable the next developmental leap to overcome this, these patterns need to be generated from prioritised and dynamic hyphenation definitions. A detailed and illustrated standard for these definitions is described in this document.
+</p>
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.1"></a><h3>1.1.&nbsp;
+Requirements language</h3>
+
+<p><sup><small>3</small></sup>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a class='info' href='#RFC2119'>RFC 2119<span> (</span><span class='info'>Brander, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a> [RFC2119] only when they appear in all upper case.  They may also appear in lower or mixed case as English words, without special meaning.
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.2"></a><h3>1.2.&nbsp;
+Language tags</h3>
+
+<p><sup><small>4</small></sup>References to specific orthographies are made according to <a class='info' href='#BCP47'>BCP 47<span> (</span><span class='info'>Phillips, A. and M. Davis, &ldquo;Tags for Identifying Languages,&rdquo; September&nbsp;2006.</span><span>)</span></a> [BCP47]. For example "de-CH-1996" represents German as used in Switzerland and as written using the spelling reform beginning in the year 1996 and "de-1901" represents the German orthography reform of 1901.
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.3"></a><h3>1.3.&nbsp;
+Character encoding</h3>
+
+<p><sup><small>5</small></sup>References to specific characters in this document are always done via <a class='info' href='#UNICODE'>Unicode<span> (</span><span class='info'>The Unicode Consortium, &ldquo;The Unicode Standard, Version 6.3.0,&rdquo; September&nbsp;2013.</span><span>)</span></a> [UNICODE] characters and code points. A Unicode code point can be recognised by a capital U, followed by a plus sign and followed by four to six hexadecimal digits. Usually, four or five digits are being used. A Unicode character is shown between single quotation marks and the Unicode name of the character is written in all capitals. An example code point is U+003D to indicate the character '=' which is known as the EQUALS SIGN.
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.4"></a><h3>1.4.&nbsp;
+Format description</h3>
+
+<p><sup><small>6</small></sup>The format is formally described by a grammar in <a class='info' href='#ISO14977'>Extended Backus-Naur Form (EBNF)<span> (</span><span class='info'>International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC), JTC 1, &ldquo;Information technology -- Syntactic metalanguage -- Extended BNF,&rdquo; December&nbsp;1996.</span><span>)</span></a> [ISO14977]. This notation enables that hyphenation definitions can be written, validated and parsed by a context-free grammar. Rules and comments for this grammar are recognised by respectively ::= and /* in this document. The syntax of all accompanying examples, recognisable by a #, always conforms to this grammar.
+</p>
+<a name="anchor5"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.5"></a><h3>1.5.&nbsp;
+Design decisions</h3>
+
+<p><sup><small>7</small></sup>Compiling an international standard involves making many decisions and is not always a trivial task. For example, choosing reserved characters results in checking if that character is not being used in words. Words are normally considered as a concatenation of characters separated by spaces or punctuation, but this differs substantially amongst written languages. What might be a practical choice for one language could be incompatible with another language. Likewise, this standard does not concern itself with the validity of  the resulting hyphenations. This is left up to the users as languages, and even dialects, have different rules and exceptions based on etymological, morphological or phonetic principles. Key is that the designed format aims to offer a maximum degree of freedom and flexibility for the end user.
+</p>
+<a name="anchor6"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Hyphenation</h3>
+
+<p><sup><small>8</small></sup>TODO general introduction and example
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Examples of hyphenated text.
+#
+#    An extre-         Een boom met prui-
+#    mely long         men die men als ei-
+#    English           eren beschrijft be-
+#    word over-        treft de omgvang.
+#    looking a         Iemand wilde pluk-
+#    nice sen-         ken zonder toestem-
+#    temce as          ming te hebben. Er
+#    a beauti-         werd ook nog gespro-
+#    ful exam-         ken dat hij een har-
+#    ple here.         tendiefje was.
+</pre></div>
+<a name="general_hyphenation"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
+Hyphenation in general</h3>
+
+<p><sup><small>9</small></sup>TODO general concept
+</p>
+<a name="automated_hyphenation"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
+Automated hyphenation</h3>
+
+<p><sup><small>10</small></sup>TODO the challenge and paper/webpage 
+     create word list for language or dialect
+                     generate suggested hyphenation definitions
+                     manually review hyphenation definitions
+            
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Process of delivering automated hyphenation
+
+    +---------------------+
+    |   word list for a   |
+    | language or dialect |
+    +---------------------+
+               || automated syllabilification
+               \/
+  +-------------------------+
+  |     working set of      |
+  | hyphenation definitions |
+  +-------------------------+
+               || manual review and
+               \/ automated validation
+      +-----------------+
+      | +-------------+ |
+      | | HYPHENATION | |
+      | | DEFINITIONS | |
+      | +-------------+ |
+      +-----------------+
+               || preprocessing by
+               \/ hyphenation algorithm
+    +----------------------+
+    | hyphenation patterns |
+    | to ship in software  |
+    +----------------------+
+               || real-time use of
+               \/ hyphenation algorithm
+      +------------------+
+      | hyphenated text  |
+      +------------------+
+</pre></div>
+<a name="history"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.3"></a><h3>2.3.&nbsp;
+History</h3>
+
+<p><sup><small>11</small></sup>TODO implementations and patgen and refs
+            <a class='info' href='#Lia83'>todo<span> (</span><span class='info'>Liang, F., &ldquo;Word Hy-phen-a-tion by Com-put-er,&rdquo; August&nbsp;1983.</span><span>)</span></a> [Lia83]
+            <a class='info' href='#Nem06'>todo<span> (</span><span class='info'>Németh, L., &ldquo;Automatic non-standard hyphenation in OpenOffice.org,&rdquo; October&nbsp;2006.</span><span>)</span></a> [Nem06]
+            <a class='info' href='#TRENNMP'>asdf<span> (</span><span class='info'>DANTE, Deutschsprachige Anwendervereinigung TeX e.V., &ldquo;Trennmuster,&rdquo; January&nbsp;2014.</span><span>)</span></a> [TRENNMP]
+            
+</p>
+<a name="applications"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.4"></a><h3>2.4.&nbsp;
+Applications that hyphenate</h3>
+
+<p><sup><small>12</small></sup>Improving automated hyphenation affects all software applications depending on it. To indicate the impact of a change it is important to list affected products and organisations. The following applications currently use hyphenation patterns which originate from patgen:
+            </p>
+<ul class="text">
+<li><sup><small>13</small></sup>document preparation systems based on TeX
+                
+<ul class="text">
+<li><sup><small>14</small></sup>Babel - TeX's and LaTeX's multilingual typesetting
+</li>
+<li><sup><small>15</small></sup>polyglossia - XeLaTeX's and LuaLaTeX's multilingual typesetting
+</li>
+</ul>
+                
+</li>
+<li><sup><small>16</small></sup>hyphenation and justification with libhyphen
+                
+<ul class="text">
+<li><sup><small>17</small></sup>LibreOffice - The Document Foundation's office suite
+</li>
+<li><sup><small>18</small></sup>Apache OpenOffice - Apache Software Foundation's office suite
+</li>
+<li><sup><small>19</small></sup>Inkscape* - a vector graphics editor
+</li>
+<li><sup><small>20</small></sup>GIMP - a raster graphics editor
+</li>
+<li><sup><small>21</small></sup>Scribus - desktop publishing software
+</li>
+<li><sup><small>22</small></sup>InDesign - Adobe's desktop publishing software
+</li>
+<li><sup><small>23</small></sup>Illustrator - Adobe's vector graphics editor
+</li>
+</ul>
+                
+</li>
+<li><sup><small>24</small></sup>client-side hyphenation in JavaScript with hyphenator.js
+</li>
+<li><sup><small>25</small></sup>layout engines for rendering web pages
+                
+<ul class="text">
+<li><sup><small>26</small></sup>Gecko by Mozilla
+                    
+<ul class="text">
+<li><sup><small>27</small></sup>Firefox - Mozilla's web browser
+</li>
+<li><sup><small>28</small></sup>Thunderbird - Mozilla's e-mail and news client
+</li>
+<li><sup><small>29</small></sup>Firefox for mobile - Mozilla's web browser for Android
+</li>
+</ul>
+                    
+</li>
+<li><sup><small>30</small></sup>WebKit by Apple and Adobe
+                    
+<ul class="text">
+<li><sup><small>31</small></sup>Safari - Apple's web browser
+</li>
+<li><sup><small>32</small></sup>Konqueror - KDE's web browser and file manager
+</li>
+</ul>
+                    
+</li>
+<li><sup><small>33</small></sup>Blink by Google
+                    
+<ul class="text">
+<li><sup><small>34</small></sup>Chromium and Chrome - Google's web browsers
+</li>
+<li><sup><small>35</small></sup>Opera - Opera's web browser
+</li>
+<li><sup><small>36</small></sup>Web Browser - Google's default web browser for Android
+</li>
+</ul>
+                    
+</li>
+</ul>
+                
+</li>
+</ul><p>
+             * Implementation of automated hyphenation for Inkscape is planned for the near future.
+</p>
+<p><sup><small>37</small></sup>This overview does not endorse or favour the use of any of these applications and respects registered trademarks where applicable. It is merely included to illustrate the wide spectrum of applications employing hyphenation patterns.
+</p>
+<a name="basic"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+Basic format</h3>
+
+<p><sup><small>38</small></sup>This section describes the basic format for hyphenation patterns. These are usually stored in computer files but can also be in databases or memory. The structure will be described step by step in which the grammar for this format is extended and example usage is illustrated. The syntax of all examples complies to the grammar of this format.
+</p>
+<a name="main_structure"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
+Main structure</h3>
+
+<p><sup><small>39</small></sup>In order to support as many languages as possible, this format for hyphenation definitions MUST use the Unicode character in an UTF-8 encoding.  A set of hyphenation definitions MAY have one or more lines. Each line MAY have, in the following order:
+            </p>
+<ol class="text">
+<li><sup><small>40</small></sup>a hyphenation definition,
+</li>
+<li><sup><small>41</small></sup>white space,
+</li>
+<li><sup><small>42</small></sup>and/or comments.
+</li>
+</ol><p>
+            This is the the top-level or main structure of the entire format. The syntax for hyphenation definitions in Extended Backus-Naur Form (EBNF) will therefore be:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>HyphenationDefinitions
+         ::= ( EOL* HyphenationDefinition? WhiteSpace? Comment? )*
+</pre></div>
+<p><sup><small>43</small></sup>Here EOL stands for an end of line. An end of line MUST have a LINE FEED (LF) or U+000A and MAY have a CARRIAGE RETURN (CR) or U+000D. This is written in EBNF as:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>EOL
+         ::= ( '\r' | #x000D ) ( '\n' | #x000A )?
+           | ( '\n' | #x000A )
+</pre></div>
+<p><sup><small>44</small></sup>White space can be inserted to improve human readability of hyphenation definitions but is OPTIONAL. When used, it SHALL contain only SPACE U+0020 or CHARACTER TABULATION U+0009 characters. White space in EBNF is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>WhiteSpace
+         ::= ( ( ' ' | #x0009 )
+             | ( '\t' | #x0020 ) )+
+</pre></div>
+<p><sup><small>45</small></sup>A comment MUST start with a NUMBER SIGN U+0023 or '#' and MAY contain any combination of printable characters thereafter. Comments MUST NOT contain control characters that can result in an end of line, however the CHARACTER TABULATION U+0009 MAY be used in comments. In EBNF a comment is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Comment
+         ::= '#' ( [#x0009]
+                 | [#x0020-#xD7FF]
+                 | [#xE000-#xFFFD]
+                 | [#x10000-#x10FFFF] )*
+</pre></div>
+<p><sup><small>46</small></sup>With the definition of the main structure, without any actual hyphenation definition, it is possible store data in this format. An example with end of lines, white space and comments is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># This is the first line with only a comment
+
+# This is the third line after an empty second line.
+        ## After some whitespace, this is the fourth line.    #    #
+# Comments can use most of the reserved characters, e.g. {}[]/|~=.; #
+# and Unicode orthographys, e.g.
+# ру́сский
+# язы́к,
+# język polski and
+# ελληνική
+# γλώσσα
+</pre></div>
+<p><sup><small>47</small></sup>This completes the description of the the main structure which is processed in a line-by-line way.
+</p>
+<a name="anchor7"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2"></a><h3>3.2.&nbsp;
+Hyphenation definition in general</h3>
+
+<p><sup><small>48</small></sup>A hyphenation definition is the essential part of this format and MUST have, in this order:
+            </p>
+<ol class="text">
+<li><sup><small>49</small></sup>a word,
+</li>
+<li><sup><small>50</small></sup>a delimiter,
+</li>
+<li><sup><small>51</small></sup>and a definition.
+</li>
+</ol><p>
+            This is where the actual hyphenation definition is provided for a word. A word is REQUIRED to be unique amongst all definitions in a single file because it is the unique key for looking up a hyphenation definition. A hyphenation definition in EBNF is written as:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>HyphenationDefinition
+         ::= Word Delimiter Definition
+</pre></div>
+<p><sup><small>52</small></sup>The delimiter MUST be a SEMICOLON ';' or U+003B. In EBNF this is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Delimiter
+         ::= ';' | #x003B
+</pre></div>
+<p><sup><small>53</small></sup>A word MUST be a concatenation of at least two characters:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Word
+         ::= Character Character+
+</pre></div>
+<p><sup><small>54</small></sup>Most Western languages would use a word with minimum of four characters to consider it a candidate for hyphenation. In case of hyphenation these languages require a minimum of two characters before and after hyphenation. The hyphenation character inserted is usually a HYPHEN-MINUS U+002D or '-'. However, some languages have a lexicography with a different set rules for hyphenation.
+</p>
+<p><sup><small>55</small></sup>Modern Greek, however, allows hyphenation directly after a single character prefix. Another counterexample is the Ge'ez language. It uses a ETHIPOIC WORDSPACE or U+1361 to separate words. This language has no need for a hyphen character at the end of a line because no ambiguous situation can arise whether a word end at an end of line or not. This allows for hyphenation of a single character at the end of a word.
+</p>
+<p><sup><small>56</small></sup>For the reasons this format allows hyphenation definitions for words with a minimum of two characters. It is up to the user to enforce stricter rules for a greater minimum word length if needed. These are parameters of the hyphenation algorithm preprocessor to ignore words that are too short.
+</p>
+<p><sup><small>57</small></sup>A character in a word MUST be a printable character and MUST NOT be a control character such as LINE FEED or CHARACTER TABULATION and MUST NOT be a reserved character such as SPACE U+0020 ' ' or NUMBER SIGN U+0023 '#' is discussed. Without going into detail of other reserved characters, the definition of a character in EBNF is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Character
+         ::= [#x0021-#x0022]
+           | [#x0024-#x002D]
+           | [#x0030-#x003A]
+           | [#x003C]
+           | [#x003E-#x005A]
+           | [#x005C]
+           | [#x005E]
+           | [#x0060-#x007A]
+           | [#x007F-#x00A5]
+           | [#x00A7-#xD7FF]
+           | [#xE000-#xFFFD]
+           | [#x10000-#x10FFF]
+</pre></div>
+<p><sup><small>58</small></sup>Instead of providing a hyphenation definition it is possible to repeat the word after the delimiter without providing any hyphenation information. The grammar rule for definition will allow this. A hyphenation definition repeating the word means that this word SHALL NOT be hyphenated at all. A hyphenation definition MAY be given, but when non is provided for a certain word then hyphenation for that word is undefined. Some minimal examples in the format as it is described until here are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># too short English words not allowed to be hyphenated
+#a;a
+#at;at
+#are;are # too short for hyphenation according to the language
+
+# English words not to be hyphenated
+door;door
+eight;eight
+
+# German words not to be hyphenated
+amorph;amorph
+schnarchst;schnarchst
+
+# Dutch words not to be hyphenated
+schrijft;schrijft
+V-snaar;V-snaar # note that '-' is considered a normal character
+
+# acronyms not to be hyphenated
+UNESCO;UNESCO
+unicef;unicef
+
+# hyphenation is undefined when no hyphenation definition is given
+#impeachment;impeachment
+</pre></div>
+<a name="word"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.3"></a><h3>3.3.&nbsp;
+Hyphenation definition for a word</h3>
+
+<p><sup><small>59</small></sup>A hyphenation definition in the most simple form MUST contain two or more clusters of characters that are separated by a hyphenation point. Combined with the previous description of preventing hyphenation by repeating the word, the EBNF grammar rule for definition is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Definition
+         ::= Cluster ( Hyphen Cluster )*
+</pre></div>
+<p><sup><small>60</small></sup>A character cluster here MUST consist of at least one character. This basic form is already supported by the current hyphenation algorithm and is key to the concept of hyphenation. More intricate schemes of clusters and hyphenations will be discussed later on but are already referred to in the following EBNF bridging from cluster to character clusters:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Cluster
+         ::= ( CharacterCluster
+             | SubstitutionCluster
+             | HeteronymCluster )+
+CharacterCluster
+         ::= Character+
+</pre></div>
+<p><sup><small>61</small></sup>The concatenation of different clusters only applies in combination with a substitution cluster or heteronym cluster, as will be demonstrated later on. This is because consecutive character clusters have the same syntax as a single character cluster. These are merely more characters added in the same way and will therefore MUST NOT be regarded as separate character clusters.
+</p>
+<p><sup><small>62</small></sup>The final construct required to allow for simple hyphenation definitions is a reserved character to separate the clusters of characters which are also known as morphemes. Here one or more TILDE characters '~' or U+007E MUST be used as a morpheme hyphen. In the following rules allow also for more intricate hyphenation yet the morpheme hyphen is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Hyphen
+         ::= MorphemeHyphen
+           | SuffixHyphen
+           | PrefixHyphen
+           | CompoundHyphen
+           | CompoundSuffixHyphen
+           | CompoundPrefixHyphen
+           | UnfavourableHyphen
+MorphemeHyphen
+         ::= ( '~' | #x007E )+
+</pre></div>
+<p><sup><small>63</small></sup>Some simple examples of hyphenation definitions for words are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English word with hyphenation definition
+revolve;re~volve # "volve" may not be hyphenated
+editor;ed~i~tor # character cluster of single character
+
+# German words with hyphenation definition
+Aale;Aa~le # possible hyphenation is "Aa-" "le"
+kühle;küh~le # possible hyphenation is "küh-" "le"
+
+# Dutch words with hyphenation definition
+alle;al~le # possible hyphenation is "al-" "le"
+gezellig;ge~zel~lig # "ge-" "zellig" or "gezel-" "lig"
+
+# Polish word with uncommon hyphenation definition
+kung-fu;kung~-fu # possible is "kung-" "-fu"
+
+# Modern Greek
+# note hyphenation directly after one character
+#άτακτος;
+#ά~τα~κτος
+</pre></div>
+<p><sup><small>64</small></sup>Up to this point the functionality of the previous format for hyphenation patterns as used by patgen2 is similar. Everything described in this format from this point onwards is newly proposed functionality.
+</p>
+<p><sup><small>65</small></sup>A hyphenation point SHALL be defined by one or more tildes. A hyphenation point of higher priority MUST have at least a tilde extra compared to lower priority hyphenation points. Some examples to illustrate prioritised hyphenation definitions in words are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English words with prioritised hyphenation
+ergonomic;er~go~~no~mic # because of (er + go) + (no + mic)
+thesauruses;the~sau~~rus~es
+
+# French words with prioritised hyphenation
+portemonnaie;por~te~~mon~naie # because of (por + te) + (mon naie)
+atmosphère;at~mo~~sphè~re # because of (at + mo) + (sphè + re)
+</pre></div>
+<p><sup><small>66</small></sup>The structure of the words is broken down in the comments with the use of brackets '(' and ')' and plus sign '+'. This is a form of syllabification which is extended with semantic information and is used only as a suggestion of advise for hyphenation points. This is not part of the format but is only used to explain the examples of the format.
+</p>
+<a name="word_prefix"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.4"></a><h3>3.4.&nbsp;
+Hyphenation definition for a word prefix</h3>
+
+<p><sup><small>67</small></sup>Many languages allow usage of a prefix to alter the meaning of a word. Here a VERTICAL LINE U+007C or '|' MAY be used to indicate a hyphenation point for a prefix. This enables reusing the hyphenation definition of the word. Hyphenation directly after a prefix has a small priority over a normal hyphenation point. Prefixes are semantically built from right to left for a left-to-right script. Therefore priority amongst prefixes are from left to right for a left-to-right script. Syntax for defining hyphenation of a prefix should comply to the following EBNF:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>PrefixHyphen
+         ::= '|' | #x007C
+</pre></div>
+<p><sup><small>68</small></sup>Some examples of hyphenation definitions including a prefix are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English words with prefix
+# dis &lt; ap + pear
+disappear;dis|ap~pear
+# su + pra &lt; or + bit + al
+supraorbital;su~pra|or~bit~al
+
+# German words with prefix
+# ent &lt; deckt «discouvered»
+entdeckt;ent|deckt
+# Re &lt; kon &lt; struk + ti + on «reconstruction»
+Rekonstruktion;Re|kon|struk~ti~on
+
+# Dutch words with prefix
+# ge &lt; wil + lig «willing»
+gewillig;ge|wil~lig
+# her &lt; be &lt; re + ke + nen «to recalculate»
+herbereken;her|be|re~ke~nen
+</pre></div>
+<p><sup><small>69</small></sup>In the comments the prefixes are indicated with a smaller-than sign which precedes evaluation of the plus sign. Sometimes the comments on examples provide the meaning of the word in between double guillemets. These are '«' and '»'. These help understanding the examples which are from languages other than English but are not part of this standard.
+</p>
+<a name="word_suffix"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.5"></a><h3>3.5.&nbsp;
+Hyphenation definition for a word suffix</h3>
+
+<p><sup><small>70</small></sup>A suffix can be identified in a similar way as is done for <a class='info' href='#word_prefix'>prefixes<span> (</span><span class='info'>Hyphenation definition for a word prefix</span><span>)</span></a>. Instead of a vertical line a BROKEN BAR U+00A6 or '¦' MAY be used for suffixes. In EBNF this is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>SuffixHyphen
+         ::= '¦' | #x00A6
+</pre></div>
+<p><sup><small>71</small></sup>This is not found easily in German because spelling and hyphenation changes of the base word to the prefix is attached. Some examples are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English words with suffix
+# broth + er &gt; hood
+brotherhood;broth~er¦hood
+# re + morse &gt; less &gt; ness
+remorselessness;re~morse¦less¦ness
+
+# German word with suffix
+# wahr + schein &gt; lich «probably»
+wahrscheinlich;wahr=schein¦lich
+# Un &lt; sich + er &gt; heit «uncertainty»
+Unsicherheit;Un|si~cher¦heit
+
+# Dutch words with suffix
+# een &gt; zaam &gt; heid «loneliness»
+eenzaamheid;een¦zaam¦heid
+# beest &gt; ach~tig «beastly»
+beestachtig;beest¦ach~tig
+</pre></div>
+<p><sup><small>72</small></sup>The comments use a greater-than sign to explain the structure where suffixes build from left to right, gaining priority in this way for a left-to-right script. A hyphenation point for a suffix has greater priority than hyphenation on a prefix.
+</p>
+<a name="extended"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+Extended format</h3>
+
+<a name="compound"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.1"></a><h3>4.1.&nbsp;
+Hyphenation definition for a compound</h3>
+
+<p><sup><small>73</small></sup>Many languages can concatenate words to form long compounds, real-life examples from Western languages are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># long compound without spaces in German
+#Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz
+
+# long compound without spaces in Dutch
+#aansprakelijkheidswaardevaststellingsveranderingen
+
+# long compound without spaces in Hungarian
+#megszentségteleníthetetlenségeskedéseitekért
+
+# long compound without spaces in English
+#pneumonoultramicroscopicsilicovolcanoconiosis
+</pre></div>
+<p><sup><small>74</small></sup>These are extremes but it is also possible in for example English to concatenate words to form long compounds. This is less common as spaces are usually found in English compounds and for those cases hyphenation is less problematic.
+</p>
+<p><sup><small>75</small></sup>Hyphenation definitions of compounds should be made with a different reserved character. The EQUALS SIGN U+003D or '=' MUST be used to indicate hyphenation on compound level. This prevents long series of tildes in complex compounds and allows for automated generation, suggestion or validation of hyphenation patterns for compounds. In EBNF, this is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>CompoundHyphen
+         ::= ( '=' | #x003D )+
+</pre></div>
+<p><sup><small>76</small></sup>Examples of hyphenation definitions for compounds are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English compounds
+# small + talk
+smalltalk;small=talk
+# (bit + ter) + sweet
+bittersweet;bit~ter=sweet
+
+# German compounds
+# Grenz + schutz + amt «border patrol office»
+Grenzschutzamt;Grenz=schutz=amt
+# Herz + still + stand «cardiac arrest»
+Herzstillstand;Herz=still=stand
+
+# Dutch compounds
+# boek + (om + slag) «book cover»
+boekomslag;boek=om~slag
+# trein + (wa + gon) «train carriage»
+treinwagon;trein=wa~gon
+</pre></div>
+<p><sup><small>77</small></sup>A hyphenation point for a compound SHALL be defined by one or more equals signs. A hyphenation point of higher priority MUST have at least an equals sign extra compared to lower priority hyphenation points for compounds. This is similar to hyphenation point priorities in definitions for <a class='info' href='#word'>words<span> (</span><span class='info'>Hyphenation definition for a word</span><span>)</span></a>. Some examples to illustrate prioritised hyphenation definitions in compounds are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German
+# Erb + (lehn + gut) [lit: inheritened loan property]
+Erblehngut;Erb==lehn=gut
+# Fach + (werk + statt) «crafts workshop»
+Fachwerkstatt;Fach==werk=statt
+# Berg + ((fünf + (fin + ger)) + kraut)
+# [lit: mountain five-finger herb]
+Bergfünffingerkraut;Berg===fünf=fin~ger==kraut
+# (See + (schiff + fahrt)) + (stra + ße)
+# «sea traffic shipping lane»
+Seeschifffahrtstraße;See==schiff=fahrt===stra-ße
+
+# Dutch
+# ((goe + de + ren) + trein) + (wa + gon)
+# «cargo train carriage»
+goederentreinwagon;goe~de~ren=trein==wa~gon
+</pre></div>
+<p><sup><small>78</small></sup>Hyphenation point for a compound MUST be treated with a higher priority than that of a suffix.
+</p>
+<a name="compound_prefix"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.2"></a><h3>4.2.&nbsp;
+Hyphenation definition for a compound prefix</h3>
+
+<p><sup><small>79</small></sup>Compounds can also have a prefix. These are defined in a similar way as a <a class='info' href='#word_prefix'>prefix of a word<span> (</span><span class='info'>Hyphenation definition for a word prefix</span><span>)</span></a>. A combination of a VERTICAL LINE U+007C or '|' followed directly by a EQUALS SIGN U+003D or '=' MAY be used to indicate a prefix of a compound. In EBNF this is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>CompoundPrefixHyphen
+         ::= ( '|' | #x007C ) ( '=' | #x003D )+
+</pre></div>
+<p><sup><small>80</small></sup>Examples are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German compounds with prefix
+# un &lt; wahr + (schein + lich) «unlikely»
+unwahrscheinlich;un|=wahr=schein~lich
+# Ur &lt; groß + (el + tern) «great-grandparents»
+Urgroßeltern;Ur|=groß=el~tern
+
+# Dutch compound with prefix
+# on &lt; waar + (schijn + lijk) «unlikely»
+onwaarschijnlijk;on|=waar=schijn~lijk
+</pre></div>
+<p><sup><small>81</small></sup>Here the number of equals signs match the number of equals sign of the compound hyphenation this prefix is related to. Compound prefixes are extended from right to left and are prioritised from left to right for a left-to-right script.
+</p>
+<a name="compound_suffix"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.3"></a><h3>4.3.&nbsp;
+Hyphenation definition for a compound suffix</h3>
+
+<p><sup><small>82</small></sup>
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>CompoundSuffixHyphen
+         ::= ( '=' | #x003D )+ ( '¦' | #x00A6 )
+</pre></div>
+<p><sup><small>83</small></sup>Examples are rare but some are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German compounds with suffix
+# (an + dert) + halb &gt; fach
+anderthalbfach;an~dert=halb=¦fach
+# zier + rat &gt; lo + se
+zierratlose;zier=rat=¦lo~se
+# (zu &lt; sam + men) + hang &gt; los
+zusammenhanglos;zu|sam~men=hang=¦los
+
+# Dutch compounds with suffix
+# (li + te + ra + tuur) + (we + ten &gt; schap) &gt; je
+# [lit: diminitive of literature science]
+# it is lexologically the diminitive of science
+# but semantically diminutive of the entire compound
+literatuurwetenschapje;li~te~ra~tuur=we~ten¦schap=¦je
+# (on &lt; (sa + men) + (han + gend)) &gt; heid
+# «incoherentness»
+onsamenhangendheid;on|sa~men=han~gend=¦heid
+</pre></div>
+<p><sup><small>84</small></sup>The number of equals signs are the same as the number of equals sign of the compound hyphenation this suffix is related to. This is similar to <a class='info' href='#word_suffix'>word suffix<span> (</span><span class='info'>Hyphenation definition for a word suffix</span><span>)</span></a> and <a class='info' href='#compound_prefix'>compound prefix<span> (</span><span class='info'>Hyphenation definition for a compound prefix</span><span>)</span></a>. Compound suffixes are extended from left to right and are prioritised from right to left for a left-to-right script, albeit that nested compound suffixes will be extremely rare.
+</p>
+<a name="compound_interfix"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.4"></a><h3>4.4.&nbsp;
+Hyphenation definition for a compound interfix</h3>
+
+<p><sup><small>85</small></sup>With the format for hyphenation definitions described up to this point it is possible to define hyphenation definitions for compounds, even if they have an interfix. Interfixes are common in some languages as a linking element in compounds without a semantic meaning but usually to improve pronunciation. Hyphenation has no special requirements to indicate interfixes. However, it is practical to be able to annotate interfixes to be able to identify the separate words from which the compound has been formed. In this way the hyphenation definition of the compound can be automatically generated, suggested or validated. Additionally this information could be used for decomposition to validate and extend spell checking.
+</p>
+<p><sup><small>86</small></sup>There are no grammar rules for this at the moment because this part of the format is still under discussion. The characters used in the following example are the LESS-THAN SIGN U+003C and GREATER-THAN SIGN U+003E and could become reserved characters in the future. Interfix annotations can simply be filtered out before hyphenation patterns are used as input to the hyphenation algorithm.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German interfix
+# (Arbeit + s) + zimmer «working room»
+Arbeitszimmer;Ar~beits=zim~mer # could be Ar~beit&lt;s&gt;=zim~mer
+
+# Dutch interfix
+# (kip + (p + en)) + soep «chickensoup»
+kippensoep;kip~.pen=soep
+# could be;kip&lt;~.pen&gt;=soep
+# ((be + roep) + s) + ethiek «professional ethics»
+beroepsethiek;be~roeps=ethiek
+# could be   ;be~roep&lt;s&gt;=ethiek
+# (Koningin + (n + e)) + dag «Queen's Day»
+Koninginnedag;Ko~nin~gin~ne=dag
+# could be   ;Ko~nin~gin&lt;~ne&gt;=dag
+
+# Croation interfix
+# (brod + o) + gradilište «shipyard»
+brodogradilište;brodo=gradilište
+# could be     ;brod&lt;o&gt;=gradilište
+</pre></div>
+<p><sup><small>87</small></sup>Note that this should not be used of the word preceding the interfix has changed spelling because of its usage in the compound with an interfix.
+</p>
+<a name="unfavourable"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.5"></a><h3>4.5.&nbsp;
+Unfavourable hyphenation</h3>
+
+<p><sup><small>88</small></sup>Sometimes hyphenations can be misleading or distorting and are unfavourable. This MUST be indicated by a FULL STOP U+002E or '.'. More than one full stop MAY be used to indicate hyphenation points which are extremely unfavourable. An unfavourable hyphenation point MAY be preceded by a hyphenation character to indicate the type of hyphenation point. In EBNF this is can be written as:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>UnfavourableHyphen
+         ::= ( ( '~' | #x007E )
+             | ( '|' | #x007C )
+             | ( '¦' | #x00A6 )
+             | ( '=' | #x003D ) )?
+             ( '.' | #x002E )+
+</pre></div>
+<p><sup><small>89</small></sup>Some examples of unfavourable hyphenation are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># unfavourable hyphenation in German
+# dem + (ent + (spre + chend)) «accordingly»
+dementsprechend;dem=ent|.spre-chend
+# re + (in + (stal + liert) «reinstalled»
+reinstalliert;re|in|.stal-liert
+# Sprech + (er + (zie + hung) «elocution»
+Sprecherziehung;Sprech=er|.zie-hung
+# (Wind + (en + er + gie) + (an + (la + ge)))
+# «wind-energy plant»
+Windenergieanlage;Wind=en.er-gie==an|la-ge
+# Ost + (en + de)
+# «toponiem of place in Belgium»
+Ostende;Ost=en-.de
+
+# unfavourable hyphenation in Dutch
+# (deur + waar + ders) + (ex + ploit) [lit: bailiff abuse]
+deurwaardersexploit;deur~waar~ders=ex~..ploit
+# (Koningin + (n + e)) + dag «Queen's Day»
+Koninginnedag;Ko~nin~gin~.ne=dag
+# could be   ;Ko~nin~gin&lt;~.ne&gt;=dag
+</pre></div>
+<a name="dynamic-hyphenation"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+Dynamic hyphenation</h3>
+
+<a name="alternated_spelling"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1"></a><h3>5.1.&nbsp;
+Hyphenation with alternated spelling</h3>
+
+<p><sup><small>90</small></sup>Hyphenation can result in a changed spelling of the word. How this affects a word depends on the language as will be seen later on. A hyphenation definition of this type MUST contain both an unhyphenated and a hyphenated spelling for such word. This is called a substitution cluster and MUST contain only the particular hyphenation point and adjacent character clusters that alter.
+</p>
+<p><sup><small>91</small></sup>A substitution cluster MUST be provided between curly brackets LEFT CURLY BRACKET U+007B or '{' and RIGHT CURLY BRACKET U+007D or '}' with SOLIDUS U+002F or '/' as a separator. Left of the separator MUST be the unhyphenated spelling and on the right MUST be the hyphenated spelling. Examples later on will clarify this elaborately. The exact rule in EBFN for this is:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>SubstitutionCluster
+         ::= '{' CharacterCluster '/'
+               ( CharacterCluster ( Hyphen CharacterCluster? )?
+               | Hyphen CharacterCluster? )
+             '}'
+</pre></div>
+<p><sup><small>92</small></sup>Some languages have transforming digraphs when hyphenating. In German the 'c' and 'k' are orthographic allographs for /k/. The digraph 'ck' can result in 'k-k' when hyphenation is in the middle of that digraph. Examples of transforming digraphs with orthographic allographs are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German with alternated spelling digraph
+# "Zucker" or
+# "Zuk-" "ker" «sugar»
+Zucker;Zu{ck/k~k}er
+</pre></div>
+<p><sup><small>93</small></sup>In German it is also possible to have doubling of consonants in digraphs when hyphenating. The digraph 'll' can initially be a shorter spelling of the trigraph 'lll', which itself is a concatenation of the a digraph 'll' and a glyph 'l'. When hyphenation is in the first mentioned digraph, the previously eliminated 'l' should be restored. Examples of restoring eliminated consonants from trigraphs are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German with doubled consonant spelling
+# "Ab-" "fallager" or
+# "Abfall-" "lager" or
+# "Abfalla-" "ger" «waste storage»
+Abfallager;Ab~fa{ll/ll~l}a~ger
+# "Stoffül-" "le" or
+# "Stoff-" "fülle" «wealth of material»
+Stoffülle;Sto{ff/ff=f}ül~le
+# "Vollast" or
+# "Voll-" "last" «maximum load» [lit: full load]
+Vollast;Vo{ll/ll=l}ast
+
+# Norwegian with doubled consonant spelling
+# "trykknapp" or "trykk-" "knapp" «snap fastener»
+trykknapp;try{kk/kk=k}napp
+# equivalent notation, less verbose but more searchable
+#trykknapp;tryk{k/k=k}napp
+</pre></div>
+<p><sup><small>94</small></sup>Some languages have doubling of a vowel. This occurs when stress is on an open syllable and a suffix added after that syllable. This happens for example in Dutch for some diminutive forms. When these diminutives are hyphenated on that syllable, the vowel at the end of an open syllable needs to be duplicated, since the stress will ensure proper pronunciation. Examples of stressed open syllables with doubles vowels are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Dutch vowel doubling in diminutive
+# "omaatje" or
+# "oma-" "tje" «granny» [degenitiv of grantmother]
+omaatje;oma{a/-}tje
+# equivalent notation, more verbose but less searchable
+#omaatje;om{aa/a-}tje
+</pre></div>
+<p><sup><small>95</small></sup>In Dutch diaeresis can be used on vowels to prevent the so called vowel collision. However, when hyphenating before the vowel that received a diaeresis, that diaeresis will be eliminated in the hyphenated spelling. Examples of hyphenation definitions for eliminated diaeresis are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Dutch eliminated diaeresis
+# "geëerd" or
+# "ge-" "eerd" «honoured» [past participle]
+geëerd;ge{ë/-e}erd
+</pre></div>
+<p><sup><small>96</small></sup>As stated before, a hyphen can be a valid character in a normal word. Hence the hyphen character is not a reserved character in this context. When hyphenation on a hyphen that is already part of a word, a new hyphen MUST NOT be inserted in the hyphenated text. A rare counterexample was given in hyphenation of a <a class='info' href='#word'>word<span> (</span><span class='info'>Hyphenation definition for a word</span><span>)</span></a>. Now will follow more common examples in which a hyphen is not allowed to be duplicated:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Dutch compounds with hyphen as character
+# ex- &lt; vriend «former boyfriend»
+ex-vriend;ex{-/|}vriend
+# (Dow- + Jones) + index «Dow Jones Index»
+Dow-Jonesindex;Dow{-/~}Jones=index
+# ((dé + jà)- + vu) + gevoel «déjà vu feeling»
+déjà-vugevoel;dé~jà{-/~~}vu=ge~voel
+# (gilles- + de- + la- + (tou + rette)) + (syn + droom)
+# «Tourette syndrome»
+#gilles-de-la-tourettesyndroom;
+#gilles{-/~~}de{-/~}la{-/~~}tou~rette=syn~droom
+# (ad + junct)- + ((al + ge + meen) + (di + rec + teur))
+# «vice managing director»
+adjunct-algemeendirecteur;ad~junct{-/==}al~ge~meen=di~rec~teur
+
+# English compound with hyphen as character
+# (ac + tor)- + (di + rec + tor)
+actor-director;ac~tor{-/=}di~rec~tor
+</pre></div>
+<a name="heteronym"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2"></a><h3>5.2.&nbsp;
+Hyphenation of heteronyms</h3>
+
+<p><sup><small>97</small></sup>A word with multiple meanings but with the same spelling is called a heteronym. Some heteronyms can differ in syllabification and pronunciation even though they are spelled with exactly the same characters. Examples in English are desert (leave to or barren area of land) and dove (pigeon or past tense to dive). A difference in pronunciation can result in different hyphenation points for each meaning of the heteronym, which is more probable in German or Dutch than in for example English.
+</p>
+<p><sup><small>98</small></sup>When this is the case, the following heteronym cluster MUST be used for the hyphenation definition. Here a LEFT SQUARE BRACKET U+005B or '[' and a RIGHT SQUARE BRACKET U+005D or ']' MUST be used to group alternatives inside a hyphenation definition. These MUST be separated a SOLIDUS U+002F or '/'. In the following rules in EBNF only two alternatives are allowed. The order of the alternatives is not important. However, the grammar introduces a small difference for the left and right side of the separator. One side, and only one side, of the separator may be empty to accommodate for certain definitions. Therefore always one side of the separator MUST hold a definition. This is in EBNF:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Series
+         ::= ( CharacterCluster (Hyphen CharacterCluster)* Hyphen? )
+           | ( Hyphen (CharacterCluster Hyphen)* CharacterCluster? )
+HeteronymCluster
+         ::= '[' ( Series | (SubstitutionCluster Series? ) ) '/'
+                 SubstitutionCluster? Series? ']'
+</pre></div>
+<p><sup><small>99</small></sup>The use of a nested substitution cluster will be described <a class='info' href='#nested'>later on<span> (</span><span class='info'>Nested hyphenation</span><span>)</span></a>. Rare but valid examples with alternative hyphenation behaviour for heteronyms are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English heteronyms
+# rec + ord «vinyl medium»
+# re + cord «first-person present of verb to record»
+record;re[~c/c~]ord
+# wa + les «plural of whale» or
+# Wales «toponiem of part of UK»
+wales;wa[~/]les
+
+# German heteronyms
+# Mas + ke or Maske
+Maske;Mas[~/]ke
+# Wach + (stu + be) «guardroom» or
+# Wachs + (tu + be) «wax tube»
+Wachstube;Wach[=s/s=]tu-be
+# (Bahn + hof) + (strasse) [lit: station street] or
+# (Bahn + hof) + s + (trasse) [lit: station's route]
+Bahnhofstrasse;Bahn=hof[==stra-ss/s==tras-s]e
+
+# Dutch heteronyms
+# bal + le + tje «degerailnitiv of ball» or
+# bal + let + je «degenitiv of ballet»
+balletje;bal~le[~t/t~]je
+# valk + uil «ninox» [lit: falcon owl] or
+# val + kuil «trapping pit» [lit: trap pit]
+valkuil;val[k=/=k]uil
+</pre></div>
+<p><sup><small>100</small></sup>Note that there is not a preferred order of mirrored heteronym clusters but a fixed order could prove practical for automated processing such as validation.
+</p>
+<p><sup><small>101</small></sup>Automated hyphenation of heteronyms poses an interesting challenge. How can the hyphenation recognise which hyphenation pattern to use? This is out of scope for this standard but important to discuss. All other forms of hyphenation can be handled directly by a hyphenation algorithm but here extra information is need. This could be extracted from the context but can proof difficult if no context is available or the context is ambiguous. On the other hand, the author of a text could provide the needed information. This could be stored in soft hyphens for examples. The hyphenator could assist the author here by playing an interactive role. Similarly to spell checking the author could be asked which meaning of a heteronym is meant by having the author selecting between expanded hyphenation patterns.
+</p>
+<p><sup><small>102</small></sup>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. TODO heteronum!! In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German irriversable up and down casting
+# Maße upvast -&gt; MASSE
+# MASSE ambiguous downcast -&gt; Maße or Masse
+# LATIN CAPITAL LETTER SHARP S U+1E9E is rarely used
+
+# Dutch irriversable up and down casting
+# officiëren upcast -&gt; OFFICIEREN
+# OFFICIEREN ambiguous downcast -&gt; officiëren or officieren
+# gêne upcast -&gt; GENE
+# GENE ambiguous downcast -&gt; gêne or gene
+# Dutch does not use diacritical marks in all upper case words
+</pre></div>
+<a name="nested"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.3"></a><h3>5.3.&nbsp;
+Nested hyphenation</h3>
+
+<p><sup><small>103</small></sup>Nesting of a substitution cluster inside a heteronym cluster MAY be done. This is already defined in the grammar for <a class='info' href='#heteronym'>heteronym hyphenation<span> (</span><span class='info'>Hyphenation of heteronyms</span><span>)</span></a>. Here the priority is on the enclosing heteronym cluster. Deeper or other ways of nesting clusters is not allowed. This is very rare but some examples for German are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German de-1901 nested hyphenation definitions
+# TODO or
+# TODO
+Bettücher;Be[t=tü~/{tt/tt=t}ü.]cher
+# TODO or
+# TODO
+Druckerzeugnis;Dru[{ck/k~k}er~/ck=er.]zeug~nis
+# TODO or
+# TODO
+Fussballehren;Fuss=ba[ll=/{ll/ll=l}]eh~ren
+# TODO or
+# TODO
+griffest;gri[f~f/{ff/ff=f}]est
+# TODO or
+# TODO
+Irreligion;I[{rr/rr=r}/r|r]e.li~gi-on
+# TODO or
+# TODO
+Staubecken;Stau[~b/b~]e{ck/k~k}en
+</pre></div>
+<a name="priority"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6"></a><h3>6.&nbsp;
+Hyphenation priority</h3>
+
+<p><sup><small>104</small></sup>The following hyphenation priority is defined:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>01 [] hyphenation of heteronym,
+       definition depends on semantics
+02 {} dynamic hyphenation,
+       change of spelling
+03 =¦ hyphenation of compound's suffix,
+       multiple = have higher priority
+04 |= hyphenation of compound's prefix,
+       multiple = have higher priority
+05 =  hyphenation of compound,
+       multiple = have higher priority
+06 ¦  hyphenation of word's suffix,
+       priority order is from right to left
+07 |  hyphenation of word's prefix,
+       priority order is from left to right
+08 ~  hyphenation of word,
+       multiple ~ have higher priority
+09 =. unfavourable hyphenation of compound,
+       multiple . have lower priority
+10 ¦. unfavourable hyphenation of word's suffix,
+       multiple . have lower priority
+11 |. unfavourable hyphenation of word's prefix,
+       multiple . have lower priority
+12 ~. unfavourable hyphenation of word,
+       multiple . have lower priority
+13 .  unfavourable hyphenation in general,
+       multiple . have lower priority
+</pre></div>
+<a name="reserved"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.7"></a><h3>7.&nbsp;
+Reserved characters</h3>
+
+<p><sup><small>105</small></sup>Reserved characters for this format are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>/* Hyphenation Definitions 0.8
+ * TODO URL
+ *
+ * Reserved characters
+ * tab                         U+0009  CHARACTER TABULATION  '\t'
+ * line feed                   U+000A  LINE FEED (LF)        '\n'
+ * carriage return             U+000D  CARRIAGE RETURN (CR)  '\r'
+ * space                       U+0020  SPACE                 ' '
+ * begin comment               U+0023  NUMBER SIGN           '#'
+ * unfavourable hyphen         U+002E  FULL STOP             '.'
+ * cluster separator           U+002F  SOLIDUS               '/'
+ * delimiter                   U+003B  SEMICOLON             ';'
+ * compound hyphen             U+003D  EQUALS SIGN           '='
+ * begin heteronym cluster     U+005B  LEFT SQUARE BRACKET   '['
+ * end heteronym cluster       U+005D  RIGHT SQUARE BRACKET  ']'
+ * begin substitution cluster  U+007B  LEFT CURLY BRACKET    '{'
+ * prefix hyphen               U+007C  VERTICAL LINE         '|'
+ * end substitution cluster    U+007D  RIGHT CURLY BRACKET   '}'
+ * morpheme hyphen             U+007E  TILDE                 '~'
+ * suffix hyphen               U+00A6  BROKEN BAR            '¦'
+ */
+</pre></div>
+<p><sup><small>106</small></sup>Additionally, other characters may be used as placeholders inside of definitions where a hyphenation needs (re)work or reviewing. The following are recommended because these are rarely found in words and are visually quickly identified. The usage of these falls outside the definition of this format and should be filtered out before providing hyphenation patterns that comply with this standard. Examples are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Examples of placeholders for reviewing purposes
+#räche;rä·che # U+00B7 MIDDLE DOT '·'
+#radio;ra*dio # U+002A ASTERISK '*'
+#tafel;ta_fel # U+005F LOW LINE '_'
+</pre></div>
+<p><sup><small>107</small></sup>Note that the middle dot '·' can be part of a orthography such as Catalan of Franco-Provençal. Use it with care. See also the section on <a class='info' href='#compound_interfix'>compound interfix<span> (</span><span class='info'>Hyphenation definition for a compound interfix</span><span>)</span></a> for characters used to make interfix annotations.
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>8.&nbsp;References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="ISO14977">[ISO14977]</a></td>
+<td class="author-text"><a href="http://iso.org">International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC), JTC 1</a>, &ldquo;<a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=26153">Information technology -- Syntactic metalanguage -- Extended BNF</a>,&rdquo; ISO/IEC&nbsp;14977:1996, December&nbsp;1996.</td></tr>
+<tr><td class="author-text" valign="top"><a name="Lia83">[Lia83]</a></td>
+<td class="author-text"><a href="http://www.stanford.edu">Liang, F.</a>, &ldquo;<a href="http://www.tug.org/docs/liang/">Word Hy-phen-a-tion by Com-put-er</a>,&rdquo; August&nbsp;1983.</td></tr>
+<tr><td class="author-text" valign="top"><a name="Gel14">[Gel14]</a></td>
+<td class="author-text"><a href="http://www.opentaal.org">van Geloven, S.</a>, &ldquo;<a href="http://www.opentaal.org/TODO">A standard for prioritised and dynamic hyphenation definitions</a>,&rdquo; January&nbsp;2014.</td></tr>
+<tr><td class="author-text" valign="top"><a name="UNICODE">[UNICODE]</a></td>
+<td class="author-text"><a href="http://www.unicode.org">The Unicode Consortium</a>, &ldquo;<a href="http://www.unicode.org/versions/Unicode6.3.0/">The Unicode Standard, Version 6.3.0</a>,&rdquo; September&nbsp;2013.</td></tr>
+<tr><td class="author-text" valign="top"><a name="Nem06">[Nem06]</a></td>
+<td class="author-text"><a href="https://www.tug.org">Németh, L.</a>, &ldquo;<a href="https://www.tug.org/TUGboat/tb27-1/">Automatic non-standard hyphenation in OpenOffice.org</a>,&rdquo; October&nbsp;2006.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
+<td class="author-text"><a href="http://www.harvard.edu">Brander, S.</a>, &ldquo;<a href="https://www.rfc-editor.org/info/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>,&rdquo; RFC&nbsp;2119, March&nbsp;1997.</td></tr>
+<tr><td class="author-text" valign="top"><a name="BCP47">[BCP47]</a></td>
+<td class="author-text"><a href="mailto:addison@inter-locale.com">Phillips, A.</a> and <a href="mailto:mark.davis@macchiato.com or mark.davis@google.com">M. Davis</a>, &ldquo;<a href="https://www.rfc-editor.org/info/bcp47">Tags for Identifying Languages</a>,&rdquo; BCP&nbsp;47, September&nbsp;2006.</td></tr>
+<tr><td class="author-text" valign="top"><a name="TRENNMP">[TRENNMP]</a></td>
+<td class="author-text"><a href="http://www.dante.de">DANTE, Deutschsprachige Anwendervereinigung TeX e.V.</a>, &ldquo;<a href="http://projekte.dante.de/Trennmuster">Trennmuster</a>,&rdquo; January&nbsp;2014.</td></tr>
+</table>
+
+<a name="grammar"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+Grammar</h3>
+
+<p><sup><small>108</small></sup>The complete grammar for this format of hyphenation definitions is in <a class='info' href='#ISO14977'>Extended Backus-Naur Form (EBNF)<span> (</span><span class='info'>International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC), JTC 1, &ldquo;Information technology -- Syntactic metalanguage -- Extended BNF,&rdquo; December&nbsp;1996.</span><span>)</span></a> [ISO14977]:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>/* Hyphenation Definitions 0.8
+ * TODO URL
+ *
+ * Reserved characters
+ * tab                         U+0009  CHARACTER TABULATION  '\t'
+ * line feed                   U+000A  LINE FEED (LF)        '\n'
+ * carriage return             U+000D  CARRIAGE RETURN (CR)  '\r'
+ * space                       U+0020  SPACE                 ' '
+ * begin comment               U+0023  NUMBER SIGN           '#'
+ * unfavourable hyphen         U+002E  FULL STOP             '.'
+ * cluster separator           U+002F  SOLIDUS               '/'
+ * delimiter                   U+003B  SEMICOLON             ';'
+ * compound hyphen             U+003D  EQUALS SIGN           '='
+ * begin heteronym cluster     U+005B  LEFT SQUARE BRACKET   '['
+ * end heteronym cluster       U+005D  RIGHT SQUARE BRACKET  ']'
+ * begin substitution cluster  U+007B  LEFT CURLY BRACKET    '{'
+ * prefix hyphen               U+007C  VERTICAL LINE         '|'
+ * end substitution cluster    U+007D  RIGHT CURLY BRACKET   '}'
+ * morpheme hyphen             U+007E  TILDE                 '~'
+ * suffix hyphen               U+00A6  BROKEN BAR            '¦'
+ */
+HyphenationDefinitions
+         ::= ( EOL* HyphenationDefinition? WhiteSpace? Comment? )*
+EOL
+         ::= ( '\r' | #x000D ) ( '\n' | #x000A )?
+           | ( '\n' | #x000A )
+WhiteSpace
+         ::= ( ( ' ' | #x0009 )
+             | ( '\t' | #x0020 ) )+
+Comment
+         ::= '#' ( [#x0009]
+                 | [#x0020-#xD7FF]
+                 | [#xE000-#xFFFD]
+                 | [#x10000-#x10FFFF] )*
+HyphenationDefinition
+         ::= Word Delimiter Definition
+Delimiter
+         ::= ';' | #x003B
+Word
+         ::= Character Character+
+Character
+         ::= [#x0021-#x0022]
+           | [#x0024-#x002D]
+           | [#x0030-#x003A]
+           | [#x003C]
+           | [#x003E-#x005A]
+           | [#x005C]
+           | [#x005E]
+           | [#x0060-#x007A]
+           | [#x007F-#x00A5]
+           | [#x00A7-#xD7FF]
+           | [#xE000-#xFFFD]
+           | [#x10000-#x10FFF]
+Definition
+         ::= Cluster ( Hyphen Cluster )*
+Hyphen
+         ::= MorphemeHyphen
+           | SuffixHyphen
+           | PrefixHyphen
+           | CompoundHyphen
+           | CompoundSuffixHyphen
+           | CompoundPrefixHyphen
+           | UnfavourableHyphen
+MorphemeHyphen
+         ::= ( '~' | #x007E )+
+SuffixHyphen
+         ::= '¦' | #x00A6
+PrefixHyphen
+         ::= '|' | #x007C
+CompoundHyphen
+         ::= ( '=' | #x003D )+
+
+CompoundSuffixHyphen
+         ::= ( '=' | #x003D )+ ( '¦' | #x00A6 )
+
+CompoundPrefixHyphen
+         ::= ( '|' | #x007C ) ( '=' | #x003D )+
+
+UnfavourableHyphen
+         ::= ( ( '~' | #x007E )
+             | ( '|' | #x007C )
+             | ( '¦' | #x00A6 )
+             | ( '=' | #x003D ) )?
+             ( '.' | #x002E )+
+Cluster
+         ::= ( CharacterCluster
+             | SubstitutionCluster
+             | HeteronymCluster )+
+CharacterCluster
+         ::= Character+
+SubstitutionCluster
+         ::= '{' CharacterCluster '/'
+               ( CharacterCluster ( Hyphen CharacterCluster? )?
+               | Hyphen CharacterCluster? )
+             '}'
+Series
+         ::= ( CharacterCluster (Hyphen CharacterCluster)* Hyphen? )
+           | ( Hyphen (CharacterCluster Hyphen)* CharacterCluster? )
+HeteronymCluster
+         ::= '[' ( Series | (SubstitutionCluster Series? ) ) '/'
+                 SubstitutionCluster? Series? ']'
+</pre></div>
+<p><sup><small>109</small></sup>This grammar can be visualised in a railroad diagram by means of http://bottlecaps.de/rr/ui for example.
+</p>
+<a name="acknowledgements"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.B"></a><h3>Appendix B.&nbsp;
+Acknowledgements</h3>
+
+<p><sup><small>110</small></sup>The author gratefully acknowledges, in alphabetical order, the contributions of Ruud Baars, Simon Brouwer, Arnoud van den Eerenbeemt, Bart Knubben, Stephan Hennig, Werner Lemberg, Bob van de Loo, Mojca Miklavec, Günther Milde, Georg Pfeiffer, Kurt Roeckx, Reinout van Schrouwen, Bert Veenhoff, Herbert Voss and Tobias Wendorff. Most of them are contributing to Stichting OpenTaal, Nederlandstalige TeX Gebruikersgroep (NTG) or DANTE's Trennmuster project.
+</p>
+<p><sup><small>111</small></sup>This standard is based on a <a class='info' href='#Gel14'>poster presentation<span> (</span><span class='info'>van Geloven, S., &ldquo;A standard for prioritised and dynamic hyphenation definitions,&rdquo; January&nbsp;2014.</span><span>)</span></a> [Gel14] at the 24th Meeting of Computational Linguistics in The Netherlands (CLIN24), Leiden, Netherlands, January 17th, 2014. Thanks go to the Institute for Dutch Lexicology (INL) and the Dutch-Flemish HLT Agency (TST-Centrale) for the organisation.
+</p>
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Author's Address</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Sander van Geloven</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Stichting OpenTaal</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Netherlands</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:sander.vangeloven@opentaal.org">sander.vangeloven@opentaal.org</a></td></tr>
+<tr><td class="author" align="right">URI:&nbsp;</td>
+<td class="author-text"><a href="http://www.opentaal.org">http://www.opentaal.org</a></td></tr>
+</table>
+</body></html>

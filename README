@@ -1,0 +1,21 @@
+This repository is used to draft an IETF RFC open standard in which a format for hyphenation definitions is described. Hyphenations definitions can be processed to generate hyphenation patterns which are used by a manifold of text processing software such as typesetting programs, office suites, graphic editors, web browsers, content management systems and much more.
+
+This repository contains an XML file with the draft RFC. Exports to plain text and HTML were made with the Makefile which calls xml2rfc, http://xml.resource.org
+
+The converted HTML file is:
+  https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.html
+The converted text file is:
+  https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.txt
+The raw XML file is:
+  https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.xml
+The XML can be rendered directly via:
+  http://xml.resource.org/cgi-bin/xml2rfc-dev.cgi?mode=html&url=https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.xml
+
+For TeX specific discussion, see:
+  http://tug.org/mailman/listinfo/tex-hyphen
+
+For German specific discussion, see:
+  https://lists.dante.de/mailman/listinfo/trennmuster
+
+For Dutch specific discussion, see:
+  http://lists.sf.own-it.nl/mailman/listinfo/opentaal
