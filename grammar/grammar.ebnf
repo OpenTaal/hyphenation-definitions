@@ -1,5 +1,6 @@
 /* Hyphenation Definitions 0.8
- * TODO URL
+ * https://raw.github.com/OpenTaal/hyphenation-definitions/master/
+ * grammar/grammar.ebnf
  *
  * Reserved characters
  * tab                      U+09   CHARACTER TABULATION  '\t'

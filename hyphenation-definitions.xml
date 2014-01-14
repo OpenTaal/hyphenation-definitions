@@ -1021,7 +1021,8 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
         <t>The complete grammar for this format of hyphenation definitions is in <xref target="ISO14977">Extended Backus-Naur Form (EBNF)</xref>:</t>
         <figure>
 <artwork><![CDATA[/* Hyphenation Definitions 0.8
- * TODO URL
+ * https://raw.github.com/OpenTaal/hyphenation-definitions/master/
+ * grammar/grammar.ebnf
  *
  * Reserved characters
  * tab                         U+0009  CHARACTER TABULATION  '\t'
