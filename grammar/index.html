@@ -333,8 +333,8 @@
       </p><br><p style="font-size: 14px; font-weight:bold"><a name="Cluster">Cluster:</a></p><img border="0" height="140" src="diagram/Cluster.png" usemap="#Cluster.map" width="278"><map name="Cluster.map">
          <area coords="69,17,195,49" href="#CharacterCluster" shape="rect" title="CharacterCluster">
          <area coords="69,61,209,93" href="#SubstitutionCluster" shape="rect" title="SubstitutionCluster">
-         <area coords="69,105,203,137" href="#HeteronymCluster" shape="rect" title="HeteronymCluster"></map><p>
-         <div class="ebnf"><pre><a href="#Cluster" title="Cluster">Cluster</a>  ::= ( <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> | <a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a> | <a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a> )+</pre></div>
+         <area coords="69,105,207,137" href="#HomographCluster" shape="rect" title="HomographCluster"></map><p>
+         <div class="ebnf"><pre><a href="#Cluster" title="Cluster">Cluster</a>  ::= ( <a href="#CharacterCluster" title="CharacterCluster">CharacterCluster</a> | <a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a> | <a href="#HomographCluster" title="HomographCluster">HomographCluster</a> )+</pre></div>
       </p>
       <p>referenced by:
          <ul>
@@ -364,7 +364,7 @@
       <p>referenced by:
          <ul>
             <li><a href="#Cluster" title="Cluster">Cluster</a></li>
-            <li><a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a></li>
+            <li><a href="#HomographCluster" title="HomographCluster">HomographCluster</a></li>
          </ul>
       </p><br><p style="font-size: 14px; font-weight:bold"><a name="Series">Series:</a></p><img border="0" height="206" src="diagram/Series.png" usemap="#Series.map" width="450"><map name="Series.map">
          <area coords="69,45,195,77" href="#CharacterCluster" shape="rect" title="CharacterCluster">
@@ -378,15 +378,15 @@
       </p>
       <p>referenced by:
          <ul>
-            <li><a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a></li>
+            <li><a href="#HomographCluster" title="HomographCluster">HomographCluster</a></li>
          </ul>
-      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HeteronymCluster">HeteronymCluster:</a></p><img border="0" height="96" src="diagram/HeteronymCluster.png" usemap="#HeteronymCluster.map" width="814"><map name="HeteronymCluster.map">
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HomographCluster">HomographCluster:</a></p><img border="0" height="96" src="diagram/HomographCluster.png" usemap="#HomographCluster.map" width="814"><map name="HomographCluster.map">
          <area coords="95,1,153,33" href="#Series" shape="rect" title="Series">
          <area coords="95,45,235,77" href="#SubstitutionCluster" shape="rect" title="SubstitutionCluster">
          <area coords="275,45,333,77" href="#Series" shape="rect" title="Series">
          <area coords="461,1,601,33" href="#SubstitutionCluster" shape="rect" title="SubstitutionCluster">
          <area coords="661,1,719,33" href="#Series" shape="rect" title="Series"></map><p>
-         <div class="ebnf"><pre><a href="#HeteronymCluster" title="HeteronymCluster">HeteronymCluster</a>
+         <div class="ebnf"><pre><a href="#HomographCluster" title="HomographCluster">HomographCluster</a>
          ::= '[' ( <a href="#Series" title="Series">Series</a> | <a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a> <a href="#Series" title="Series">Series</a>? ) '/' <a href="#SubstitutionCluster" title="SubstitutionCluster">SubstitutionCluster</a>? <a href="#Series" title="Series">Series</a>? ']'</pre></div>
       </p>
       <p>referenced by:

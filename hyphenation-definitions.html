@@ -245,8 +245,8 @@ Unfavourable hyphenation<br />
 Dynamic hyphenation<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#alterned_spelling">5.1.</a>&nbsp;
 Hyphenation with alterned spelling<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#heteronym">5.2.</a>&nbsp;
-Hyphenation of heteronyms<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#homograph">5.2.</a>&nbsp;
+Hyphenation of homographs<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#nested">5.3.</a>&nbsp;
 Nested hyphenation<br />
 <a href="#priority">6.</a>&nbsp;
@@ -639,11 +639,11 @@ Hyphenation definition for a word</h3>
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Cluster
          ::= ( CharacterCluster
              | SubstitutionCluster
-             | HeteronymCluster )+
+             | HomographCluster )+
 CharacterCluster
          ::= Character+
 </pre></div>
-<p><sup><small>65</small></sup>The concatenation of different clusters only applies in combination with a substitution cluster or a heteronym cluster, as will be demonstrated later on. This is because consecutive character clusters have the same syntax as a single character cluster. These are merely more characters added in the same way and will therefore MUST NOT be regarded as separate character clusters.
+<p><sup><small>65</small></sup>The concatenation of different clusters only applies in combination with a substitution cluster or a homograph cluster, as will be demonstrated later on. This is because consecutive character clusters have the same syntax as a single character cluster. These are merely more characters added in the same way and will therefore MUST NOT be regarded as separate character clusters.
 </p>
 <p><sup><small>66</small></sup>The final construct required to allow for simple hyphenation definitions is a reserved character to separate the clusters of characters which are also known as morphemes. Here one or more TILDE characters '~' or U+007E MUST be used as a morpheme hyphen. In the following, rules allow also for more intricate hyphenation yet, the morpheme hyphen is:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Hyphen
@@ -1014,23 +1014,23 @@ adjunct-algemeendirecteur;ad~junct{-/==}al~ge~meen=di~rec~teur
 # (ac + tor)- + (di + rec + tor)
 actor-director;ac~tor{-/=}di~rec~tor
 </pre></div>
-<a name="heteronym"></a><br /><hr />
+<a name="homograph"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.5.2"></a><h3>5.2.&nbsp;
-Hyphenation of heteronyms</h3>
+Hyphenation of homographs</h3>
 
-<p><sup><small>101</small></sup>A word with multiple meanings but with the same spelling is called a heteronym. Some heteronyms can differ in syllabification and pronunciation even though they are spelled with exactly the same characters. Examples in English are desert (leave to, or barren area of land) and dove (pigeon, or past tense to dive). A difference in pronunciation can result in different hyphenation points for each meaning of the heteronym, which is more probable in German or Dutch than in, for example, English.
+<p><sup><small>101</small></sup>A word with multiple meanings but with the same spelling is called a homograph. Some homographs can differ in syllabification and pronunciation even though they are spelled with exactly the same characters. Examples in English are desert (leave to, or barren area of land) and dove (pigeon, or past tense to dive). A difference in pronunciation can result in different hyphenation points for each meaning of the homograph, which is more probable in German or Dutch than in, for example, English.
 </p>
-<p><sup><small>102</small></sup>When this is the case, the following heteronym cluster MUST be used for the hyphenation definition. Here a LEFT SQUARE BRACKET U+005B or '[' and a RIGHT SQUARE BRACKET U+005D or ']' MUST be used to group alternatives inside a hyphenation definition. These MUST be separated by a SOLIDUS U+002F or '/'. In the following rules in EBNF only two alternatives are allowed. The order of the alternatives is not important. However, the grammar introduces a small difference for the left and right side of the separator. One side, and only one side, of the separator may be empty to accommodate for certain definitions. Therefore, always one side of the separator MUST hold a definition. This is in EBNF:
+<p><sup><small>102</small></sup>When this is the case, the following homograph cluster MUST be used for the hyphenation definition. Here a LEFT SQUARE BRACKET U+005B or '[' and a RIGHT SQUARE BRACKET U+005D or ']' MUST be used to group alternatives inside a hyphenation definition. These MUST be separated by a SOLIDUS U+002F or '/'. In the following rules in EBNF only two alternatives are allowed. The order of the alternatives is not important. However, the grammar introduces a small difference for the left and right side of the separator. One side, and only one side, of the separator may be empty to accommodate for certain definitions. Therefore, always one side of the separator MUST hold a definition. This is in EBNF:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Series
          ::= ( CharacterCluster (Hyphen CharacterCluster)* Hyphen? )
            | ( Hyphen (CharacterCluster Hyphen)* CharacterCluster? )
-HeteronymCluster
+HomographCluster
          ::= '[' ( Series | (SubstitutionCluster Series? ) ) '/'
                  SubstitutionCluster? Series? ']'
 </pre></div>
-<p><sup><small>103</small></sup>The use of a nested substitution cluster will be described <a class='info' href='#nested'>later on<span> (</span><span class='info'>Nested hyphenation</span><span>)</span></a>. Rare but valid examples with alternative hyphenation behaviour for heteronyms are:
-</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English heteronyms
+<p><sup><small>103</small></sup>The use of a nested substitution cluster will be described <a class='info' href='#nested'>later on<span> (</span><span class='info'>Nested hyphenation</span><span>)</span></a>. Rare but valid examples with alternative hyphenation behaviour for homographs are:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English homographs
 # rec + ord [vinyl medium]
 # re + cord [first-person present of verb to record]
 record;re[~c/c~]ord
@@ -1038,7 +1038,7 @@ record;re[~c/c~]ord
 # Wales [toponiem of part of UK]
 wales;wa[~/]les
 
-# German heteronyms
+# German homographs
 # Mas + ke or Maske
 Maske;Mas[~/]ke
 # Wach + (stu + be) [guardroom] or
@@ -1048,7 +1048,7 @@ Wachstube;Wach[=s/s=]tu-be
 # (Bahn + hof) + s + (trasse) [lit: station's route]
 Bahnhofstrasse;Bahn=hof[==stra-ss/s==tras-s]e
 
-# Dutch heteronyms
+# Dutch homographs
 # bal + le + tje [degerailnitiv of ball] or
 # bal + let + je [degenitiv of ballet]
 balletje;bal~le[~t/t~]je
@@ -1056,11 +1056,11 @@ balletje;bal~le[~t/t~]je
 # val + kuil [trapping pit, lit: trap pit]
 valkuil;val[k=/=k]uil
 </pre></div>
-<p><sup><small>104</small></sup>Note that there is not a preferred order of mirrored heteronym clusters but a fixed order could prove practical for automated processing such as validation.
+<p><sup><small>104</small></sup>Note that there is not a preferred order of mirrored homograph clusters but a fixed order could prove practical for automated processing such as validation.
 </p>
-<p><sup><small>105</small></sup>Automated hyphenation of heteronyms poses an interesting challenge. How can the hyphenation recognise which hyphenation pattern to use? This is out of scope for this standard but important to discuss. All other forms of hyphenation can be handled directly by a hyphenation algorithm, but here extra information is need. This could be extracted from the context, but can proof difficult if no context is available or the context is ambiguous. On the other hand, the author of a text could provide the needed information. This could be stored in soft hyphens, for example. The hyphenator could assist the author here by playing an interactive role. Similarly to spell checking the author could be asked which meaning of a heteronym is intended by having the author choose between expanded hyphenation patterns.
+<p><sup><small>105</small></sup>Automated hyphenation of homographs poses an interesting challenge. How can the hyphenation recognise which hyphenation pattern to use? This is out of scope for this standard but important to discuss. All other forms of hyphenation can be handled directly by a hyphenation algorithm, but here extra information is need. This could be extracted from the context, but can proof difficult if no context is available or the context is ambiguous. On the other hand, the author of a text could provide the needed information. This could be stored in soft hyphens, for example. The hyphenator could assist the author here by playing an interactive role. Similarly to spell checking the author could be asked which meaning of a homograph is intended by having the author choose between expanded hyphenation patterns.
 </p>
-<p><sup><small>106</small></sup>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. TODO heteronym!! In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:
+<p><sup><small>106</small></sup>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. TODO homograph!! In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German irreversable up and down casting
 # Maße upvast -&gt; MASSE
 # MASSE ambiguous downcast -&gt; Maße or Masse
@@ -1078,7 +1078,7 @@ valkuil;val[k=/=k]uil
 <a name="rfc.section.5.3"></a><h3>5.3.&nbsp;
 Nested hyphenation</h3>
 
-<p><sup><small>107</small></sup>Nesting of a substitution cluster inside a heteronym cluster MAY be done. This is already defined in the grammar for <a class='info' href='#heteronym'>heteronym hyphenation<span> (</span><span class='info'>Hyphenation of heteronyms</span><span>)</span></a>. Here the priority is on the enclosing heteronym cluster. Deeper or other ways of nesting clusters is not allowed. This is very rare, but some examples for German are:
+<p><sup><small>107</small></sup>Nesting of a substitution cluster inside a homograph cluster MAY be done. This is already defined in the grammar for <a class='info' href='#homograph'>homograph hyphenation<span> (</span><span class='info'>Hyphenation of homographs</span><span>)</span></a>. Here the priority is on the enclosing homograph cluster. Deeper or other ways of nesting clusters is not allowed. This is very rare, but some examples for German are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German de-1901 nested hyphenation definitions
 # TODO or
 # TODO
@@ -1105,7 +1105,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
 Hyphenation priority</h3>
 
 <p><sup><small>108</small></sup>The following hyphenation priority is defined:
-</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>01 [] hyphenation of heteronym,
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>01 [] hyphenation of homograph,
        definition depends on semantics
 02 {} dynamic hyphenation,
        change of spelling
@@ -1152,8 +1152,8 @@ Reserved characters</h3>
  * cluster separator           U+002F  SOLIDUS               '/'
  * delimiter                   U+003B  SEMICOLON             ';'
  * compound hyphen             U+003D  EQUALS SIGN           '='
- * begin heteronym cluster     U+005B  LEFT SQUARE BRACKET   '['
- * end heteronym cluster       U+005D  RIGHT SQUARE BRACKET  ']'
+ * begin homograph cluster     U+005B  LEFT SQUARE BRACKET   '['
+ * end homograph cluster       U+005D  RIGHT SQUARE BRACKET  ']'
  * begin substitution cluster  U+007B  LEFT CURLY BRACKET    '{'
  * prefix hyphen               U+007C  VERTICAL LINE         '|'
  * end substitution cluster    U+007D  RIGHT CURLY BRACKET   '}'
@@ -1235,8 +1235,8 @@ Grammar</h3>
  * cluster separator           U+002F  SOLIDUS               '/'
  * delimiter                   U+003B  SEMICOLON             ';'
  * compound hyphen             U+003D  EQUALS SIGN           '='
- * begin heteronym cluster     U+005B  LEFT SQUARE BRACKET   '['
- * end heteronym cluster       U+005D  RIGHT SQUARE BRACKET  ']'
+ * begin homograph cluster     U+005B  LEFT SQUARE BRACKET   '['
+ * end homograph cluster       U+005D  RIGHT SQUARE BRACKET  ']'
  * begin substitution cluster  U+007B  LEFT CURLY BRACKET    '{'
  * prefix hyphen               U+007C  VERTICAL LINE         '|'
  * end substitution cluster    U+007D  RIGHT CURLY BRACKET   '}'
@@ -1309,7 +1309,7 @@ UnfavourableHyphen
 Cluster
          ::= ( CharacterCluster
              | SubstitutionCluster
-             | HeteronymCluster )+
+             | HomographCluster )+
 CharacterCluster
          ::= Character+
 SubstitutionCluster
@@ -1320,7 +1320,7 @@ SubstitutionCluster
 Series
          ::= ( CharacterCluster (Hyphen CharacterCluster)* Hyphen? )
            | ( Hyphen (CharacterCluster Hyphen)* CharacterCluster? )
-HeteronymCluster
+HomographCluster
          ::= '[' ( Series | (SubstitutionCluster Series? ) ) '/'
                  SubstitutionCluster? Series? ']'
 </pre></div>
