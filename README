@@ -6,6 +6,7 @@ The raw XML file is:
   https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.xml
 This is the *preferred* file to review. Please download it in a directory which also contains a copy of:
   https://raw.github.com/SvGeloven/hyphenation-definitions/master/rfc2629.xslt
+and view it with a web browser.
 
 The converted HTML file is:
   https://raw.github.com/SvGeloven/hyphenation-definitions/master/hyphenation-definitions.html
