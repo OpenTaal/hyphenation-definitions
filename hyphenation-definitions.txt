@@ -139,7 +139,7 @@ Table of Contents
      4.4.  Hyphenation definition for a compound interfix . . . . . . 21
      4.5.  Unfavourable hyphenation . . . . . . . . . . . . . . . . . 22
    5.  Dynamic hyphenation  . . . . . . . . . . . . . . . . . . . . . 24
-     5.1.  Hyphenation with alternated spelling . . . . . . . . . . . 24
+     5.1.  Hyphenation with alterned spelling . . . . . . . . . . . . 24
      5.2.  Hyphenation of heteronyms  . . . . . . . . . . . . . . . . 26
      5.3.  Nested hyphenation . . . . . . . . . . . . . . . . . . . . 28
    6.  Hyphenation priority . . . . . . . . . . . . . . . . . . . . . 30
@@ -171,10 +171,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 1.  Introduction
 <2>
-   The last decades has seen automated hyphenation of text being born
-   and has experienced several growth spurts.  The hyphenation patterns
-   currently used by the hyphenation algorithm cannot offer prioritised
-   or dynamic hyphenation, unfortunately.  To enable the next
+   Recent decades have seen automated hyphenation of text being born and
+   having experienced several growth spurts.  Unfortunately, the
+   hyphenation patterns currently used by the hyphenation algorithm
+   cannot offer prioritised or dynamic hyphenation.  To enable the next
    developmental leap to overcome this, these patterns need to be
    generated from prioritised and dynamic hyphenation definitions.  A
    detailed and illustrated standard for these definitions is described
@@ -227,19 +227,19 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 1.5.  Design decisions
 <7>
-   Compiling an international standard involves making many decisions
-   and is not always a trivial task.  For example, choosing reserved
-   characters results in checking if that character is not being used in
+   Compiling an international standard involves making many decisions.
+   It is by far a trivial task.  For example, selecting a reserved
+   character involves checking whether that character is not used in
    words.  Words are normally considered as a concatenation of
    characters separated by spaces or punctuation, but this differs
    substantially amongst written languages.  What might be a practical
-   choice for one language could be incompatible with another language.
+   choice for one language could be incompatible with for another.
    Likewise, this standard does not concern itself with the validity of
-   the resulting hyphenations.  This is left up to the users as
+   the resulting hyphenations.  This is left up to the users, as
    languages, and even dialects, have different rules and exceptions
-   based on etymological, morphological or phonetic principles.  Key is
-   that the designed format aims to offer a maximum degree of freedom
-   and flexibility for the end user.
+   based on etymological, morphological or phonetic principles.  That
+   the designed format offers a maximum degree of freedom and
+   flexibility for the end user is key.
 
 
 
@@ -876,7 +876,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    herbereken;her|be|re~ke~nen
 
 <73>
-   In the comments the prefixes are indicated with a smaller-than sign
+   In the comments, the prefixes are indicated with a less-than sign,
    which precedes evaluation of the plus sign.  Sometimes the comments
    on examples provide the meaning of the word in between double
    guillemets.  These are '[' and ']'.  These help understanding the
@@ -901,9 +901,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
             ::= '|' | #x00A6
 
 <75>
-   This is not found easily in German because spelling and hyphenation
-   changes of the base word to the prefix is attached.  Some examples
-   are:
+   Some examples are:
    # English words with suffix
    # broth + er > hood
    brotherhood;broth~er|hood
@@ -925,8 +923,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 <76>
    The comments use a greater-than sign to explain the structure where
    suffixes build from left to right, gaining priority in this way for a
-   left-to-right script.  A hyphenation point for a suffix has greater
-   priority than hyphenation on a prefix.
+   left-to-right script.  A hyphenation point for a suffix has priority
+   over hyphenation on a prefix.
+
+
 
 
 
@@ -957,8 +957,8 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 4.1.  Hyphenation definition for a compound
 <77>
-   Many languages can concatenate words to form long compounds, real-
-   life examples from Western languages are:
+   Many languages can concatenate words to form long compounds.  Some
+   real-life examples from Western languages are:
    # long compound without spaces in German
    #Rindfleischetikettierungsueberwachungsaufgabenuebertragungsgesetz
 
@@ -972,17 +972,17 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    #pneumonoultramicroscopicsilicovolcanoconiosis
 
 <78>
-   These are extremes but it is also possible in for example English to
-   concatenate words to form long compounds.  This is less common as
-   spaces are usually found in English compounds and for those cases
-   hyphenation is less problematic.
+   These are extreme, but it is also possible in, for example, English
+   to concatenate words, forming long compounds.  This is less common,
+   as spaces are usually found in English compounds, hence for those
+   cases hyphenation is less problematic.
 <79>
    Hyphenation definitions of compounds should be made with a different
    reserved character.  The EQUALS SIGN U+003D or '=' MUST be used to
    indicate hyphenation on compound level.  This prevents long series of
-   tildes in complex compounds and allows for automated generation,
-   suggestion or validation of hyphenation patterns for compounds.  In
-   EBNF, this is:
+   tildes in complex compounds allowing automated generation, suggestion
+   or validation of hyphenation patterns for compounds.  In EBNF, this
+   is:
    CompoundHyphen
             ::= ( '=' | #x003D )+
 
@@ -1030,10 +1030,11 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 <81>
    A hyphenation point for a compound SHALL be defined by one or more
    equals signs.  A hyphenation point of higher priority MUST have at
-   least an equals sign extra compared to lower priority hyphenation
-   points for compounds.  This is similar to hyphenation point
-   priorities in definitions for words (Section 3.3).  Some examples to
-   illustrate prioritised hyphenation definitions in compounds are:
+   least one additional equals sign compared to lower priority
+   hyphenation points for compounds.  This is similar to hyphenation
+   point priorities in definitions for words (Section 3.3).  Some
+   examples to illustrate prioritised hyphenation definitions in
+   compounds are:
    # German
    # Erb + (lehn + gut) [lit: inheritened loan property]
    Erblehngut;Erb==lehn=gut
@@ -1052,9 +1053,8 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    goederentreinwagon;goe~de~ren=trein==wa~gon
 
 <82>
-   Hyphenation point for a compound MUST be treated with a higher
+   A hyphenation point for a compound MUST be treated with higher
    priority than that of a suffix.
-
 
 
 
@@ -1087,10 +1087,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    onwaarschijnlijk;on|=waar=schijn~lijk
 
 <85>
-   Here the number of equals signs match the number of equals sign of
-   the compound hyphenation this prefix is related to.  Compound
-   prefixes are extended from right to left and are prioritised from
-   left to right for a left-to-right script.
+   Here the number of equals signs match the number of equals signs of
+   the compound hyphenation that this prefix is related to.  Compound
+   prefixes are extended from right to left and prioritised from left to
+   right for a left-to-right script.
 
 4.3.  Hyphenation definition for a compound suffix
 <86>
@@ -1098,7 +1098,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
             ::= ( '=' | #x003D )+ ( '|' | #x00A6 )
 
 <87>
-   Examples are rare but some are:
+   Examples are rare, but some are given below:
 
 
 
@@ -1140,7 +1140,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    onsamenhangendheid;on|sa~men=han~gend=|heid
 
 <88>
-   The number of equals signs are the same as the number of equals sign
+   The number of equals signs are the same as the number of equals signs
    of the compound hyphenation this suffix is related to.  This is
    similar to word suffix (Section 3.5) and compound prefix
    (Section 4.2).  Compound suffixes are extended from left to right and
@@ -1150,24 +1150,24 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 4.4.  Hyphenation definition for a compound interfix
 <89>
    With the format for hyphenation definitions described up to this
-   point it is possible to define hyphenation definitions for compounds,
-   even if they have an interfix.  Interfixes are common in some
-   languages as a linking element in compounds without a semantic
-   meaning but usually to improve pronunciation.  Hyphenation has no
-   special requirements to indicate interfixes.  However, it is
-   practical to be able to annotate interfixes to be able to identify
-   the separate words from which the compound has been formed.  In this
-   way the hyphenation definition of the compound can be automatically
-   generated, suggested or validated.  Additionally this information
-   could be used for decomposition to validate and extend spell
-   checking.
+   point, it is possible to define hyphenation definitions for
+   compounds, even if they have an interfix.  Interfixes are common in
+   some languages as a linking element in compounds.  They usually do
+   not have a semantic function but rather one of aiding pronunciation.
+   Hyphenation has no special requirements to indicate interfixes.
+   However, it is useful to annotate interfixes, enabling identification
+   of the separate words from which the compound has been formed.  In
+   this way the hyphenation definition of the compound can be
+   automatically generated, suggested or validated.  In addition, this
+   information could be used for decomposition to validate and extend
+   spell checking.
 <90>
-   There are no grammar rules for this at the moment because this part
+   There are no grammar rules for this at the moment, because this part
    of the format is still under discussion.  The characters used in the
    following example are the LESS-THAN SIGN U+003C and GREATER-THAN SIGN
-   U+003E and could become reserved characters in the future.  Interfix
-   annotations can simply be filtered out before hyphenation patterns
-   are used as input to the hyphenation algorithm.
+   U+003E, which could become reserved characters in the future.
+   Interfix annotations can simply be filtered out before hyphenation
+   patterns are used as input to the hyphenation algorithm.
 
 
 
@@ -1291,21 +1291,21 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 5.  Dynamic hyphenation
 
-5.1.  Hyphenation with alternated spelling
+5.1.  Hyphenation with alterned spelling
 <94>
    Hyphenation can result in a changed spelling of the word.  How this
-   affects a word depends on the language as will be seen later on.  A
+   affects a word depends on the language, as will be seen later on.  A
    hyphenation definition of this type MUST contain both an unhyphenated
    and a hyphenated spelling for such word.  This is called a
-   substitution cluster and MUST contain only the particular hyphenation
-   point and adjacent character clusters that alter.
+   substitution cluster.  It MUST contain only the particular
+   hyphenation point and adjacent character clusters that altered.
 <95>
    A substitution cluster MUST be provided between curly brackets LEFT
    CURLY BRACKET U+007B or '{' and RIGHT CURLY BRACKET U+007D or '}'
    with SOLIDUS U+002F or '/' as a separator.  Left of the separator
    MUST be the unhyphenated spelling and on the right MUST be the
-   hyphenated spelling.  Examples later on will clarify this
-   elaborately.  The exact rule in EBFN for this is:
+   hyphenated spelling.  Examples later on will clarify this in detail.
+   The exact rule in EBFN for this is:
    SubstitutionCluster
             ::= '{' CharacterCluster '/'
                   ( CharacterCluster ( Hyphen CharacterCluster? )?
@@ -1318,7 +1318,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    digraph 'ck' can result in 'k-k' when hyphenation is in the middle of
    that digraph.  Examples of transforming digraphs with orthographic
    allographs are:
-   # German with alternated spelling digraph
+   # German with altered spelling digraph
    # "Zucker" or
    # "Zuk-" "ker" [sugar]
    Zucker;Zu{ck/k~k}er
@@ -1327,10 +1327,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    In German it is also possible to have doubling of consonants in
    digraphs when hyphenating.  The digraph 'll' can initially be a
    shorter spelling of the trigraph 'lll', which itself is a
-   concatenation of the a digraph 'll' and a glyph 'l'.  When
-   hyphenation is in the first mentioned digraph, the previously
-   eliminated 'l' should be restored.  Examples of restoring eliminated
-   consonants from trigraphs are:
+   concatenation of the digraph 'll' and a glyph 'l'.  When hyphenation
+   is in the first mentioned digraph, the previously eliminated 'l'
+   should be restored.  Examples of restoring eliminated consonants from
+   trigraphs are:
 
 
 
@@ -1364,13 +1364,13 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    #trykknapp;tryk{k/k=k}napp
 
 <98>
-   Some languages have doubling of a vowel.  This occurs when stress is
-   on an open syllable and a suffix added after that syllable.  This
-   happens for example in Dutch for some diminutive forms.  When these
+   Some languages have vowel doubling.  This occurs when stress is on an
+   open syllable and a suffix added after that syllable.  This happens
+   for example in Dutch for some diminutive forms.  When these
    diminutives are hyphenated on that syllable, the vowel at the end of
    an open syllable needs to be duplicated, since the stress will ensure
    proper pronunciation.  Examples of stressed open syllables with
-   doubles vowels are:
+   doubled vowels are:
    # Dutch vowel doubling in diminutive
    # "omaatje" or
    # "oma-" "tje" [granny] [degenitiv of grantmother]
@@ -1379,7 +1379,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    #omaatje;om{aa/a-}tje
 
 <99>
-   In Dutch diaeresis can be used on vowels to prevent the so called
+   In Dutch,s diaeresis can be used on vowels to prevent the so called
    vowel collision.  However, when hyphenating before the vowel that
    received a diaeresis, that diaeresis will be eliminated in the
    hyphenated spelling.  Examples of hyphenation definitions for
@@ -1391,7 +1391,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 <100>
    As stated before, a hyphen can be a valid character in a normal word.
-   Hence the hyphen character is not a reserved character in this
+   Hence, the hyphen character is not a reserved character in this
    context.  When hyphenation on a hyphen that is already part of a
 
 
@@ -1403,8 +1403,8 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
    word, a new hyphen MUST NOT be inserted in the hyphenated text.  A
    rare counterexample was given in hyphenation of a word (Section 3.3).
-   Now will follow more common examples in which a hyphen is not allowed
-   to be duplicated:
+   Below, more common examples in which a hyphen is not allowed to be
+   duplicated:
    # Dutch compounds with hyphen as character
    # ex- < vriend [former boyfriend]
    ex-vriend;ex{-/|}vriend
@@ -1429,22 +1429,22 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    A word with multiple meanings but with the same spelling is called a
    heteronym.  Some heteronyms can differ in syllabification and
    pronunciation even though they are spelled with exactly the same
-   characters.  Examples in English are desert (leave to or barren area
-   of land) and dove (pigeon or past tense to dive).  A difference in
+   characters.  Examples in English are desert (leave to, or barren area
+   of land) and dove (pigeon, or past tense to dive).  A difference in
    pronunciation can result in different hyphenation points for each
    meaning of the heteronym, which is more probable in German or Dutch
-   than in for example English.
+   than in, for example, English.
 <102>
    When this is the case, the following heteronym cluster MUST be used
    for the hyphenation definition.  Here a LEFT SQUARE BRACKET U+005B or
    '[' and a RIGHT SQUARE BRACKET U+005D or ']' MUST be used to group
    alternatives inside a hyphenation definition.  These MUST be
-   separated a SOLIDUS U+002F or '/'.  In the following rules in EBNF
+   separated by a SOLIDUS U+002F or '/'.  In the following rules in EBNF
    only two alternatives are allowed.  The order of the alternatives is
    not important.  However, the grammar introduces a small difference
    for the left and right side of the separator.  One side, and only one
    side, of the separator may be empty to accommodate for certain
-   definitions.  Therefore always one side of the separator MUST hold a
+   definitions.  Therefore, always one side of the separator MUST hold a
    definition.  This is in EBNF:
 
 
@@ -1503,8 +1503,8 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    How can the hyphenation recognise which hyphenation pattern to use?
    This is out of scope for this standard but important to discuss.  All
    other forms of hyphenation can be handled directly by a hyphenation
-   algorithm but here extra information is need.  This could be
-   extracted from the context but can proof difficult if no context is
+   algorithm, but here extra information is need.  This could be
+   extracted from the context, but can proof difficult if no context is
 
 
 
@@ -1515,10 +1515,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
    available or the context is ambiguous.  On the other hand, the author
    of a text could provide the needed information.  This could be stored
-   in soft hyphens for examples.  The hyphenator could assist the author
+   in soft hyphens, for example.  The hyphenator could assist the author
    here by playing an interactive role.  Similarly to spell checking the
-   author could be asked which meaning of a heteronym is meant by having
-   the author selecting between expanded hyphenation patterns.
+   author could be asked which meaning of a heteronym is intended by
+   having the author choose between expanded hyphenation patterns.
 <106>
    Something that has not been discussed up to this point, but is
    illustrated in the previous example with wales and Wales, is case
@@ -1548,7 +1548,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    done.  This is already defined in the grammar for heteronym
    hyphenation (Section 5.2).  Here the priority is on the enclosing
    heteronym cluster.  Deeper or other ways of nesting clusters is not
-   allowed.  This is very rare but some examples for German are:
+   allowed.  This is very rare, but some examples for German are:
 
 
 

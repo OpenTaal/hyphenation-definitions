@@ -243,8 +243,8 @@ Hyphenation definition for a compound interfix<br />
 Unfavourable hyphenation<br />
 <a href="#dynamic-hyphenation">5.</a>&nbsp;
 Dynamic hyphenation<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#alternated_spelling">5.1.</a>&nbsp;
-Hyphenation with alternated spelling<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#alterned_spelling">5.1.</a>&nbsp;
+Hyphenation with alterned spelling<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#heteronym">5.2.</a>&nbsp;
 Hyphenation of heteronyms<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#nested">5.3.</a>&nbsp;
@@ -269,7 +269,7 @@ Author's Address<br />
 <a name="rfc.section.1"></a><h3>1.&nbsp;
 Introduction</h3>
 
-<p><sup><small>2</small></sup>The last decades has seen automated hyphenation of text being born and has experienced several growth spurts. The hyphenation patterns currently used by the hyphenation algorithm cannot offer prioritised or dynamic hyphenation, unfortunately. To enable the next developmental leap to overcome this, these patterns need to be generated from prioritised and dynamic hyphenation definitions. A detailed and illustrated standard for these definitions is described in this document.
+<p><sup><small>2</small></sup>Recent decades have seen automated hyphenation of text being born and having experienced several growth spurts. Unfortunately, the hyphenation patterns currently used by the hyphenation algorithm cannot offer prioritised or dynamic hyphenation. To enable the next developmental leap to overcome this, these patterns need to be generated from prioritised and dynamic hyphenation definitions. A detailed and illustrated standard for these definitions is described in this document.
 </p>
 <a name="anchor1"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -304,7 +304,7 @@ Format description</h3>
 <a name="rfc.section.1.5"></a><h3>1.5.&nbsp;
 Design decisions</h3>
 
-<p><sup><small>7</small></sup>Compiling an international standard involves making many decisions and is not always a trivial task. For example, choosing reserved characters results in checking if that character is not being used in words. Words are normally considered as a concatenation of characters separated by spaces or punctuation, but this differs substantially amongst written languages. What might be a practical choice for one language could be incompatible with another language. Likewise, this standard does not concern itself with the validity of  the resulting hyphenations. This is left up to the users as languages, and even dialects, have different rules and exceptions based on etymological, morphological or phonetic principles. Key is that the designed format aims to offer a maximum degree of freedom and flexibility for the end user.
+<p><sup><small>7</small></sup>Compiling an international standard involves making many decisions. It is by far a trivial task. For example, selecting  a reserved character involves checking whether that character is not used in words. Words are normally considered as a concatenation of characters separated by spaces or punctuation, but this differs substantially amongst written languages. What might be a practical choice for one language could be incompatible with for another. Likewise, this standard does not concern itself with the validity of  the resulting hyphenations. This is left up to the users, as languages, and even dialects, have different rules and exceptions based on etymological, morphological or phonetic principles. That the designed format offers a maximum degree of freedom and flexibility for the end user is key.
 </p>
 <a name="anchor6"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -706,7 +706,7 @@ gewillig;ge|wil~lig
 # her &lt; be &lt; re + ke + nen [to recalculate]
 herbereken;her|be|re~ke~nen
 </pre></div>
-<p><sup><small>73</small></sup>In the comments the prefixes are indicated with a smaller-than sign which precedes evaluation of the plus sign. Sometimes the comments on examples provide the meaning of the word in between double guillemets. These are '[' and ']'. These help understanding the examples which are from languages other than English but are not part of this standard.
+<p><sup><small>73</small></sup>In the comments, the prefixes are indicated with a less-than sign, which precedes evaluation of the plus sign. Sometimes the comments on examples provide the meaning of the word in between double guillemets. These are '[' and ']'. These help understanding the examples which are from languages other than English but are not part of this standard.
 </p>
 <a name="word_suffix"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -717,7 +717,7 @@ Hyphenation definition for a word suffix</h3>
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>SuffixHyphen
          ::= '¦' | #x00A6
 </pre></div>
-<p><sup><small>75</small></sup>This is not found easily in German because spelling and hyphenation changes of the base word to the prefix is attached. Some examples are:
+<p><sup><small>75</small></sup>Some examples are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># English words with suffix
 # broth + er &gt; hood
 brotherhood;broth~er¦hood
@@ -736,7 +736,7 @@ eenzaamheid;een¦zaam¦heid
 # beest &gt; ach~tig [beastly]
 beestachtig;beest¦ach~tig
 </pre></div>
-<p><sup><small>76</small></sup>The comments use a greater-than sign to explain the structure where suffixes build from left to right, gaining priority in this way for a left-to-right script. A hyphenation point for a suffix has greater priority than hyphenation on a prefix.
+<p><sup><small>76</small></sup>The comments use a greater-than sign to explain the structure where suffixes build from left to right, gaining priority in this way for a left-to-right script. A hyphenation point for a suffix has priority over hyphenation on a prefix.
 </p>
 <a name="extended"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -748,7 +748,7 @@ Extended format</h3>
 <a name="rfc.section.4.1"></a><h3>4.1.&nbsp;
 Hyphenation definition for a compound</h3>
 
-<p><sup><small>77</small></sup>Many languages can concatenate words to form long compounds, real-life examples from Western languages are:
+<p><sup><small>77</small></sup>Many languages can concatenate words to form long compounds. Some real-life examples from Western languages are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># long compound without spaces in German
 #Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz
 
@@ -761,9 +761,9 @@ Hyphenation definition for a compound</h3>
 # long compound without spaces in English
 #pneumonoultramicroscopicsilicovolcanoconiosis
 </pre></div>
-<p><sup><small>78</small></sup>These are extremes but it is also possible in for example English to concatenate words to form long compounds. This is less common as spaces are usually found in English compounds and for those cases hyphenation is less problematic.
+<p><sup><small>78</small></sup>These are extreme, but it is also possible in, for example, English to concatenate words, forming long compounds. This is less common, as spaces are usually found in English compounds, hence for those cases hyphenation is less problematic.
 </p>
-<p><sup><small>79</small></sup>Hyphenation definitions of compounds should be made with a different reserved character. The EQUALS SIGN U+003D or '=' MUST be used to indicate hyphenation on compound level. This prevents long series of tildes in complex compounds and allows for automated generation, suggestion or validation of hyphenation patterns for compounds. In EBNF, this is:
+<p><sup><small>79</small></sup>Hyphenation definitions of compounds should be made with a different reserved character. The EQUALS SIGN U+003D or '=' MUST be used to indicate hyphenation on compound level. This prevents long series of tildes in complex compounds allowing automated generation, suggestion or validation of hyphenation patterns for compounds. In EBNF, this is:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>CompoundHyphen
          ::= ( '=' | #x003D )+
 </pre></div>
@@ -786,7 +786,7 @@ boekomslag;boek=om~slag
 # trein + (wa + gon) [train carriage]
 treinwagon;trein=wa~gon
 </pre></div>
-<p><sup><small>81</small></sup>A hyphenation point for a compound SHALL be defined by one or more equals signs. A hyphenation point of higher priority MUST have at least an equals sign extra compared to lower priority hyphenation points for compounds. This is similar to hyphenation point priorities in definitions for <a class='info' href='#word'>words<span> (</span><span class='info'>Hyphenation definition for a word</span><span>)</span></a>. Some examples to illustrate prioritised hyphenation definitions in compounds are:
+<p><sup><small>81</small></sup>A hyphenation point for a compound SHALL be defined by one or more equals signs. A hyphenation point of higher priority MUST have at least one additional equals sign compared to lower priority hyphenation points for compounds. This is similar to hyphenation point priorities in definitions for <a class='info' href='#word'>words<span> (</span><span class='info'>Hyphenation definition for a word</span><span>)</span></a>. Some examples to illustrate prioritised hyphenation definitions in compounds are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German
 # Erb + (lehn + gut) [lit: inheritened loan property]
 Erblehngut;Erb==lehn=gut
@@ -804,7 +804,7 @@ Seeschifffahrtstraße;See==schiff=fahrt===stra-ße
 # [cargo train carriage]
 goederentreinwagon;goe~de~ren=trein==wa~gon
 </pre></div>
-<p><sup><small>82</small></sup>Hyphenation point for a compound MUST be treated with a higher priority than that of a suffix.
+<p><sup><small>82</small></sup>A hyphenation point for a compound MUST be treated with higher priority than that of a suffix.
 </p>
 <a name="compound_prefix"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -826,7 +826,7 @@ Urgroßeltern;Ur|=groß=el~tern
 # on &lt; waar + (schijn + lijk) [unlikely]
 onwaarschijnlijk;on|=waar=schijn~lijk
 </pre></div>
-<p><sup><small>85</small></sup>Here the number of equals signs match the number of equals sign of the compound hyphenation this prefix is related to. Compound prefixes are extended from right to left and are prioritised from left to right for a left-to-right script.
+<p><sup><small>85</small></sup>Here the number of equals signs match the number of equals signs of the compound hyphenation that this prefix is related to. Compound prefixes are extended from right to left and prioritised from left to right for a left-to-right script.
 </p>
 <a name="compound_suffix"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -837,7 +837,7 @@ Hyphenation definition for a compound suffix</h3>
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>CompoundSuffixHyphen
          ::= ( '=' | #x003D )+ ( '¦' | #x00A6 )
 </pre></div>
-<p><sup><small>87</small></sup>Examples are rare but some are:
+<p><sup><small>87</small></sup>Examples are rare, but some are given below:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German compounds with suffix
 # (an + dert) + halb &gt; fach
 anderthalbfach;an~dert=halb=¦fach
@@ -856,16 +856,16 @@ literatuurwetenschapje;li~te~ra~tuur=we~ten¦schap=¦je
 # [incoherentness]
 onsamenhangendheid;on|sa~men=han~gend=¦heid
 </pre></div>
-<p><sup><small>88</small></sup>The number of equals signs are the same as the number of equals sign of the compound hyphenation this suffix is related to. This is similar to <a class='info' href='#word_suffix'>word suffix<span> (</span><span class='info'>Hyphenation definition for a word suffix</span><span>)</span></a> and <a class='info' href='#compound_prefix'>compound prefix<span> (</span><span class='info'>Hyphenation definition for a compound prefix</span><span>)</span></a>. Compound suffixes are extended from left to right and are prioritised from right to left for a left-to-right script, albeit that nested compound suffixes will be extremely rare.
+<p><sup><small>88</small></sup>The number of equals signs are the same as the number of equals signs of the compound hyphenation this suffix is related to. This is similar to <a class='info' href='#word_suffix'>word suffix<span> (</span><span class='info'>Hyphenation definition for a word suffix</span><span>)</span></a> and <a class='info' href='#compound_prefix'>compound prefix<span> (</span><span class='info'>Hyphenation definition for a compound prefix</span><span>)</span></a>. Compound suffixes are extended from left to right and are prioritised from right to left for a left-to-right script, albeit that nested compound suffixes will be extremely rare.
 </p>
 <a name="compound_interfix"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.4.4"></a><h3>4.4.&nbsp;
 Hyphenation definition for a compound interfix</h3>
 
-<p><sup><small>89</small></sup>With the format for hyphenation definitions described up to this point it is possible to define hyphenation definitions for compounds, even if they have an interfix. Interfixes are common in some languages as a linking element in compounds without a semantic meaning but usually to improve pronunciation. Hyphenation has no special requirements to indicate interfixes. However, it is practical to be able to annotate interfixes to be able to identify the separate words from which the compound has been formed. In this way the hyphenation definition of the compound can be automatically generated, suggested or validated. Additionally this information could be used for decomposition to validate and extend spell checking.
+<p><sup><small>89</small></sup>With the format for hyphenation definitions described up to this point, it is possible to define hyphenation definitions for compounds, even if they have an interfix. Interfixes are common in some languages as a linking element in compounds. They usually do not have a semantic function but rather one of aiding pronunciation. Hyphenation has no special requirements to indicate interfixes. However, it is useful to annotate interfixes, enabling identification of the separate words from which the compound has been formed. In this way the hyphenation definition of the compound can be automatically generated, suggested or validated. In addition, this information could be used for decomposition to validate and extend spell checking.
 </p>
-<p><sup><small>90</small></sup>There are no grammar rules for this at the moment because this part of the format is still under discussion. The characters used in the following example are the LESS-THAN SIGN U+003C and GREATER-THAN SIGN U+003E and could become reserved characters in the future. Interfix annotations can simply be filtered out before hyphenation patterns are used as input to the hyphenation algorithm.
+<p><sup><small>90</small></sup>There are no grammar rules for this at the moment, because this part of the format is still under discussion. The characters used in the following example are the LESS-THAN SIGN U+003C and GREATER-THAN SIGN U+003E, which could become reserved characters in the future. Interfix annotations can simply be filtered out before hyphenation patterns are used as input to the hyphenation algorithm.
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German interfix
 # (Arbeit + s) + zimmer [working room]
 Arbeitszimmer;Ar~beits=zim~mer # could be Ar~beit&lt;s&gt;=zim~mer
@@ -928,14 +928,14 @@ Koninginnedag;Ko~nin~gin~.ne=dag
 <a name="rfc.section.5"></a><h3>5.&nbsp;
 Dynamic hyphenation</h3>
 
-<a name="alternated_spelling"></a><br /><hr />
+<a name="alterned_spelling"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.5.1"></a><h3>5.1.&nbsp;
-Hyphenation with alternated spelling</h3>
+Hyphenation with alterned spelling</h3>
 
-<p><sup><small>94</small></sup>Hyphenation can result in a changed spelling of the word. How this affects a word depends on the language as will be seen later on. A hyphenation definition of this type MUST contain both an unhyphenated and a hyphenated spelling for such word. This is called a substitution cluster and MUST contain only the particular hyphenation point and adjacent character clusters that alter.
+<p><sup><small>94</small></sup>Hyphenation can result in a changed spelling of the word. How this affects a word depends on the language, as will be seen later on. A hyphenation definition of this type MUST contain both an unhyphenated and a hyphenated spelling for such word. This is called a substitution cluster. It MUST contain only the particular hyphenation point and adjacent character clusters that altered.
 </p>
-<p><sup><small>95</small></sup>A substitution cluster MUST be provided between curly brackets LEFT CURLY BRACKET U+007B or '{' and RIGHT CURLY BRACKET U+007D or '}' with SOLIDUS U+002F or '/' as a separator. Left of the separator MUST be the unhyphenated spelling and on the right MUST be the hyphenated spelling. Examples later on will clarify this elaborately. The exact rule in EBFN for this is:
+<p><sup><small>95</small></sup>A substitution cluster MUST be provided between curly brackets LEFT CURLY BRACKET U+007B or '{' and RIGHT CURLY BRACKET U+007D or '}' with SOLIDUS U+002F or '/' as a separator. Left of the separator MUST be the unhyphenated spelling and on the right MUST be the hyphenated spelling. Examples later on will clarify this in detail. The exact rule in EBFN for this is:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>SubstitutionCluster
          ::= '{' CharacterCluster '/'
                ( CharacterCluster ( Hyphen CharacterCluster? )?
@@ -943,12 +943,12 @@ Hyphenation with alternated spelling</h3>
              '}'
 </pre></div>
 <p><sup><small>96</small></sup>Some languages have transforming digraphs when hyphenating. In German the 'c' and 'k' are orthographic allographs for /k/. The digraph 'ck' can result in 'k-k' when hyphenation is in the middle of that digraph. Examples of transforming digraphs with orthographic allographs are:
-</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German with alternated spelling digraph
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German with altered spelling digraph
 # "Zucker" or
 # "Zuk-" "ker" [sugar]
 Zucker;Zu{ck/k~k}er
 </pre></div>
-<p><sup><small>97</small></sup>In German it is also possible to have doubling of consonants in digraphs when hyphenating. The digraph 'll' can initially be a shorter spelling of the trigraph 'lll', which itself is a concatenation of the a digraph 'll' and a glyph 'l'. When hyphenation is in the first mentioned digraph, the previously eliminated 'l' should be restored. Examples of restoring eliminated consonants from trigraphs are:
+<p><sup><small>97</small></sup>In German it is also possible to have doubling of consonants in digraphs when hyphenating. The digraph 'll' can initially be a shorter spelling of the trigraph 'lll', which itself is a concatenation of the digraph 'll' and a glyph 'l'. When hyphenation is in the first mentioned digraph, the previously eliminated 'l' should be restored. Examples of restoring eliminated consonants from trigraphs are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German with doubled consonant spelling
 # "Ab-" "fallager" or
 # "Abfall-" "lager" or
@@ -967,7 +967,7 @@ trykknapp;try{kk/kk=k}napp
 # equivalent notation, less verbose but more searchable
 #trykknapp;tryk{k/k=k}napp
 </pre></div>
-<p><sup><small>98</small></sup>Some languages have doubling of a vowel. This occurs when stress is on an open syllable and a suffix added after that syllable. This happens for example in Dutch for some diminutive forms. When these diminutives are hyphenated on that syllable, the vowel at the end of an open syllable needs to be duplicated, since the stress will ensure proper pronunciation. Examples of stressed open syllables with doubles vowels are:
+<p><sup><small>98</small></sup>Some languages have vowel doubling. This occurs when stress is on an open syllable and a suffix added after that syllable. This happens for example in Dutch for some diminutive forms. When these diminutives are hyphenated on that syllable, the vowel at the end of an open syllable needs to be duplicated, since the stress will ensure proper pronunciation. Examples of stressed open syllables with doubled vowels are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Dutch vowel doubling in diminutive
 # "omaatje" or
 # "oma-" "tje" [granny] [degenitiv of grantmother]
@@ -975,13 +975,13 @@ omaatje;oma{a/-}tje
 # equivalent notation, more verbose but less searchable
 #omaatje;om{aa/a-}tje
 </pre></div>
-<p><sup><small>99</small></sup>In Dutch diaeresis can be used on vowels to prevent the so called vowel collision. However, when hyphenating before the vowel that received a diaeresis, that diaeresis will be eliminated in the hyphenated spelling. Examples of hyphenation definitions for eliminated diaeresis are:
+<p><sup><small>99</small></sup>In Dutch,s diaeresis can be used on vowels to prevent the so called vowel collision. However, when hyphenating before the vowel that received a diaeresis, that diaeresis will be eliminated in the hyphenated spelling. Examples of hyphenation definitions for eliminated diaeresis are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Dutch eliminated diaeresis
 # "geëerd" or
 # "ge-" "eerd" [honoured] [past participle]
 geëerd;ge{ë/-e}erd
 </pre></div>
-<p><sup><small>100</small></sup>As stated before, a hyphen can be a valid character in a normal word. Hence the hyphen character is not a reserved character in this context. When hyphenation on a hyphen that is already part of a word, a new hyphen MUST NOT be inserted in the hyphenated text. A rare counterexample was given in hyphenation of a <a class='info' href='#word'>word<span> (</span><span class='info'>Hyphenation definition for a word</span><span>)</span></a>. Now will follow more common examples in which a hyphen is not allowed to be duplicated:
+<p><sup><small>100</small></sup>As stated before, a hyphen can be a valid character in a normal word. Hence, the hyphen character is not a reserved character in this context. When hyphenation on a hyphen that is already part of a word, a new hyphen MUST NOT be inserted in the hyphenated text. A rare counterexample was given in hyphenation of a <a class='info' href='#word'>word<span> (</span><span class='info'>Hyphenation definition for a word</span><span>)</span></a>. Below, more common examples in which a hyphen is not allowed to be duplicated:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># Dutch compounds with hyphen as character
 # ex- &lt; vriend [former boyfriend]
 ex-vriend;ex{-/|}vriend
@@ -1006,9 +1006,9 @@ actor-director;ac~tor{-/=}di~rec~tor
 <a name="rfc.section.5.2"></a><h3>5.2.&nbsp;
 Hyphenation of heteronyms</h3>
 
-<p><sup><small>101</small></sup>A word with multiple meanings but with the same spelling is called a heteronym. Some heteronyms can differ in syllabification and pronunciation even though they are spelled with exactly the same characters. Examples in English are desert (leave to or barren area of land) and dove (pigeon or past tense to dive). A difference in pronunciation can result in different hyphenation points for each meaning of the heteronym, which is more probable in German or Dutch than in for example English.
+<p><sup><small>101</small></sup>A word with multiple meanings but with the same spelling is called a heteronym. Some heteronyms can differ in syllabification and pronunciation even though they are spelled with exactly the same characters. Examples in English are desert (leave to, or barren area of land) and dove (pigeon, or past tense to dive). A difference in pronunciation can result in different hyphenation points for each meaning of the heteronym, which is more probable in German or Dutch than in, for example, English.
 </p>
-<p><sup><small>102</small></sup>When this is the case, the following heteronym cluster MUST be used for the hyphenation definition. Here a LEFT SQUARE BRACKET U+005B or '[' and a RIGHT SQUARE BRACKET U+005D or ']' MUST be used to group alternatives inside a hyphenation definition. These MUST be separated a SOLIDUS U+002F or '/'. In the following rules in EBNF only two alternatives are allowed. The order of the alternatives is not important. However, the grammar introduces a small difference for the left and right side of the separator. One side, and only one side, of the separator may be empty to accommodate for certain definitions. Therefore always one side of the separator MUST hold a definition. This is in EBNF:
+<p><sup><small>102</small></sup>When this is the case, the following heteronym cluster MUST be used for the hyphenation definition. Here a LEFT SQUARE BRACKET U+005B or '[' and a RIGHT SQUARE BRACKET U+005D or ']' MUST be used to group alternatives inside a hyphenation definition. These MUST be separated by a SOLIDUS U+002F or '/'. In the following rules in EBNF only two alternatives are allowed. The order of the alternatives is not important. However, the grammar introduces a small difference for the left and right side of the separator. One side, and only one side, of the separator may be empty to accommodate for certain definitions. Therefore, always one side of the separator MUST hold a definition. This is in EBNF:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>Series
          ::= ( CharacterCluster (Hyphen CharacterCluster)* Hyphen? )
            | ( Hyphen (CharacterCluster Hyphen)* CharacterCluster? )
@@ -1045,7 +1045,7 @@ valkuil;val[k=/=k]uil
 </pre></div>
 <p><sup><small>104</small></sup>Note that there is not a preferred order of mirrored heteronym clusters but a fixed order could prove practical for automated processing such as validation.
 </p>
-<p><sup><small>105</small></sup>Automated hyphenation of heteronyms poses an interesting challenge. How can the hyphenation recognise which hyphenation pattern to use? This is out of scope for this standard but important to discuss. All other forms of hyphenation can be handled directly by a hyphenation algorithm but here extra information is need. This could be extracted from the context but can proof difficult if no context is available or the context is ambiguous. On the other hand, the author of a text could provide the needed information. This could be stored in soft hyphens for examples. The hyphenator could assist the author here by playing an interactive role. Similarly to spell checking the author could be asked which meaning of a heteronym is meant by having the author selecting between expanded hyphenation patterns.
+<p><sup><small>105</small></sup>Automated hyphenation of heteronyms poses an interesting challenge. How can the hyphenation recognise which hyphenation pattern to use? This is out of scope for this standard but important to discuss. All other forms of hyphenation can be handled directly by a hyphenation algorithm, but here extra information is need. This could be extracted from the context, but can proof difficult if no context is available or the context is ambiguous. On the other hand, the author of a text could provide the needed information. This could be stored in soft hyphens, for example. The hyphenator could assist the author here by playing an interactive role. Similarly to spell checking the author could be asked which meaning of a heteronym is intended by having the author choose between expanded hyphenation patterns.
 </p>
 <p><sup><small>106</small></sup>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. TODO heteronum!! In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German irriversable up and down casting
@@ -1065,7 +1065,7 @@ valkuil;val[k=/=k]uil
 <a name="rfc.section.5.3"></a><h3>5.3.&nbsp;
 Nested hyphenation</h3>
 
-<p><sup><small>107</small></sup>Nesting of a substitution cluster inside a heteronym cluster MAY be done. This is already defined in the grammar for <a class='info' href='#heteronym'>heteronym hyphenation<span> (</span><span class='info'>Hyphenation of heteronyms</span><span>)</span></a>. Here the priority is on the enclosing heteronym cluster. Deeper or other ways of nesting clusters is not allowed. This is very rare but some examples for German are:
+<p><sup><small>107</small></sup>Nesting of a substitution cluster inside a heteronym cluster MAY be done. This is already defined in the grammar for <a class='info' href='#heteronym'>heteronym hyphenation<span> (</span><span class='info'>Hyphenation of heteronyms</span><span>)</span></a>. Here the priority is on the enclosing heteronym cluster. Deeper or other ways of nesting clusters is not allowed. This is very rare, but some examples for German are:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre># German de-1901 nested hyphenation definitions
 # TODO or
 # TODO
