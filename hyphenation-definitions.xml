@@ -52,7 +52,7 @@
     <section title="Hyphenation">
         <t>TODO general introduction and example</t>
             <figure>
-<artwork><![CDATA[# Examples of hyphenated text.
+<artwork><![CDATA[# Examples of hyphenated text in English and Dutch.
 #
 #    An extre-         Een boom met prui-
 #    mely long         men die men als ei-
@@ -60,7 +60,7 @@
 #    word over-        treft hun omvang.
 #    looking a         Iemand wilde pluk-
 #    nice sen-         ken zonder toestem-
-#    temce as          ming te hebben. Er
+#    tence as          ming te hebben. Er
 #    a beauti-         werd ook nog gespro-
 #    ful exam-         ken dat hij een har-
 #    ple here.         tendiefje was.
@@ -75,7 +75,20 @@
             <t>TODO implementations and patgen and refs<!--(what were defacto standard or common use) patgen patgen2-->
             <xref target="Lia83">todo</xref>
             <xref target="Nem06">todo</xref>
-            <xref target="TRENNMP">asdf</xref>
+            <xref target="TM14">asdf</xref>
+            <xref target="SS95">asdf</xref>
+            <xref target="Soj95">asdf</xref>
+            <xref target="Har09">asdf</xref>
+            <xref target="MR08">asdf</xref>
+            <xref target="Lem03">asdf</xref>
+            <xref target="Lem05">asdf</xref>
+            <xref target="Hen08">asdf</xref>
+            <xref target="BS92">asdf</xref>
+            <xref target="W3C11">asdf</xref>
+            <xref target="W3C13b">asdf</xref>
+            <xref target="W3C13a">asdf</xref>
+            <xref target="W3C99">asdf</xref>
+
             </t>
         </section>
         <section anchor="automated_hyphenation" title="Automated hyphenation">
@@ -131,7 +144,7 @@
                 <t>document preparation systems based on TeX
                 <list style="symbols">
                     <t>Babel - TeX's and LaTeX's multilingual typesetting</t>
-                    <t>polyglossia - XeLaTeX's and LuaLaTeX's multilingual typesetting</t>
+                    <t>polyglossia - XeLaTeX's and lualatex's multilingual typesetting</t>
                 </list>
                 </t>
                 <t>hyphenation and justification with libhyphen
@@ -231,7 +244,7 @@
 # γλώσσα
 ]]></artwork>
             </figure>
-            <t>This complets the description of the the main structure which is processed in a line-by-line fashion.</t>
+            <t>This completes the description of the the main structure which is processed in a line-by-line fashion.</t>
         </section>
         <section anchor="general_hyphenation_definition" title="Hyphenation definition in general">
             <t>A hyphenation definition is the essential part of this format and MUST have, in this order:
@@ -259,7 +272,7 @@
 ]]></artwork>
             </figure>
             <t>Most Western languages would use a word with minimum of four characters to consider it a candidate for hyphenation. In case of hyphenation these languages require a minimum of two characters before and after hyphenation. The hyphenation character inserted is usually a HYPHEN-MINUS U+002D or '-'. However, some languages have a lexicography with a different set rules for hyphenation.</t>
-            <t>Modern Greek, however, allows hyphenation directly after a single character prefix. Another counterexample is the Ge'ez language. It uses a ETHIPOIC WORDSPACE or U+1361 to separate words. This language has no need for a hyphen character at the end of a line because no ambiguous situation can arise whether a word end at an end of line or not. This allows for hyphenation of a single character at the end of a word.</t>
+            <t>Modern Greek, however, allows hyphenation directly after a single character prefix. Another counterexample is the Ge'ez language. It uses a ETHIOPIC WORDSPACE or U+1361 to separate words. This language has no need for a hyphen character at the end of a line because no ambiguous situation can arise whether a word end at an end of line or not. This allows for hyphenation of a single character at the end of a word.</t>
             <t>For the reasons this format allows hyphenation definitions for words with a minimum of two characters. It is up to the user to enforce stricter rules for a greater minimum word length if needed. These are parameters of the hyphenation algorithm preprocessor to ignore words that are too short.</t>
             <t>A character in a word MUST be a printable character and MUST NOT be a control character such as LINE FEED or CHARACTER TABULATION and MUST NOT be a reserved character such as SPACE U+0020 ' ' or NUMBER SIGN U+0023 '#' is discussed. Without going into detail of other reserved characters, the definition of a character in EBNF is:</t>
             <figure>
@@ -546,7 +559,7 @@ zusammenhanglos;zu|sam~men=hang=¦los
 # Dutch compounds with suffix
 # (li + te + ra + tuur) + (we + ten > schap) > je
 # [lit: diminitive of literature science]
-# it is lexologically the diminitive of science
+# it is lexicologically the diminitive of science
 # but semantically diminutive of the entire compound
 literatuurwetenschapje;li~te~ra~tuur=we~ten¦schap=¦je
 # (on < (sa + men) + (han + gend)) > heid
@@ -565,7 +578,7 @@ onsamenhangendheid;on|sa~men=han~gend=¦heid
 Arbeitszimmer;Ar~beits=zim~mer # could be Ar~beit<s>=zim~mer
 
 # Dutch interfix
-# (kip + (p + en)) + soep [chickensoup]
+# (kip + (p + en)) + soep [chicken soup]
 kippensoep;kip~.pen=soep
 # could be;kip<~.pen>=soep
 # ((be + roep) + s) + ethiek [professional ethics]
@@ -575,7 +588,7 @@ beroepsethiek;be~roeps=ethiek
 Koninginnedag;Ko~nin~gin~ne=dag
 # could be   ;Ko~nin~gin<~ne>=dag
 
-# Croation interfix
+# Croatian interfix
 # (brod + o) + gradilište [shipyard]
 brodogradilište;brodo=gradilište
 # could be     ;brod<o>=gradilište
@@ -745,14 +758,14 @@ valkuil;val[k=/=k]uil
             </figure>
             <t>Note that there is not a preferred order of mirrored heteronym clusters but a fixed order could prove practical for automated processing such as validation.</t>
             <t>Automated hyphenation of heteronyms poses an interesting challenge. How can the hyphenation recognise which hyphenation pattern to use? This is out of scope for this standard but important to discuss. All other forms of hyphenation can be handled directly by a hyphenation algorithm, but here extra information is need. This could be extracted from the context, but can proof difficult if no context is available or the context is ambiguous. On the other hand, the author of a text could provide the needed information. This could be stored in soft hyphens, for example. The hyphenator could assist the author here by playing an interactive role. Similarly to spell checking the author could be asked which meaning of a heteronym is intended by having the author choose between expanded hyphenation patterns.</t>
-            <t>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. TODO heteronum!! In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:</t>
+            <t>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. TODO heteronym!! In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:</t>
             <figure>
-<artwork><![CDATA[# German irriversable up and down casting
+<artwork><![CDATA[# German irreversable up and down casting
 # Maße upvast -> MASSE
 # MASSE ambiguous downcast -> Maße or Masse
 # LATIN CAPITAL LETTER SHARP S U+1E9E is rarely used
 
-# Dutch irriversable up and down casting
+# Dutch irreversible up and down casting
 # officiëren upcast -> OFFICIEREN
 # OFFICIEREN ambiguous downcast -> officiëren or officieren
 # gêne upcast -> GENE
@@ -824,7 +837,8 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
         <t>Reserved characters for this format are:</t>
         <figure>
 <artwork><![CDATA[/* Hyphenation Definitions 0.8
- * TODO URL
+ * https://raw.github.com/OpenTaal/hyphenation-definitions/master/
+ * grammar/grammar.ebnf
  *
  * Reserved characters
  * tab                         U+0009  CHARACTER TABULATION  '\t'
@@ -895,8 +909,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
                 <date month="August" year="1983" />
             </front>
         </reference>
-
-        <reference anchor="Gel14" target="http://www.opentaal.org/TODO">
+        <reference anchor="Gel14" target="http://github.com/OpenTaal/hyphenation-definitions/">
             <front>
                 <title>A standard for prioritised and dynamic hyphenation definitions</title>
                 <author initials="S." surname="van Geloven" fullname="Sander van Geloven">
@@ -911,6 +924,74 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
                     </address>
                 </author>
                 <date month="January" year="2014" />
+            </front>
+        </reference>
+        <reference anchor="W3C11" target="http://www.w3.org/TR/CSS2/">
+            <front>
+                <title>Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</title>
+                <author>
+                    <organization abbrev="W3C">World Wide Web Consortium</organization>
+                    <address>
+                        <postal>
+                            <street>32 Vassar Street, Building 32-G514</street>
+                            <city>Cambridge</city> <region>MA</region> <code>02139</code>
+                            <country>United States</country>
+                        </postal>
+                        <uri>http://www.w3c.org</uri>
+                    </address>
+                </author>
+                <date month="June" year="2011" />
+            </front>
+        </reference>
+        <reference anchor="W3C13a" target="http://www.w3.org/TR/css3-text/">
+            <front>
+                <title>CSS Text Module Level 3</title>
+                <author>
+                    <organization abbrev="W3C">World Wide Web Consortium</organization>
+                    <address>
+                        <postal>
+                            <street>32 Vassar Street, Building 32-G514</street>
+                            <city>Cambridge</city> <region>MA</region> <code>02139</code>
+                            <country>United States</country>
+                        </postal>
+                        <uri>http://www.w3c.org</uri>
+                    </address>
+                </author>
+                <date month="October" year="2013" />
+            </front>
+        </reference>
+        <reference anchor="W3C13b" target="http://www.w3.org/TR/html51/">
+            <front>
+                <title>HTML 5.1, A vocabulary and associated APIs for HTML and XHTML</title>
+                <author>
+                    <organization abbrev="W3C">World Wide Web Consortium</organization>
+                    <address>
+                        <postal>
+                            <street>32 Vassar Street, Building 32-G514</street>
+                            <city>Cambridge</city> <region>MA</region> <code>02139</code>
+                            <country>United States</country>
+                        </postal>
+                        <uri>http://www.w3c.org</uri>
+                    </address>
+                </author>
+                <date month="October" year="2013" />
+            </front>
+        </reference>
+        <reference anchor="W3C99" target="http://www.w3.org/TR/html401/">
+            <front>
+                <title>HTML 4.01 Specification</title>
+                <author>
+                    <organization abbrev="W3C">World Wide Web Consortium</organization>
+                    <address>
+                        <postal>
+                            <street>32 Vassar Street, Building 32-G514</street>
+                            <city>Cambridge</city> <region>MA</region> <code>02139</code>
+                            <country>United States</country>
+                        </postal>
+                        <uri>http://www.w3c.org</uri>
+                    </address>
+                </author>
+                <date month="December" year="1999" />
             </front>
         </reference>
         <reference anchor="UNICODE" target="http://www.unicode.org/versions/Unicode6.3.0/">
@@ -930,6 +1011,165 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
                 <date month="September" year="2013" />
             </front>
         </reference>
+        <reference anchor="Har09" target="http://www.ctan.org/tex-archive/info/patgen2/">
+            <front>
+                <title>A small tutorial on the multilingual features of PatGen2</title>
+                <author initials="Y." surname="Haralambous" fullname="Yannis Haralambous">
+                </author>
+                <date month="December" year="2009" />
+            </front>
+        </reference>
+        <reference anchor="SS95" target="https://www.tug.org/TUGboat/tb16-3/">
+            <front>
+                <title>Hyphenation in TEX — Quo Vadis?</title>
+                <author initials="P." surname="Sojka" fullname="Petr Sojka">
+                    <organization>Faculty of Informatics, Masaryk University</organization>
+                    <address>
+                        <postal>
+                            <street>Burešova 20</street>
+                            <city>Brno</city> <code>602 00</code>
+                            <country>Czech Republic</country>
+                        </postal>
+                        <email>sojka@muni.cz</email>
+                    </address>
+                </author>
+                <author initials="P." surname="Ševeček" fullname="Pavel Ševeček">
+                    <organization>Faculty of Informatics, Masaryk University</organization>
+                    <address>
+                        <postal>
+                            <street>Burešova 20</street>
+                            <city>Brno</city> <code>602 00</code>
+                            <country>Czech Republic</country>
+                        </postal>
+                        <email>pavel@muni.cz</email>
+                    </address>
+                </author>
+                <date month="September" year="1995" />
+            </front>
+            <seriesInfo name="TB" value="16-3" />
+        </reference>
+        <reference anchor="Soj95" target="https://www.tug.org/TUGboat/tb16-3/">
+            <front>
+                <title>Notes on Compound Word Hyphenation in TEX</title>
+                <author initials="P." surname="Sojka" fullname="Petr Sojka">
+                    <organization>Faculty of Informatics, Masaryk University</organization>
+                    <address>
+                        <postal>
+                            <street>Burešova 20</street>
+                            <city>Brno</city> <code>602 00</code>
+                            <country>Czech Republic</country>
+                        </postal>
+                        <email>sojka@muni.cz</email>
+                    </address>
+                </author>
+                <date month="September" year="1995" />
+            </front>
+            <seriesInfo name="TB" value="16-3" />
+        </reference>
+        <reference anchor="MR08" target="https://www.tug.org/TUGboat/tb29-3/">
+            <front>
+                <title>Putting the Cork back in the bottle — Improving Unicode support in TEX</title>
+                <author initials="M." surname="Miklavec" fullname="Mojca Miklavec">
+                    <organization>Faculty of Mathematics and Physics, University of Ljubljana</organization>
+                </author>
+                <author initials="A." surname="Reutenauer" fullname="Arthur Reutenauer">
+                    <organization>GUTenberg, France</organization>
+                    <address>
+                        <uri>http://tug.org/tex-hyphen</uri>
+                    </address>
+                </author>
+                <date month="October" year="2008" />
+            </front>
+            <seriesInfo name="TB" value="29-3" />
+        </reference>
+        <reference anchor="Lem03" target="http://www.dante.de/DTK/Ausgaben_en.html">
+            <front>
+                <title>Hyphenation Exception Log für deutsche Trennmuster</title>
+                <author initials="W." surname="Lemberg" fullname="Werner Lemberg">
+                    <organization>DANTE, Deutschsprachige Anwendervereinigung TEX e.V.</organization>
+                    <address>
+                        <postal>
+                            <street>Postfach 10 18 40</street>
+                            <city>Heidelberg</city> <code>69008</code>
+                            <country>Germany</country>
+                        </postal>
+			<email>dante@dante.de</email>
+                        <uri>http://www.dante.de</uri>
+                    </address>
+                </author>
+                <date month="May" year="2003" />
+            </front>
+            <seriesInfo name="DTK" value="15-2" />
+        </reference>
+        <reference anchor="BS92" target="http://www.dante.de/DTK/Ausgaben_en.html">
+            <front>
+                <title>Deutsche Silbentrennung für TEX 3.1</title>
+                <author initials="W." surname="Barth" fullname="Wilhelm Barth">
+                    <organization>DANTE, Deutschsprachige Anwendervereinigung TEX e.V.</organization>
+                    <address>
+                        <postal>
+                            <street>Postfach 10 18 40</street>
+                            <city>Heidelberg</city> <code>69008</code>
+                            <country>Germany</country>
+                        </postal>
+			<email>dante@dante.de</email>
+                        <uri>http://www.dante.de</uri>
+                    </address>
+                </author>
+                <author initials="H." surname="Steiner" fullname="Helmut Steiner">
+                    <organization>DANTE, Deutschsprachige Anwendervereinigung TEX e.V.</organization>
+                    <address>
+                        <postal>
+                            <street>Postfach 10 18 40</street>
+                            <city>Heidelberg</city> <code>69008</code>
+                            <country>Germany</country>
+                        </postal>
+			<email>dante@dante.de</email>
+                        <uri>http://www.dante.de</uri>
+                    </address>
+                </author>
+                <date month="May" year="2005" />
+            </front>
+            <seriesInfo name="DTK" value="17-2" />
+        </reference>
+        <reference anchor="Lem05" target="http://www.dante.de/DTK/Ausgaben_en.html">
+            <front>
+                <title>Hyphenation Exception Log für deutsche Trennmuster, Version 1</title>
+                <author initials="W." surname="Lemberg" fullname="Werner Lemberg">
+                    <organization>DANTE, Deutschsprachige Anwendervereinigung TEX e.V.</organization>
+                    <address>
+                        <postal>
+                            <street>Postfach 10 18 40</street>
+                            <city>Heidelberg</city> <code>69008</code>
+                            <country>Germany</country>
+                        </postal>
+			<email>dante@dante.de</email>
+                        <uri>http://www.dante.de</uri>
+                    </address>
+                </author>
+                <date month="May" year="2005" />
+            </front>
+            <seriesInfo name="DTK" value="17-2" />
+        </reference>
+        <reference anchor="Hen08" target="http://www.dante.de/DTK/Ausgaben_en.html">
+            <front>
+                <title>Einige Fragen zum Beitrag »Hyphenation Exception Log für deutsche Trennmuster, Version 1«</title>
+                <author initials="S." surname="Hennig" fullname="Stephan Hennig">
+                    <organization>DANTE, Deutschsprachige Anwendervereinigung TEX e.V.</organization>
+                    <address>
+                        <postal>
+                            <street>Postfach 10 18 40</street>
+                            <city>Heidelberg</city> <code>69008</code>
+                            <country>Germany</country>
+                        </postal>
+			<email>dante@dante.de</email>
+                        <uri>http://www.dante.de</uri>
+                    </address>
+                </author>
+                <date month="January" year="2008" />
+            </front>
+            <seriesInfo name="DTK" value="20-1" />
+        </reference>
         <reference anchor="Nem06" target="https://www.tug.org/TUGboat/tb27-1/">
             <front>
                 <title>Automatic non-standard hyphenation in OpenOffice.org</title>
@@ -946,6 +1186,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
                 </author>
                 <date month="October" year="2006" />
             </front>
+            <seriesInfo name="TB" value="27-1" />
         </reference>
         <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119">
             <front>
@@ -996,7 +1237,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
             </front>
             <seriesInfo name="BCP" value="47" />
         </reference>
-        <reference anchor="TRENNMP" target="http://projekte.dante.de/Trennmuster">
+        <reference anchor="TM14" target="http://projekte.dante.de/Trennmuster/">
             <front>
                 <title>Trennmuster</title>
                 <author>

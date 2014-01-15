@@ -145,9 +145,9 @@ Table of Contents
    6.  Hyphenation priority . . . . . . . . . . . . . . . . . . . . . 30
    7.  Reserved characters  . . . . . . . . . . . . . . . . . . . . . 31
    8.  References . . . . . . . . . . . . . . . . . . . . . . . . . . 32
-   Appendix A.  Grammar . . . . . . . . . . . . . . . . . . . . . . . 33
-   Appendix B.  Acknowledgements  . . . . . . . . . . . . . . . . . . 36
-   Author's Address . . . . . . . . . . . . . . . . . . . . . . . . . 37
+   Appendix A.  Grammar . . . . . . . . . . . . . . . . . . . . . . . 34
+   Appendix B.  Acknowledgements  . . . . . . . . . . . . . . . . . . 37
+   Author's Address . . . . . . . . . . . . . . . . . . . . . . . . . 38
 
 
 
@@ -284,7 +284,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 2.  Hyphenation
 <8>
    TODO general introduction and example
-   # Examples of hyphenated text.
+   # Examples of hyphenated text in English and Dutch.
    #
    #    An extre-         Een boom met prui-
    #    mely long         men die men als ei-
@@ -292,7 +292,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    #    word over-        treft hun omvang.
    #    looking a         Iemand wilde pluk-
    #    nice sen-         ken zonder toestem-
-   #    temce as          ming te hebben. Er
+   #    tence as          ming te hebben. Er
    #    a beauti-         werd ook nog gespro-
    #    ful exam-         ken dat hij een har-
    #    ple here.         tendiefje was.
@@ -304,15 +304,15 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 2.2.  History
 <10>
    TODO implementations and patgen and refs todo [Lia83] todo [Nem06]
-   asdf [TRENNMP]
+   asdf [TM14] asdf [SS95] asdf [Soj95] asdf [Har09] asdf [MR08] asdf
+   [Lem03] asdf [Lem05] asdf [Hen08] asdf [BS92] asdf [W3C11] asdf
+   [W3C13b] asdf [W3C13a] asdf [W3C99]
 
 2.3.  Automated hyphenation
 <11>
    TODO the challenge and paper/webpage create word list for language or
    dialect generate suggested hyphenation definitions manually review
    hyphenation definitions
-
-
 
 
 
@@ -405,7 +405,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 <17>
       *  Babel - TeX's and LaTeX's multilingual typesetting
 <18>
-      *  polyglossia - XeLaTeX's and LuaLaTeX's multilingual typesetting
+      *  polyglossia - XeLaTeX's and lualatex's multilingual typesetting
 
 <19>
    o  hyphenation and justification with libhyphen
@@ -594,7 +594,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # &#947;&#955;&#974;&#963;&#963;&#945;
 
 <51>
-   This complets the description of the the main structure which is
+   This completes the description of the the main structure which is
    processed in a line-by-line fashion.
 
 3.2.  Hyphenation definition in general
@@ -643,7 +643,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 <59>
    Modern Greek, however, allows hyphenation directly after a single
    character prefix.  Another counterexample is the Ge'ez language.  It
-   uses a ETHIPOIC WORDSPACE or U+1361 to separate words.  This language
+   uses a ETHIOPIC WORDSPACE or U+1361 to separate words.  This language
    has no need for a hyphen character at the end of a line because no
    ambiguous situation can arise whether a word end at an end of line or
    not.  This allows for hyphenation of a single character at the end of
@@ -1132,7 +1132,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # Dutch compounds with suffix
    # (li + te + ra + tuur) + (we + ten > schap) > je
    # [lit: diminitive of literature science]
-   # it is lexologically the diminitive of science
+   # it is lexicologically the diminitive of science
    # but semantically diminutive of the entire compound
    literatuurwetenschapje;li~te~ra~tuur=we~ten|schap=|je
    # (on < (sa + men) + (han + gend)) > heid
@@ -1182,7 +1182,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    Arbeitszimmer;Ar~beits=zim~mer # could be Ar~beit<s>=zim~mer
 
    # Dutch interfix
-   # (kip + (p + en)) + soep [chickensoup]
+   # (kip + (p + en)) + soep [chicken soup]
    kippensoep;kip~.pen=soep
    # could be;kip<~.pen>=soep
    # ((be + roep) + s) + ethiek [professional ethics]
@@ -1192,7 +1192,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    Koninginnedag;Ko~nin~gin~ne=dag
    # could be   ;Ko~nin~gin<~ne>=dag
 
-   # Croation interfix
+   # Croatian interfix
    # (brod + o) + gradiliste [shipyard]
    brodogradiliste;brodo=gradiliste
    # could be     ;brod<o>=gradiliste
@@ -1523,19 +1523,19 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    Something that has not been discussed up to this point, but is
    illustrated in the previous example with wales and Wales, is case
    sensitivity of hyphenation patterns.  Hyphenation definitions MUST be
-   specified as case sensitive as possible.  TODO heteronum!!  In case
+   specified as case sensitive as possible.  TODO heteronym!!  In case
    capitalised, upper case and/or lower case are merged a lower case
    notation is RECOMMENDED to be used, followed by capitalised and
    finally upper case.  Reasons for this that casting to upper case or
    capitalised spelling can result in information reduction whereas
    casting to lower case can not restore the eliminated information.
    Examples:
-   # German irriversable up and down casting
+   # German irreversable up and down casting
    # Masse upvast -> MASSE
    # MASSE ambiguous downcast -> Masse or Masse
    # LATIN CAPITAL LETTER SHARP S U+1E9E is rarely used
 
-   # Dutch irriversable up and down casting
+   # Dutch irreversible up and down casting
    # officieren upcast -> OFFICIEREN
    # OFFICIEREN ambiguous downcast -> officieren or officieren
    # gene upcast -> GENE
@@ -1685,7 +1685,8 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 <109>
    Reserved characters for this format are:
    /* Hyphenation Definitions 0.8
-    * TODO URL
+    * https://raw.github.com/OpenTaal/hyphenation-definitions/master/
+    * grammar/grammar.ebnf
     *
     * Reserved characters
     * tab                         U+0009  CHARACTER TABULATION  '\t'
@@ -1731,7 +1732,6 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
 
-
 van Geloven                   Informational                    [Page 31]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
@@ -1752,14 +1752,69 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
    [Gel14]    van Geloven, S., "A standard for prioritised and dynamic
               hyphenation definitions", January 2014,
-              <http://www.opentaal.org/TODO>.
+              <http://github.com/OpenTaal/hyphenation-definitions/>.
+
+   [W3C11]    World Wide Web Consortium, "Cascading Style Sheets Level 2
+              Revision 1 (CSS 2.1) Specification", June 2011,
+              <http://www.w3.org/TR/CSS2/>.
+
+   [W3C13a]   World Wide Web Consortium, "CSS Text Module Level 3",
+              October 2013, <http://www.w3.org/TR/css3-text/>.
+
+   [W3C13b]   World Wide Web Consortium, "HTML 5.1, A vocabulary and
+              associated APIs for HTML and XHTML", October 2013,
+              <http://www.w3.org/TR/html51/>.
+
+   [W3C99]    World Wide Web Consortium, "HTML 4.01 Specification",
+              December 1999, <http://www.w3.org/TR/html401/>.
 
    [UNICODE]  The Unicode Consortium, "The Unicode Standard, Version
               6.3.0", September 2013,
               <http://www.unicode.org/versions/Unicode6.3.0/>.
 
+   [Har09]    Haralambous, Y., "A small tutorial on the multilingual
+              features of PatGen2", December 2009,
+              <http://www.ctan.org/tex-archive/info/patgen2/>.
+
+   [SS95]     Sojka, P. and P. Seve&#269;ek, "Hyphenation in TEX -- Quo
+              Vadis?", TB 16-3, September 1995,
+              <https://www.tug.org/TUGboat/tb16-3/>.
+
+   [Soj95]    Sojka, P., "Notes on Compound Word Hyphenation in TEX",
+              TB 16-3, September 1995,
+              <https://www.tug.org/TUGboat/tb16-3/>.
+
+   [MR08]     Miklavec, M. and A. Reutenauer, "Putting the Cork back in
+
+
+
+van Geloven                   Informational                    [Page 32]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
+              the bottle -- Improving Unicode support in TEX", TB 29-3,
+              October 2008, <https://www.tug.org/TUGboat/tb29-3/>.
+
+   [Lem03]    Lemberg, W., "Hyphenation Exception Log fuer deutsche
+              Trennmuster", DTK 15-2, May 2003,
+              <http://www.dante.de/DTK/Ausgaben_en.html>.
+
+   [BS92]     Barth, W. and H. Steiner, "Deutsche Silbentrennung fuer
+              TEX 3.1", DTK 17-2, May 2005,
+              <http://www.dante.de/DTK/Ausgaben_en.html>.
+
+   [Lem05]    Lemberg, W., "Hyphenation Exception Log fuer deutsche
+              Trennmuster, Version 1", DTK 17-2, May 2005,
+              <http://www.dante.de/DTK/Ausgaben_en.html>.
+
+   [Hen08]    Hennig, S., "Einige Fragen zum Beitrag >>Hyphenation
+              Exception Log fuer deutsche Trennmuster, Version 1<<",
+              DTK 20-1, January 2008,
+              <http://www.dante.de/DTK/Ausgaben_en.html>.
+
    [Nem06]    Nemeth, L., "Automatic non-standard hyphenation in
-              OpenOffice.org", October 2006,
+              OpenOffice.org", TB 27-1, October 2006,
               <https://www.tug.org/TUGboat/tb27-1/>.
 
    [RFC2119]  Brander, S., "Key words for use in RFCs to Indicate
@@ -1770,9 +1825,9 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
               Languages", BCP 47, September 2006,
               <https://www.rfc-editor.org/info/bcp47>.
 
-   [TRENNMP]  DANTE, Deutschsprachige Anwendervereinigung TeX e.V.,
+   [TM14]     DANTE, Deutschsprachige Anwendervereinigung TeX e.V.,
               "Trennmuster", January 2014,
-              <http://projekte.dante.de/Trennmuster>.
+              <http://projekte.dante.de/Trennmuster/>.
 
 
 
@@ -1788,7 +1843,8 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
 
-van Geloven                   Informational                    [Page 32]
+
+van Geloven                   Informational                    [Page 33]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
@@ -1844,7 +1900,7 @@ Appendix A.  Grammar
 
 
 
-van Geloven                   Informational                    [Page 33]
+van Geloven                   Informational                    [Page 34]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
@@ -1900,7 +1956,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
 
-van Geloven                   Informational                    [Page 34]
+van Geloven                   Informational                    [Page 35]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
@@ -1956,7 +2012,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
 
-van Geloven                   Informational                    [Page 35]
+van Geloven                   Informational                    [Page 36]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
@@ -2012,7 +2068,7 @@ Appendix B.  Acknowledgements
 
 
 
-van Geloven                   Informational                    [Page 36]
+van Geloven                   Informational                    [Page 37]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
@@ -2068,5 +2124,5 @@ Author's Address
 
 
 
-van Geloven                   Informational                    [Page 37]
+van Geloven                   Informational                    [Page 38]
 
