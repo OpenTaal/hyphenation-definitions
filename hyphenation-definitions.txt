@@ -1,6 +1,10 @@
 
 
 
+
+
+
+
 Internet Engineering Task Force (IETF)                    S. van Geloven
 Request for Comments: TODO                                      OpenTaal
 Category: Informational                                     January 2014
@@ -10,7 +14,6 @@ ISSN: 2070-1721
      A standard for prioritised and dynamic hyphenation definitions
 
 Abstract
-
 <1>
    This document describes a standard for hyphenation definitions
    enabling the generation of prioritised and dynamic hyphenation
@@ -41,14 +44,15 @@ Abstract
    enables improved automatic hyphenation for printed media and web
    documents.
 
-Status of this Memo
+Status of This Memo
 
    This document is not an Internet Standards Track specification; it is
    published for informational purposes.
 
-   This document is a product of the Internet Engineering Task Force
-   (IETF).  It represents the consensus of the IETF community.  It has
-   received public review and has been approved for publication by the
+
+
+
+
 
 
 
@@ -57,9 +61,11 @@ van Geloven                   Informational                     [Page 1]
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-   Internet Engineering Steering Group (IESG).  Not all documents
-   approved by the IESG are a candidate for any level of Internet
-   Standard; see Section 2 of RFC 5741.
+   This document is a product of the Internet Engineering Task Force
+   (IETF).  It has been approved for publication by the Internet
+   Engineering Steering Group (IESG).  Not all documents approved by the
+   IESG are a candidate for any level of Internet Standard; see
+   Section 2 of RFC 5741.
 
    Information about the current status of this document, any errata,
    and how to provide feedback on it may be obtained at
@@ -80,31 +86,29 @@ Copyright Notice
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
 
+Table of Contents
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.1.  Requirements language . . . . . . . . . . . . . . . . . .   3
+     1.2.  Language tags . . . . . . . . . . . . . . . . . . . . . .   3
+     1.3.  Character encoding  . . . . . . . . . . . . . . . . . . .   3
+     1.4.  Format description  . . . . . . . . . . . . . . . . . . .   4
+     1.5.  Design decisions  . . . . . . . . . . . . . . . . . . . .   4
+   2.  Hyphenation . . . . . . . . . . . . . . . . . . . . . . . . .   4
+     2.1.  Hyphenation in general  . . . . . . . . . . . . . . . . .   4
+     2.2.  History . . . . . . . . . . . . . . . . . . . . . . . . .   5
+     2.3.  Automated hyphenation . . . . . . . . . . . . . . . . . .   5
+     2.4.  Applications that hyphenate . . . . . . . . . . . . . . .   6
+   3.  Basic format  . . . . . . . . . . . . . . . . . . . . . . . .   7
+     3.1.  Main structure  . . . . . . . . . . . . . . . . . . . . .   7
+     3.2.  Hyphenation definition in general . . . . . . . . . . . .   9
+     3.3.  Hyphenation definition for a word . . . . . . . . . . . .  11
+     3.4.  Hyphenation definition for a word prefix  . . . . . . . .  13
+     3.5.  Hyphenation definition for a word suffix  . . . . . . . .  14
+   4.  Extended format . . . . . . . . . . . . . . . . . . . . . . .  15
+     4.1.  Hyphenation definition for a compound . . . . . . . . . .  15
+     4.2.  Hyphenation definition for a compound prefix  . . . . . .  17
+     4.3.  Hyphenation definition for a compound suffix  . . . . . .  17
 
 
 
@@ -113,61 +117,18 @@ van Geloven                   Informational                     [Page 2]
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-Table of Contents
-
-   1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . . .  4
-     1.1.  Requirements language  . . . . . . . . . . . . . . . . . .  4
-     1.2.  Language tags  . . . . . . . . . . . . . . . . . . . . . .  4
-     1.3.  Character encoding . . . . . . . . . . . . . . . . . . . .  4
-     1.4.  Format description . . . . . . . . . . . . . . . . . . . .  4
-     1.5.  Design decisions . . . . . . . . . . . . . . . . . . . . .  5
-   2.  Hyphenation  . . . . . . . . . . . . . . . . . . . . . . . . .  6
-     2.1.  Hyphenation in general . . . . . . . . . . . . . . . . . .  6
-     2.2.  History  . . . . . . . . . . . . . . . . . . . . . . . . .  6
-     2.3.  Automated hyphenation  . . . . . . . . . . . . . . . . . .  6
-     2.4.  Applications that hyphenate  . . . . . . . . . . . . . . .  8
-   3.  Basic format . . . . . . . . . . . . . . . . . . . . . . . . . 10
-     3.1.  Main structure . . . . . . . . . . . . . . . . . . . . . . 10
-     3.2.  Hyphenation definition in general  . . . . . . . . . . . . 11
-     3.3.  Hyphenation definition for a word  . . . . . . . . . . . . 14
-     3.4.  Hyphenation definition for a word prefix . . . . . . . . . 16
-     3.5.  Hyphenation definition for a word suffix . . . . . . . . . 16
-   4.  Extended format  . . . . . . . . . . . . . . . . . . . . . . . 18
-     4.1.  Hyphenation definition for a compound  . . . . . . . . . . 18
-     4.2.  Hyphenation definition for a compound prefix . . . . . . . 20
-     4.3.  Hyphenation definition for a compound suffix . . . . . . . 20
-     4.4.  Hyphenation definition for a compound interfix . . . . . . 21
-     4.5.  Unfavourable hyphenation . . . . . . . . . . . . . . . . . 22
-   5.  Dynamic hyphenation  . . . . . . . . . . . . . . . . . . . . . 24
-     5.1.  Hyphenation with alterned spelling . . . . . . . . . . . . 24
-     5.2.  Hyphenation of homographs  . . . . . . . . . . . . . . . . 26
-     5.3.  Nested hyphenation . . . . . . . . . . . . . . . . . . . . 28
-   6.  Hyphenation priority . . . . . . . . . . . . . . . . . . . . . 30
-   7.  Reserved characters  . . . . . . . . . . . . . . . . . . . . . 31
-   8.  References . . . . . . . . . . . . . . . . . . . . . . . . . . 32
-   Appendix A.  Grammar . . . . . . . . . . . . . . . . . . . . . . . 34
-   Appendix B.  Acknowledgements  . . . . . . . . . . . . . . . . . . 37
-   Author's Address . . . . . . . . . . . . . . . . . . . . . . . . . 38
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                     [Page 3]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
+     4.4.  Hyphenation definition for a compound interfix  . . . . .  18
+     4.5.  Unfavourable hyphenation  . . . . . . . . . . . . . . . .  19
+   5.  Dynamic hyphenation . . . . . . . . . . . . . . . . . . . . .  20
+     5.1.  Hyphenation with altered spelling . . . . . . . . . . . .  20
+     5.2.  Hyphenation of homographs . . . . . . . . . . . . . . . .  22
+     5.3.  Nested hyphenation  . . . . . . . . . . . . . . . . . . .  24
+   6.  Hyphenation priority  . . . . . . . . . . . . . . . . . . . .  25
+   7.  Reserved characters . . . . . . . . . . . . . . . . . . . . .  25
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  26
+   Appendix A.  Grammar  . . . . . . . . . . . . . . . . . . . . . .  28
+   Appendix B.  Acknowledgements . . . . . . . . . . . . . . . . . .  30
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  31
 
 1.  Introduction
 <2>
@@ -204,6 +165,14 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    followed by four to six hexadecimal digits.  Usually, four or five
    digits are being used.  A Unicode character is shown between single
    quotation marks and the Unicode name of the character is written in
+
+
+
+van Geloven                   Informational                     [Page 3]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    all capitals.  An example code point is U+003D to indicate the
    character '=' which is known as the EQUALS SIGN.
 
@@ -216,14 +185,6 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    respectively ::= and /* in this document.  The syntax of all
    accompanying examples, recognisable by a #, always conforms to this
    grammar.
-
-
-
-
-van Geloven                   Informational                     [Page 4]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
 1.5.  Design decisions
 <7>
@@ -241,49 +202,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    the designed format offers a maximum degree of freedom and
    flexibility for the end user is key.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                     [Page 5]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 2.  Hyphenation
 <8>
    TODO general introduction and example
+
    # Examples of hyphenated text in English and Dutch.
    #
    #    An extre-         Een boom met prui-
@@ -298,6 +220,15 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    #    ple here.         tendiefje was.
 
 2.1.  Hyphenation in general
+
+
+
+
+van Geloven                   Informational                     [Page 4]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
 <9>
    TODO general concept
 
@@ -314,36 +245,13 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    dialect generate suggested hyphenation definitions manually review
    hyphenation definitions
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                     [Page 6]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
    Process of delivering automated hyphenation
 
        +---------------------+
        |   word list for a   |
        | language or dialect |
        +---------------------+
-                  || automated syllabilification
+                  || automated syllabification
                   \/
      +-------------------------+
      |     working set of      |
@@ -366,8 +274,16 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
                   || real-time use of
                   \/ hyphenation algorithm
          +------------------+
+         |  automatically   |
          | hyphenated text  |
          +------------------+
+
+
+
+van Geloven                   Informational                     [Page 5]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
 
 <12>
    This standard caters to the following two functional requirements.
@@ -380,11 +296,99 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
       application) I want to retrieve hyphenation points from
       hyphenation definitions to in order to generate hyphenation
       patterns for a certain language of dialect.
-
+<15>
    Both cases are a part of the process to provide automated hyphenation
    of text in software applications.
 
+2.4.  Applications that hyphenate
+<16>
+   Improving automated hyphenation affects all software applications
+   depending on it.  To indicate the impact of a change it is important
+   to list affected products and organisations.  The following
+   applications currently use hyphenation patterns which originate from
+   patgen:
+<17>
+   o  document preparation systems based on TeX
+<18>
+      *  Babel - TeX's and LaTeX's multilingual typesetting
+<19>
+      *  polyglossia - XeLaTeX's and lualatex's multilingual typesetting
+<20>
+   o  hyphenation and justification with libhyphen
+<21>
+      *  LibreOffice - The Document Foundation's office suite
+<22>
+      *  Apache OpenOffice - Apache Software Foundation's office suite
+<23>
+      *  Inkscape* - a vector graphics editor
+<24>
+      *  GIMP - a raster graphics editor
+<25>
+      *  Scribus - desktop publishing software
+<26>
+      *  InDesign - Adobe's desktop publishing software
+<27>
+      *  Illustrator - Adobe's vector graphics editor
+<28>
+   o  client-side hyphenation in JavaScript with hyphenator.js
+<29>
+   o  layout engines for rendering web pages
 
+
+
+van Geloven                   Informational                     [Page 6]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
+<30>
+      *  Gecko by Mozilla
+<31>
+         +  Firefox - Mozilla's web browser
+<32>
+         +  Thunderbird - Mozilla's e-mail and news client
+<33>
+         +  Firefox for mobile - Mozilla's web browser for Android
+<34>
+      *  WebKit by Apple and Adobe
+<35>
+         +  Safari - Apple's web browser
+<36>
+         +  Konqueror - KDE's web browser and file manager
+<37>
+      *  Blink by Google
+<38>
+         +  Chromium and Chrome - Google's web browsers
+<39>
+         +  Opera - Opera's web browser
+<40>
+         +  Web Browser - Google's default web browser for Android
+<41>
+   * Implementation of automated hyphenation for Inkscape is planned for
+   the near future.
+<42>
+   This overview does not endorse or favour the use of any of these
+   applications and respects registered trademarks where applicable.  It
+   is merely included to illustrate the wide spectrum of applications
+   employing hyphenation patterns.
+
+3.  Basic format
+<43>
+   This section describes the basic format for hyphenation patterns.
+   These are usually stored in computer files, but they can also reside
+   in databases or memory.  The structure will be described step by
+   step, extending the grammar for this format and illustrating usage in
+   example.  The syntax of all examples complies to the grammar of this
+   format.
+
+3.1.  Main structure
+<44>
+   In order to support as many languages as possible, this format for
+   hyphenation definitions MUST use the Unicode character in a UTF-8
+   encoding.  A set of hyphenation definitions MAY have one or more
+   lines.  Each line MAY have, in the following order:
+<45>
+   1.  a hyphenation definition,
 
 
 
@@ -393,53 +397,53 @@ van Geloven                   Informational                     [Page 7]
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-2.4.  Applications that hyphenate
-<15>
-   Improving automated hyphenation affects all software applications
-   depending on it.  To indicate the impact of a change it is important
-   to list affected products and organisations.  The following
-   applications currently use hyphenation patterns which originate from
-   patgen:
-<16>
-   o  document preparation systems based on TeX
-<17>
-      *  Babel - TeX's and LaTeX's multilingual typesetting
-<18>
-      *  polyglossia - XeLaTeX's and lualatex's multilingual typesetting
+<46>
+   2.  white space,
+<47>
+   3.  and/or comments.
+<48>
+   This is the the top-level or main structure of the entire format.
+   The syntax for hyphenation definitions in Extended Backus-Naur Form
+   (EBNF) will therefore be:
 
-<19>
-   o  hyphenation and justification with libhyphen
-<20>
-      *  LibreOffice - The Document Foundation's office suite
-<21>
-      *  Apache OpenOffice - Apache Software Foundation's office suite
-<22>
-      *  Inkscape* - a vector graphics editor
-<23>
-      *  GIMP - a raster graphics editor
-<24>
-      *  Scribus - desktop publishing software
-<25>
-      *  InDesign - Adobe's desktop publishing software
-<26>
-      *  Illustrator - Adobe's vector graphics editor
+   HyphenationDefinitions
+            ::= ( EOL* HyphenationDefinition? WhiteSpace? Comment? )*
+<49>
+   Here EOL stands for an end of line.  An end of line MUST have a LINE
+   FEED (LF) or U+000A and MAY have a CARRIAGE RETURN (CR) or U+000D.
+   This is written in EBNF as:
 
-<27>
-   o  client-side hyphenation in JavaScript with hyphenator.js
-<28>
-   o  layout engines for rendering web pages
-<29>
-      *  Gecko by Mozilla
-<30>
-         +  Firefox - Mozilla's web browser
-<31>
-         +  Thunderbird - Mozilla's e-mail and news client
-<32>
-         +  Firefox for mobile - Mozilla's web browser for Android
+   EOL
+            ::= ( '\r' | #x000D ) ( '\n' | #x000A )?
+              | ( '\n' | #x000A )
+<50>
+   White space can be inserted to improve human readability of
+   hyphenation definitions but is OPTIONAL.  When used, it SHALL contain
+   only SPACE U+0020 or CHARACTER TABULATION U+0009 characters.  White
+   space in EBNF is:
 
-<33>
-      *  WebKit by Apple and Adobe
+   WhiteSpace
+            ::= ( ( ' ' | #x0009 )
+                | ( '\t' | #x0020 ) )+
+<51>
+   A comment MUST start with a NUMBER SIGN U+0023 or '#' and MAY contain
+   any combination of printable characters thereafter.  Comments MUST
+   NOT contain control characters that can result in an end of line,
+   however the CHARACTER TABULATION U+0009 MAY be used in comments.  In
+   EBNF a comment is:
 
+   Comment
+            ::= '#' ( [#x0009]
+                    | [#x0020-#xD7FF]
+                    | [#xE000-#xFFFD]
+                    | [#x10000-#x10FFFF] )*
+<52>
+   Note that the allowed range of characters needs to be fine tuned
+   later on.  It needs to exclude more non-characters according to
+   section 16.7 called Noncharacters of Unicode [UNICODE].  At least the
+   range U+0080 until U+009F is a candidate here but also for the
+   character range defined in hyphenation definitions in general
+   (Section 3.2).
 
 
 
@@ -449,54 +453,54 @@ van Geloven                   Informational                     [Page 8]
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-<34>
-         +  Safari - Apple's web browser
-<35>
-         +  Konqueror - KDE's web browser and file manager
+<53>
+   With the definition of the main structure, without any actual
+   hyphenation definition, it is possible store data in this format.  An
+   example with end of lines, white space and comments is:
 
-<36>
-      *  Blink by Google
-<37>
-         +  Chromium and Chrome - Google's web browsers
-<38>
-         +  Opera - Opera's web browser
-<39>
-         +  Web Browser - Google's default web browser for Android
+   # This is the first line with only a comment
 
-   * Implementation of automated hyphenation for Inkscape is planned for
-   the near future.
-<40>
-   This overview does not endorse or favour the use of any of these
-   applications and respects registered trademarks where applicable.  It
-   is merely included to illustrate the wide spectrum of applications
-   employing hyphenation patterns.
+   # This is the third line after an empty second line.
+           ## After some whitespace, this is the fourth line.   # #
+   # Comments can use most reserved characters, e.g. {}[]/|~=.; #
+   # and Unicode orthographys, e.g.
+   # &#1088;&#1091;&#769;&#1089;&#1089;&#1082;&#1080;&#1081;
+   # &#1103;&#1079;&#1099;&#769;&#1082;,
+   # j&#281;zyk polski and
+   # &#949;&#955;&#955;&#951;&#957;&#953;&#954;&#942;
+   # &#947;&#955;&#974;&#963;&#963;&#945;
+<54>
+   This completes the description of the the main structure which is
+   processed in a line-by-line fashion.
 
+3.2.  Hyphenation definition in general
+<55>
+   A hyphenation definition is the essential part of this format and
+   MUST have, in this order:
+<56>
+   1.  a word,
+<57>
+   2.  a delimiter,
+<58>
+   3.  and a definition.
+<59>
+   This is where the actual hyphenation definition is provided for a
+   word.  A word is REQUIRED to be unique amongst all definitions in a
+   single file because it is the unique key for looking up a hyphenation
+   definition.  A hyphenation definition in EBNF is written as:
 
+   HyphenationDefinition
+            ::= Word Delimiter Definition
+<60>
+   The delimiter MUST be a SEMICOLON ';' or U+003B. In EBNF this is:
 
+   Delimiter
+            ::= ';' | #x003B
+<61>
+   A word MUST be a concatenation of at least two characters:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   Word
+            ::= Character Character+
 
 
 
@@ -505,142 +509,14 @@ van Geloven                   Informational                     [Page 9]
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-3.  Basic format
-<41>
-   This section describes the basic format for hyphenation patterns.
-   These are usually stored in computer files, but they can also reside
-   in databases or memory.  The structure will be described step by
-   step, extending the grammar for this format and illustrating usage in
-   example.  The syntax of all examples complies to the grammar of this
-   format.
-
-3.1.  Main structure
-<42>
-   In order to support as many languages as possible, this format for
-   hyphenation definitions MUST use the Unicode character in a UTF-8
-   encoding.  A set of hyphenation definitions MAY have one or more
-   lines.  Each line MAY have, in the following order:
-<43>
-   1.  a hyphenation definition,
-<44>
-   2.  white space,
-<45>
-   3.  and/or comments.
-
-   This is the the top-level or main structure of the entire format.
-   The syntax for hyphenation definitions in Extended Backus-Naur Form
-   (EBNF) will therefore be:
-   HyphenationDefinitions
-            ::= ( EOL* HyphenationDefinition? WhiteSpace? Comment? )*
-
-<46>
-   Here EOL stands for an end of line.  An end of line MUST have a LINE
-   FEED (LF) or U+000A and MAY have a CARRIAGE RETURN (CR) or U+000D.
-   This is written in EBNF as:
-   EOL
-            ::= ( '\r' | #x000D ) ( '\n' | #x000A )?
-              | ( '\n' | #x000A )
-
-<47>
-   White space can be inserted to improve human readability of
-   hyphenation definitions but is OPTIONAL.  When used, it SHALL contain
-   only SPACE U+0020 or CHARACTER TABULATION U+0009 characters.  White
-   space in EBNF is:
-   WhiteSpace
-            ::= ( ( ' ' | #x0009 )
-                | ( '\t' | #x0020 ) )+
-
-<48>
-   A comment MUST start with a NUMBER SIGN U+0023 or '#' and MAY contain
-   any combination of printable characters thereafter.  Comments MUST
-
-
-
-van Geloven                   Informational                    [Page 10]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
-   NOT contain control characters that can result in an end of line,
-   however the CHARACTER TABULATION U+0009 MAY be used in comments.  In
-   EBNF a comment is:
-   Comment
-            ::= '#' ( [#x0009]
-                    | [#x0020-#xD7FF]
-                    | [#xE000-#xFFFD]
-                    | [#x10000-#x10FFFF] )*
-
-<49>
-   Note that the allowed range of characters needs to be fine tuned
-   later on.  It needs to exclude more non-characters according to
-   section 16.7 called Noncharacters of Unicode [UNICODE].  At least the
-   range U+0080 until U+009F is a candidate here but also for the
-   character range defined in hyphenation definitions in general
-   (Section 3.2).
-<50>
-   With the definition of the main structure, without any actual
-   hyphenation definition, it is possible store data in this format.  An
-   example with end of lines, white space and comments is:
-   # This is the first line with only a comment
-
-   # This is the third line after an empty second line.
-           ## After some whitespace, this is the fourth line.    #    #
-   # Comments can use most of the reserved characters, e.g. {}[]/|~=.; #
-   # and Unicode orthographys, e.g.
-   # &#1088;&#1091;&#769;&#1089;&#1089;&#1082;&#1080;&#1081;
-   # &#1103;&#1079;&#1099;&#769;&#1082;,
-   # j&#281;zyk polski and
-   # &#949;&#955;&#955;&#951;&#957;&#953;&#954;&#942;
-   # &#947;&#955;&#974;&#963;&#963;&#945;
-
-<51>
-   This completes the description of the the main structure which is
-   processed in a line-by-line fashion.
-
-3.2.  Hyphenation definition in general
-<52>
-   A hyphenation definition is the essential part of this format and
-   MUST have, in this order:
-<53>
-   1.  a word,
-<54>
-   2.  a delimiter,
-<55>
-   3.  and a definition.
-
-   This is where the actual hyphenation definition is provided for a
-
-
-
-van Geloven                   Informational                    [Page 11]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
-   word.  A word is REQUIRED to be unique amongst all definitions in a
-   single file because it is the unique key for looking up a hyphenation
-   definition.  A hyphenation definition in EBNF is written as:
-   HyphenationDefinition
-            ::= Word Delimiter Definition
-
-<56>
-   The delimiter MUST be a SEMICOLON ';' or U+003B. In EBNF this is:
-   Delimiter
-            ::= ';' | #x003B
-
-<57>
-   A word MUST be a concatenation of at least two characters:
-   Word
-            ::= Character Character+
-
-<58>
+<62>
    Most Western languages would use a word with minimum of four
    characters to consider it a candidate for hyphenation.  In case of
    hyphenation these languages require a minimum of two characters
    before and after hyphenation.  The hyphenation character inserted is
    usually a HYPHEN-MINUS U+002D or '-'.  However, some languages have a
    lexicography with a different set rules for hyphenation.
-<59>
+<63>
    Modern Greek, however, allows hyphenation directly after a single
    character prefix.  Another counterexample is the Ge'ez language.  It
    uses a ETHIOPIC WORDSPACE or U+1361 to separate words.  This language
@@ -648,30 +524,18 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    ambiguous situation can arise whether a word end at an end of line or
    not.  This allows for hyphenation of a single character at the end of
    a word.
-<60>
+<64>
    For the reasons this format allows hyphenation definitions for words
    with a minimum of two characters.  It is up to the user to enforce
    stricter rules for a greater minimum word length if needed.  These
    are parameters of the hyphenation algorithm preprocessor to ignore
    words that are too short.
-<61>
+<65>
    A character in a word MUST be a printable character and MUST NOT be a
    control character such as LINE FEED or CHARACTER TABULATION and MUST
    NOT be a reserved character such as SPACE U+0020 ' ' or NUMBER SIGN
    U+0023 '#' is discussed.  Without going into detail of other reserved
    characters, the definition of a character in EBNF is:
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 12]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
    Character
             ::= [#x0021-#x0022]
@@ -686,16 +550,24 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
               | [#x00A7-#xD7FF]
               | [#xE000-#xFFFD]
               | [#x10000-#x10FFFF]
-
-<62>
+<66>
    Instead of providing a hyphenation definition it is possible to
    repeat the word after the delimiter without providing any hyphenation
    information.  The grammar rule for definition will allow this.  A
    hyphenation definition repeating the word means that this word SHALL
    NOT be hyphenated at all.  A hyphenation definition MAY be given, but
    when none is provided for a certain word, then hyphenation for that
+
+
+
+van Geloven                   Informational                    [Page 10]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    word is undefined.  Some very short examples in the format as it is
    so far described are:
+
    # too short English words not allowed to be hyphenated
    #a;a
    #at;at
@@ -720,53 +592,53 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # hyphenation is undefined when no hyphenation definition is given
    #impeachment;impeachment
 
-
-
-
-
-van Geloven                   Informational                    [Page 13]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 3.3.  Hyphenation definition for a word
-<63>
+<67>
    A hyphenation definition in the most simple form MUST contain two or
    more clusters of characters that are separated by a hyphenation
    point.  Combined with the previous description of preventing
    hyphenation by repeating the word, the EBNF grammar rule for
    definition is:
+
    Definition
             ::= Cluster ( Hyphen Cluster )*
-
-<64>
+<68>
    A character cluster here MUST consist of at least one character.
    This basic form is already supported by the current hyphenation
    algorithm and is key to the concept of hyphenation.  More intricate
    schemes of clusters and hyphenations will be discussed later on, but
    are already referred to in the following EBNF bridging from cluster
    to character clusters:
+
    Cluster
             ::= ( CharacterCluster
                 | SubstitutionCluster
+
+
+
+van Geloven                   Informational                    [Page 11]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
                 | HomographCluster )+
    CharacterCluster
             ::= Character+
-
-<65>
+<69>
    The concatenation of different clusters only applies in combination
    with a substitution cluster or a homograph cluster, as will be
    demonstrated later on.  This is because consecutive character
    clusters have the same syntax as a single character cluster.  These
    are merely more characters added in the same way and will therefore
    MUST NOT be regarded as separate character clusters.
-<66>
+<70>
    The final construct required to allow for simple hyphenation
    definitions is a reserved character to separate the clusters of
    characters which are also known as morphemes.  Here one or more TILDE
    characters '~' or U+007E MUST be used as a morpheme hyphen.  In the
    following, rules allow also for more intricate hyphenation yet, the
    morpheme hyphen is:
+
    Hyphen
             ::= MorphemeHyphen
               | SuffixHyphen
@@ -777,16 +649,9 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
               | UnfavourableHyphen
    MorphemeHyphen
             ::= ( '~' | #x007E )+
-
-
-
-van Geloven                   Informational                    [Page 14]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
-<67>
+<71>
    Some simple examples of hyphenation definitions for words are:
+
    # English word with hyphenation definition
    revolve;re~volve # "volve" may not be hyphenated
    editor;ed~i~tor # character cluster of single character
@@ -804,20 +669,28 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
    # Modern Greek
    # note hyphenation directly after one character
+
+
+
+van Geloven                   Informational                    [Page 12]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    #&#940;&#964;&#945;&#954;&#964;&#959;&#962;;
    #&#940;~&#964;&#945;~&#954;&#964;&#959;&#962;
-
-<68>
+<72>
    Up to this point the functionality of the previous format for
    hyphenation patterns as used by patgen2 is similar.  Everything
-   described in this format from this point onwards is newly proposed
+   described in this format from this point onward is newly proposed
    functionality.
-<69>
+<73>
    A hyphenation point SHALL be defined by one or more tildes.  A
    hyphenation point of higher priority MUST have at least one
    additional tilde compared to lower priority hyphenation points.  Some
    examples to illustrate prioritised hyphenation definitions in words
    are:
+
    # English words with prioritised hyphenation
    ergonomic;er~go~~no~mic # because of (er + go) + (no + mic)
    thesauruses;the~sau~~rus~es
@@ -825,24 +698,14 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # French words with prioritised hyphenation
    portemonnaie;por~te~~mon~naie # because of (por + te) + (mon naie)
    atmosphere;at~mo~~sphe~re # because of (at + mo) + (sphe + re)
-
-<70>
+<74>
    The structure of the words is broken down in the comments with the
    use of brackets '(' and ')' and plus sign '+'.  This is a form of
    syllabification that reflects semantic information.  It is not a part
    of the format but is only used to explain the examples of the format.
 
-
-
-
-
-van Geloven                   Informational                    [Page 15]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 3.4.  Hyphenation definition for a word prefix
-<71>
+<75>
    Many languages allow usage of a prefix to alter the meaning of a
    word.  Here a VERTICAL LINE U+007C or '|' MAY be used to indicate a
    hyphenation point for a prefix.  This enables reuse of the
@@ -852,15 +715,24 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    right script.  Therefore, priority amongst prefixes is from left to
    right for a left-to-right script.  Syntax for defining hyphenation of
    a prefix should comply to the following EBNF:
+
    PrefixHyphen
             ::= '|' | #x007C
-
-<72>
+<76>
    Some examples of hyphenation definitions including a prefix are:
+
    # English words with prefix
    # dis < ap + pear
    disappear;dis|ap~pear
    # su + pra < or + bit + al
+
+
+
+van Geloven                   Informational                    [Page 13]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    supraorbital;su~pra|or~bit~al
 
    # German words with prefix
@@ -874,8 +746,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    gewillig;ge|wil~lig
    # her < be < re + ke + nen [to recalculate]
    herbereken;her|be|re~ke~nen
-
-<73>
+<77>
    In the comments, the prefixes are indicated with a less-than sign,
    which precedes evaluation of the plus sign.  Sometimes the comments
    on examples provide the meaning of the word in between double
@@ -884,24 +755,40 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    of this standard.
 
 3.5.  Hyphenation definition for a word suffix
-<74>
+<78>
    A suffix can be identified in a similar way as is done for prefixes
    (Section 3.4).  Instead of a vertical line a BROKEN BAR U+00A6 or '|'
    MAY be used for suffixes.  In EBNF this is:
 
+   SuffixHyphen
+            ::= '|' | #x00A6
+<79>
+   Some examples are:
 
 
 
-van Geloven                   Informational                    [Page 16]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+van Geloven                   Informational                    [Page 14]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-   SuffixHyphen
-            ::= '|' | #x00A6
-
-<75>
-   Some examples are:
    # English words with suffix
    # broth + er > hood
    brotherhood;broth~er|hood
@@ -919,46 +806,19 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    eenzaamheid;een|zaam|heid
    # beest > ach~tig [beastly]
    beestachtig;beest|ach~tig
-
-<76>
+<80>
    The comments use a greater-than sign to explain the structure where
    suffixes build from left to right, gaining priority in this way for a
    left-to-right script.  A hyphenation point for a suffix has priority
    over hyphenation on a prefix.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 17]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 4.  Extended format
 
 4.1.  Hyphenation definition for a compound
-<77>
+<81>
    Many languages can concatenate words to form long compounds.  Some
    real-life examples from Western languages are:
+
    # long compound without spaces in German
    #Rindfleischetikettierungsueberwachungsaufgabenuebertragungsgesetz
 
@@ -970,44 +830,31 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
    # long compound without spaces in English
    #pneumonoultramicroscopicsilicovolcanoconiosis
-
-<78>
+<82>
    These are extreme, but it is also possible in, for example, English
    to concatenate words, forming long compounds.  This is less common,
    as spaces are usually found in English compounds, hence for those
    cases hyphenation is less problematic.
-<79>
+<83>
    Hyphenation definitions of compounds should be made with a different
+
+
+
+van Geloven                   Informational                    [Page 15]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    reserved character.  The EQUALS SIGN U+003D or '=' MUST be used to
    indicate hyphenation on compound level.  This prevents long series of
    tildes in complex compounds allowing automated generation, suggestion
    or validation of hyphenation patterns for compounds.  In EBNF, this
    is:
+
    CompoundHyphen
             ::= ( '=' | #x003D )+
-
-<80>
+<84>
    Examples of hyphenation definitions for compounds are:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 18]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
    # English compounds
    # small + talk
@@ -1026,8 +873,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    boekomslag;boek=om~slag
    # trein + (wa + gon) [train carriage]
    treinwagon;trein=wa~gon
-
-<81>
+<85>
    A hyphenation point for a compound SHALL be defined by one or more
    equals signs.  A hyphenation point of higher priority MUST have at
    least one additional equals sign compared to lower priority
@@ -1035,6 +881,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    point priorities in definitions for words (Section 3.3).  Some
    examples to illustrate prioritised hyphenation definitions in
    compounds are:
+
    # German
    # Erb + (lehn + gut) [lit: inheritened loan property]
    Erblehngut;Erb==lehn=gut
@@ -1047,35 +894,33 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # [sea traffic shipping lane]
    Seeschifffahrtstrasse;See==schiff=fahrt===stra-sse
 
-   # Dutch
-   # ((goe + de + ren) + trein) + (wa + gon)
-   # [cargo train carriage]
-   goederentreinwagon;goe~de~ren=trein==wa~gon
-
-<82>
-   A hyphenation point for a compound MUST be treated with higher
-   priority than that of a suffix.
 
 
-
-
-
-van Geloven                   Informational                    [Page 19]
+van Geloven                   Informational                    [Page 16]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
+   # Dutch
+   # ((goe + de + ren) + trein) + (wa + gon)
+   # [cargo train carriage]
+   goederentreinwagon;goe~de~ren=trein==wa~gon
+<86>
+   A hyphenation point for a compound MUST be treated with higher
+   priority than that of a suffix.
+
 4.2.  Hyphenation definition for a compound prefix
-<83>
+<87>
    Compounds can also have a prefix.  These are defined in a similar way
    as a prefix of a word (Section 3.4).  A combination of a VERTICAL
    LINE U+007C or '|' followed directly by a EQUALS SIGN U+003D or '='
    MAY be used to indicate a prefix of a compound.  In EBNF this is:
+
    CompoundPrefixHyphen
             ::= ( '|' | #x007C ) ( '=' | #x003D )+
-
-<84>
+<88>
    Examples are:
+
    # German compounds with prefix
    # un < wahr + (schein + lich) [unlikely]
    unwahrscheinlich;un|=wahr=schein~lich
@@ -1085,41 +930,18 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # Dutch compound with prefix
    # on < waar + (schijn + lijk) [unlikely]
    onwaarschijnlijk;on|=waar=schijn~lijk
-
-<85>
+<89>
    Here the number of equals signs match the number of equals signs of
    the compound hyphenation that this prefix is related to.  Compound
    prefixes are extended from right to left and prioritised from left to
    right for a left-to-right script.
 
 4.3.  Hyphenation definition for a compound suffix
-<86>
+
    CompoundSuffixHyphen
             ::= ( '=' | #x003D )+ ( '|' | #x00A6 )
-
-<87>
+<90>
    Examples are rare, but some are given below:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 20]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
    # German compounds with suffix
    # (an + dert) + halb > fach
@@ -1127,6 +949,14 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # zier + rat > lo + se
    zierratlose;zier=rat=|lo~se
    # (zu < sam + men) + hang > los
+
+
+
+van Geloven                   Informational                    [Page 17]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    zusammenhanglos;zu|sam~men=hang=|los
 
    # Dutch compounds with suffix
@@ -1138,8 +968,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # (on < (sa + men) + (han + gend)) > heid
    # [incoherentness]
    onsamenhangendheid;on|sa~men=han~gend=|heid
-
-<88>
+<91>
    The number of equals signs are the same as the number of equals signs
    of the compound hyphenation this suffix is related to.  This is
    similar to word suffix (Section 3.5) and compound prefix
@@ -1148,7 +977,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    that nested compound suffixes will be extremely rare.
 
 4.4.  Hyphenation definition for a compound interfix
-<89>
+<92>
    With the format for hyphenation definitions described up to this
    point, it is possible to define hyphenation definitions for
    compounds, even if they have an interfix.  Interfixes are common in
@@ -1161,21 +990,13 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    automatically generated, suggested or validated.  In addition, this
    information could be used for decomposition to validate and extend
    spell checking.
-<90>
+<93>
    There are no grammar rules for this at the moment, because this part
    of the format is still under discussion.  The characters used in the
    following example are the LESS-THAN SIGN U+003C and GREATER-THAN SIGN
    U+003E, which could become reserved characters in the future.
    Interfix annotations can simply be filtered out before hyphenation
    patterns are used as input to the hyphenation algorithm.
-
-
-
-
-van Geloven                   Informational                    [Page 21]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
    # German interfix
    # (Arbeit + s) + zimmer [working room]
@@ -1184,6 +1005,14 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # Dutch interfix
    # (kip + (p + en)) + soep [chicken soup]
    kippensoep;kip~.pen=soep
+
+
+
+van Geloven                   Informational                    [Page 18]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    # could be;kip<~.pen>=soep
    # ((be + roep) + s) + ethiek [professional ethics]
    beroepsethiek;be~roeps=ethiek
@@ -1196,42 +1025,28 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # (brod + o) + gradiliste [shipyard]
    brodogradiliste;brodo=gradiliste
    # could be     ;brod<o>=gradiliste
-
-<91>
+<94>
    Note that this should not be used of the word preceding the interfix
    has changed spelling because of its usage in the compound with an
    interfix.
 
 4.5.  Unfavourable hyphenation
-<92>
+<95>
    Sometimes hyphenations can be misleading or distorting and are
    unfavourable.  This MUST be indicated by a FULL STOP U+002E or '.'.
    More than one full stop MAY be used to indicate hyphenation points
    which are extremely unfavourable.  An unfavourable hyphenation point
    MAY be preceded by a hyphenation character to indicate the type of
    hyphenation point.  In EBNF this is can be written as:
+
    UnfavourableHyphen
             ::= ( ( '~' | #x007E )
                 | ( '|' | #x007C )
                 | ( '|' | #x00A6 )
                 | ( '=' | #x003D ) )?
                 ( '.' | #x002E )+
-
-<93>
+<96>
    Some examples of unfavourable hyphenation are:
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 22]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
    # unfavourable hyphenation in German
    # dem + (ent + (spre + chend)) [accordingly]
@@ -1247,6 +1062,13 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # [toponiem of place in Belgium]
    Ostende;Ost=en-.de
 
+
+
+van Geloven                   Informational                    [Page 19]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    # unfavourable hyphenation in Dutch
    # (deur + waar + ders) + (ex + ploit) [lit: bailiff abuse]
    deurwaardersexploit;deur~waar~ders=ex~..ploit
@@ -1254,76 +1076,56 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    Koninginnedag;Ko~nin~gin~.ne=dag
    # could be   ;Ko~nin~gin<~.ne>=dag
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 23]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 5.  Dynamic hyphenation
 
-5.1.  Hyphenation with alterned spelling
-<94>
+5.1.  Hyphenation with altered spelling
+<97>
    Hyphenation can result in a changed spelling of the word.  How this
    affects a word depends on the language, as will be seen later on.  A
    hyphenation definition of this type MUST contain both an unhyphenated
    and a hyphenated spelling for such word.  This is called a
    substitution cluster.  It MUST contain only the particular
    hyphenation point and adjacent character clusters that altered.
-<95>
+<98>
    A substitution cluster MUST be provided between curly brackets LEFT
    CURLY BRACKET U+007B or '{' and RIGHT CURLY BRACKET U+007D or '}'
    with SOLIDUS U+002F or '/' as a separator.  Left of the separator
    MUST be the unhyphenated spelling and on the right MUST be the
    hyphenated spelling.  Examples later on will clarify this in detail.
    The exact rule in EBFN for this is:
+
    SubstitutionCluster
             ::= '{' CharacterCluster '/'
                   ( CharacterCluster ( Hyphen CharacterCluster? )?
                   | Hyphen CharacterCluster? )
                 '}'
-
-<96>
+<99>
    Some languages have transforming digraphs when hyphenating.  In
-   German the 'c' and 'k' are orthographic allographs for /k/.  The
+   German the 'c' and 'k' are orthographic allographs for /k/. The
    digraph 'ck' can result in 'k-k' when hyphenation is in the middle of
    that digraph.  Examples of transforming digraphs with orthographic
    allographs are:
+
    # German with altered spelling digraph
    # "Zucker" or
    # "Zuk-" "ker" [sugar]
    Zucker;Zu{ck/k~k}er
 
-<97>
+
+
+
+
+
+
+
+
+
+van Geloven                   Informational                    [Page 20]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
+<100>
    In German it is also possible to have doubling of consonants in
    digraphs when hyphenating.  The digraph 'll' can initially be a
    shorter spelling of the trigraph 'lll', which itself is a
@@ -1331,19 +1133,6 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    is in the first mentioned digraph, the previously eliminated 'l'
    should be restored.  Examples of restoring eliminated consonants from
    trigraphs are:
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 24]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
    # German with doubled consonant spelling
    # "Ab-" "fallager" or
@@ -1362,8 +1151,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    trykknapp;try{kk/kk=k}napp
    # equivalent notation, less verbose but more searchable
    #trykknapp;tryk{k/k=k}napp
-
-<98>
+<101>
    Some languages have vowel doubling.  This occurs when stress is on an
    open syllable and a suffix added after that syllable.  This happens
    for example in Dutch for some diminutive forms.  When these
@@ -1371,40 +1159,41 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    an open syllable needs to be duplicated, since the stress will ensure
    proper pronunciation.  Examples of stressed open syllables with
    doubled vowels are:
+
    # Dutch vowel doubling in diminutive
    # "omaatje" or
    # "oma-" "tje" [granny] [degenitiv of grantmother]
    omaatje;oma{a/-}tje
    # equivalent notation, more verbose but less searchable
    #omaatje;om{aa/a-}tje
-
-<99>
+<102>
    In Dutch,s diaeresis can be used on vowels to prevent the so called
    vowel collision.  However, when hyphenating before the vowel that
    received a diaeresis, that diaeresis will be eliminated in the
    hyphenated spelling.  Examples of hyphenation definitions for
    eliminated diaeresis are:
-   # Dutch eliminated diaeresis
-   # "geeerd" or
-   # "ge-" "eerd" [honoured] [past participle]
-   geeerd;ge{e/-e}erd
-
-<100>
-   As stated before, a hyphen can be a valid character in a normal word.
-   Hence, the hyphen character is not a reserved character in this
-   context.  When hyphenation on a hyphen that is already part of a
 
 
 
-van Geloven                   Informational                    [Page 25]
+
+van Geloven                   Informational                    [Page 21]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
+   # Dutch eliminated diaeresis
+   # "geeerd" or
+   # "ge-" "eerd" [honoured] [past participle]
+   geeerd;ge{e/-e}erd
+<103>
+   As stated before, a hyphen can be a valid character in a normal word.
+   Hence, the hyphen character is not a reserved character in this
+   context.  When hyphenation on a hyphen that is already part of a
    word, a new hyphen MUST NOT be inserted in the hyphenated text.  A
    rare counterexample was given in hyphenation of a word (Section 3.3).
    Below, more common examples in which a hyphen is not allowed to be
    duplicated:
+
    # Dutch compounds with hyphen as character
    # ex- < vriend [former boyfriend]
    ex-vriend;ex{-/|}vriend
@@ -1425,7 +1214,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    actor-director;ac~tor{-/=}di~rec~tor
 
 5.2.  Hyphenation of homographs
-<101>
+<104>
    A word with multiple meanings but with the same spelling is called a
    homograph.  Some homographs can differ in syllabification and
    pronunciation even though they are spelled with exactly the same
@@ -1434,12 +1223,20 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    pronunciation can result in different hyphenation points for each
    meaning of the homograph, which is more probable in German or Dutch
    than in, for example, English.
-<102>
+<105>
    When this is the case, the following homograph cluster MUST be used
    for the hyphenation definition.  Here a LEFT SQUARE BRACKET U+005B or
    '[' and a RIGHT SQUARE BRACKET U+005D or ']' MUST be used to group
    alternatives inside a hyphenation definition.  These MUST be
    separated by a SOLIDUS U+002F or '/'.  In the following rules in EBNF
+
+
+
+van Geloven                   Informational                    [Page 22]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    only two alternatives are allowed.  The order of the alternatives is
    not important.  However, the grammar introduces a small difference
    for the left and right side of the separator.  One side, and only one
@@ -1447,27 +1244,17 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    definitions.  Therefore, always one side of the separator MUST hold a
    definition.  This is in EBNF:
 
-
-
-
-
-
-van Geloven                   Informational                    [Page 26]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
    Series
             ::= ( CharacterCluster (Hyphen CharacterCluster)* Hyphen? )
               | ( Hyphen (CharacterCluster Hyphen)* CharacterCluster? )
    HomographCluster
             ::= '[' ( Series | (SubstitutionCluster Series? ) ) '/'
                     SubstitutionCluster? Series? ']'
-
-<103>
+<106>
    The use of a nested substitution cluster will be described later on
    (Section 5.3).  Rare but valid examples with alternative hyphenation
    behaviour for homographs are:
+
    # English homographs
    # rec + ord [vinyl medium]
    # re + cord [first-person present of verb to record]
@@ -1493,45 +1280,45 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # valk + uil [ninox, lit: falcon owl] or
    # val + kuil [trapping pit, lit: trap pit]
    valkuil;val[k=/=k]uil
-
-<104>
+<107>
    Note that there is not a preferred order of mirrored homograph
    clusters but a fixed order could prove practical for automated
    processing such as validation.
-<105>
+
+
+
+
+van Geloven                   Informational                    [Page 23]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
+<108>
    Automated hyphenation of homographs poses an interesting challenge.
    How can the hyphenation recognise which hyphenation pattern to use?
    This is out of scope for this standard but important to discuss.  All
    other forms of hyphenation can be handled directly by a hyphenation
    algorithm, but here extra information is need.  This could be
    extracted from the context, but can proof difficult if no context is
-
-
-
-van Geloven                   Informational                    [Page 27]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
    available or the context is ambiguous.  On the other hand, the author
    of a text could provide the needed information.  This could be stored
    in soft hyphens, for example.  The hyphenator could assist the author
    here by playing an interactive role.  Similarly to spell checking the
    author could be asked which meaning of a homograph is intended by
    having the author choose between expanded hyphenation patterns.
-<106>
+<109>
    Something that has not been discussed up to this point, but is
    illustrated in the previous example with wales and Wales, is case
    sensitivity of hyphenation patterns.  Hyphenation definitions MUST be
-   specified as case sensitive as possible.  TODO homograph!!  In case
-   capitalised, upper case and/or lower case are merged a lower case
-   notation is RECOMMENDED to be used, followed by capitalised and
-   finally upper case.  Reasons for this that casting to upper case or
-   capitalised spelling can result in information reduction whereas
-   casting to lower case can not restore the eliminated information.
-   Examples:
-   # German irreversable up and down casting
-   # Masse upvast -> MASSE
+   specified as case sensitive as possible.  In case capitalised, upper
+   case and/or lower case are merged a lower case notation is
+   RECOMMENDED to be used, followed by capitalised and finally upper
+   case.  Reasons for this that casting to upper case or capitalised
+   spelling can result in information reduction whereas casting to lower
+   case can not restore the eliminated information.  Examples:
+
+   # German irreversible up and down casting
+   # Masse upcast -> MASSE
    # MASSE ambiguous downcast -> Masse or Masse
    # LATIN CAPITAL LETTER SHARP S U+1E9E is rarely used
 
@@ -1543,91 +1330,33 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    # Dutch does not use diacritical marks in all upper case words
 
 5.3.  Nested hyphenation
-<107>
+<110>
    Nesting of a substitution cluster inside a homograph cluster MAY be
    done.  This is already defined in the grammar for homograph
    hyphenation (Section 5.2).  Here the priority is on the enclosing
    homograph cluster.  Deeper or other ways of nesting clusters is not
    allowed.  This is very rare, but some examples for German are:
 
+   # German de-1901 nested hyphenation definitions
+   Bettuecher;Be[t=tue~/{tt/tt=t}ue.]cher
+   Druckerzeugnis;Dru[{ck/k~k}er~/ck=er.]zeug~nis
+   Fussballehren;Fuss=ba[ll=/{ll/ll=l}]eh~ren
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 28]
+van Geloven                   Informational                    [Page 24]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-   # German de-1901 nested hyphenation definitions
-   # TODO or
-   # TODO
-   Bettuecher;Be[t=tue~/{tt/tt=t}ue.]cher
-   # TODO or
-   # TODO
-   Druckerzeugnis;Dru[{ck/k~k}er~/ck=er.]zeug~nis
-   # TODO or
-   # TODO
-   Fussballehren;Fuss=ba[ll=/{ll/ll=l}]eh~ren
-   # TODO or
-   # TODO
    griffest;gri[f~f/{ff/ff=f}]est
-   # TODO or
-   # TODO
    Irreligion;I[{rr/rr=r}/r|r]e.li~gi-on
-   # TODO or
-   # TODO
    Staubecken;Stau[~b/b~]e{ck/k~k}en
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 29]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 6.  Hyphenation priority
-<108>
+<111>
    The following hyphenation priority is defined:
+
    01 [] hyphenation of homograph,
           definition depends on semantics
    02 {} dynamic hyphenation,
@@ -1655,35 +1384,10 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    13 .  unfavourable hyphenation in general,
           multiple . have lower priority
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 30]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 7.  Reserved characters
-<109>
+<112>
    Reserved characters for this format are:
+
    /* Hyphenation Definitions 0.8
     * https://raw.github.com/OpenTaal/hyphenation-definitions/master/
     * grammar/grammar.ebnf
@@ -1693,6 +1397,14 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
     * line feed                   U+000A  LINE FEED (LF)        '\n'
     * carriage return             U+000D  CARRIAGE RETURN (CR)  '\r'
     * space                       U+0020  SPACE                 ' '
+
+
+
+van Geloven                   Informational                    [Page 25]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
     * begin comment               U+0023  NUMBER SIGN           '#'
     * unfavourable hyphen         U+002E  FULL STOP             '.'
     * cluster separator           U+002F  SOLIDUS               '/'
@@ -1706,8 +1418,7 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
     * morpheme hyphen             U+007E  TILDE                 '~'
     * suffix hyphen               U+00A6  BROKEN BAR            '|'
     */
-
-<110>
+<113>
    Additionally, other characters may be used as placeholders inside of
    definitions where a hyphenation needs (re)work or reviewing.  The
    following are recommended because these are rarely found in words and
@@ -1715,44 +1426,40 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    the definition of this format and should be filtered out before
    providing hyphenation patterns that comply with this standard.
    Examples are:
+
    # Examples of placeholders for reviewing purposes
    #raeche;rae.che # U+00B7 MIDDLE DOT '.'
    #radio;ra*dio # U+002A ASTERISK '*'
    #tafel;ta_fel # U+005F LOW LINE '_'
-
-<111>
+<114>
    Note that the middle dot '.' can be part of a orthography such as
    Catalan of Franco-Provencal.  Use it with care.  See also the section
    on compound interfix (Section 4.4) for characters used to make
    interfix annotations.
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 31]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
 8.  References
 
    [ISO14977]
               International Organization for Standardization (ISO) and
               the International Electrotechnical Commission (IEC), JTC
-              1, "Information technology -- Syntactic metalanguage --
+              1, "Information technology - Syntactic metalanguage -
               Extended BNF", ISO/IEC 14977:1996, December 1996, <http://
               www.iso.org/iso/home/store/catalogue_tc/
               catalogue_detail.htm?csnumber=26153>.
 
-   [Lia83]    Liang, F., "Word Hy-phen-a-tion by Com-put-er",
-              August 1983, <http://www.tug.org/docs/liang/>.
+   [Lia83]    Liang, F., "Word Hy-phen-a-tion by Com-put-er", August
+              1983, <http://www.tug.org/docs/liang/>.
 
    [Gel14]    van Geloven, S., "A standard for prioritised and dynamic
               hyphenation definitions", January 2014,
               <http://github.com/OpenTaal/hyphenation-definitions/>.
+
+
+
+van Geloven                   Informational                    [Page 26]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
 
    [W3C11]    World Wide Web Consortium, "Cascading Style Sheets Level 2
               Revision 1 (CSS 2.1) Specification", June 2011,
@@ -1776,24 +1483,16 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
               features of PatGen2", December 2009,
               <http://www.ctan.org/tex-archive/info/patgen2/>.
 
-   [SS95]     Sojka, P. and P. Seve&#269;ek, "Hyphenation in TEX -- Quo
-              Vadis?", TB 16-3, September 1995,
-              <https://www.tug.org/TUGboat/tb16-3/>.
+   [SS95]     Sojka, P. and P. Seve&#269;ek, "Hyphenation in TEX - Quo
+              Vadis?", TB 16-3, September 1995, <https://www.tug.org/
+              TUGboat/tb16-3/>.
 
-   [Soj95]    Sojka, P., "Notes on Compound Word Hyphenation in TEX",
-              TB 16-3, September 1995,
-              <https://www.tug.org/TUGboat/tb16-3/>.
+   [Soj95]    Sojka, P., "Notes on Compound Word Hyphenation in TEX", TB
+              16-3, September 1995, <https://www.tug.org/TUGboat/tb16-3/
+              >.
 
    [MR08]     Miklavec, M. and A. Reutenauer, "Putting the Cork back in
-
-
-
-van Geloven                   Informational                    [Page 32]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
-              the bottle -- Improving Unicode support in TEX", TB 29-3,
+              the bottle - Improving Unicode support in TEX", TB 29-3,
               October 2008, <https://www.tug.org/TUGboat/tb29-3/>.
 
    [Lem03]    Lemberg, W., "Hyphenation Exception Log fuer deutsche
@@ -1809,50 +1508,39 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
               <http://www.dante.de/DTK/Ausgaben_en.html>.
 
    [Hen08]    Hennig, S., "Einige Fragen zum Beitrag >>Hyphenation
-              Exception Log fuer deutsche Trennmuster, Version 1<<",
-              DTK 20-1, January 2008,
+              Exception Log fuer deutsche Trennmuster, Version 1<<", DTK
+
+
+
+van Geloven                   Informational                    [Page 27]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
+              20-1, January 2008,
               <http://www.dante.de/DTK/Ausgaben_en.html>.
 
    [Nem06]    Nemeth, L., "Automatic non-standard hyphenation in
-              OpenOffice.org", TB 27-1, October 2006,
-              <https://www.tug.org/TUGboat/tb27-1/>.
+              OpenOffice.org", TB 27-1, October 2006, <https://
+              www.tug.org/TUGboat/tb27-1/>.
 
-   [RFC2119]  Brander, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", RFC 2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", RFC 2119, March 1997, <https://www
+              .rfc-editor.org/info/rfc2119>.
 
    [BCP47]    Phillips, A. and M. Davis, "Tags for Identifying
-              Languages", BCP 47, September 2006,
-              <https://www.rfc-editor.org/info/bcp47>.
+              Languages", BCP 47, September 2006, <https://www.rfc-
+              editor.org/info/bcp47>.
 
    [TM14]     DANTE, Deutschsprachige Anwendervereinigung TeX e.V.,
               "Trennmuster", January 2014,
               <http://projekte.dante.de/Trennmuster/>.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 33]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
 Appendix A.  Grammar
-<112>
+<115>
    The complete grammar for this format of hyphenation definitions is in
    Extended Backus-Naur Form (EBNF) [ISO14977]:
+
    /* Hyphenation Definitions 0.8
     * https://raw.github.com/OpenTaal/hyphenation-definitions/master/
     * grammar/grammar.ebnf
@@ -1877,6 +1565,14 @@ Appendix A.  Grammar
     */
    HyphenationDefinitions
             ::= ( EOL* HyphenationDefinition? WhiteSpace? Comment? )*
+
+
+
+van Geloven                   Informational                    [Page 28]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    EOL
             ::= ( '\r' | #x000D ) ( '\n' | #x000A )?
               | ( '\n' | #x000A )
@@ -1897,14 +1593,6 @@ Appendix A.  Grammar
    Character
             ::= [#x0021-#x0022]
               | [#x0024-#x002D]
-
-
-
-van Geloven                   Informational                    [Page 34]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
               | [#x0030-#x003A]
               | [#x003C]
               | [#x003E-#x005A]
@@ -1934,6 +1622,13 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    CompoundHyphen
             ::= ( '=' | #x003D )+
 
+
+
+van Geloven                   Informational                    [Page 29]
+
+RFC TODO            Hyphenation Definitions Standard        January 2014
+
+
    CompoundSuffixHyphen
             ::= ( '=' | #x003D )+ ( '|' | #x00A6 )
 
@@ -1953,14 +1648,6 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    CharacterCluster
             ::= Character+
    SubstitutionCluster
-
-
-
-van Geloven                   Informational                    [Page 35]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
-
             ::= '{' CharacterCluster '/'
                   ( CharacterCluster ( Hyphen CharacterCluster? )?
                   | Hyphen CharacterCluster? )
@@ -1971,11 +1658,20 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
    HomographCluster
             ::= '[' ( Series | (SubstitutionCluster Series? ) ) '/'
                     SubstitutionCluster? Series? ']'
-
-<113>
+<116>
    This grammar can be visualised in a railroad diagram by means of
    http://bottlecaps.de/rr/ui for example.
 
+Appendix B.  Acknowledgements
+<117>
+   The author gratefully acknowledges, in alphabetical order, the
+   contributions of Ruud Baars, Simon Brouwer, Arnoud van den
+   Eerenbeemt, Bart Knubben, Stephan Hennig, Laszlo Nemeth, Werner
+   Lemberg, Bob van de Loo, Mojca Miklavec, Guenther Milde, Georg
+   Pfeiffer, Kurt Roeckx, Reinout van Schrouwen, Bert Veenhoff, Herbert
+   Voss and Tobias Wendorff.  Most of them are contributing to Stichting
+   OpenTaal, Nederlandstalige TeX Gebruikersgroep (NTG) or DANTE's
+   Trennmuster project.
 
 
 
@@ -1984,94 +1680,17 @@ RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 36]
+van Geloven                   Informational                    [Page 30]
 
 RFC TODO            Hyphenation Definitions Standard        January 2014
 
 
-Appendix B.  Acknowledgements
-<114>
-   The author gratefully acknowledges, in alphabetical order, the
-   contributions of Ruud Baars, Simon Brouwer, Arnoud van den
-   Eerenbeemt, Bart Knubben, Stephan Hennig, Werner Lemberg, Bob van de
-   Loo, Mojca Miklavec, Guenther Milde, Georg Pfeiffer, Kurt Roeckx,
-   Reinout van Schrouwen, Bert Veenhoff, Herbert Voss and Tobias
-   Wendorff.  Most of them are contributing to Stichting OpenTaal,
-   Nederlandstalige TeX Gebruikersgroep (NTG) or DANTE's Trennmuster
-   project.
-<115>
+<118>
    This standard is based on a poster presentation [Gel14] at the 24th
    Meeting of Computational Linguistics in The Netherlands (CLIN24),
    Leiden, Netherlands, January 17th, 2014.  Thanks go to the Institute
    for Dutch Lexicology (INL) and the Dutch-Flemish HLT Agency (TST-
    Centrale) for the organisation.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 37]
-
-RFC TODO            Hyphenation Definitions Standard        January 2014
-
 
 Author's Address
 
@@ -2117,12 +1736,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-van Geloven                   Informational                    [Page 38]
-
+van Geloven                   Informational                    [Page 31]

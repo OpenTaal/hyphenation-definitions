@@ -72,7 +72,7 @@
             <!--t> ... Hyphenation is possible on one or several so called hyphenations points of a word. These are usually the in between of consecutive syllables. For aesthetic reasons, a hyphenation point is never after the first or before the last syllable when that syllable consists only of one character.</t-->
         </section>
         <section anchor="history" title="History">
-            <t>TODO implementations and patgen and refs<!--(what were defacto standard or common use) patgen patgen2-->
+            <t>TODO implementations and patgen and refs<!--(what were de facto standard or common use) patgen patgen2-->
             <xref target="Lia83">todo</xref>
             <xref target="Nem06">todo</xref>
             <xref target="TM14">asdf</xref>
@@ -104,7 +104,7 @@
     |   word list for a   |
     | language or dialect |
     +---------------------+
-               || automated syllabilification
+               || automated syllabification
                \/
   +-------------------------+
   |     working set of      |
@@ -127,6 +127,7 @@
                || real-time use of 
                \/ hyphenation algorithm
       +------------------+
+      |  automatically   |
       | hyphenated text  |
       +------------------+
 ]]></artwork>
@@ -234,8 +235,8 @@
 <artwork><![CDATA[# This is the first line with only a comment
 
 # This is the third line after an empty second line.
-        ## After some whitespace, this is the fourth line.    #    #
-# Comments can use most of the reserved characters, e.g. {}[]/|~=.; #
+        ## After some whitespace, this is the fourth line.   # #
+# Comments can use most reserved characters, e.g. {}[]/|~=.; #
 # and Unicode orthographys, e.g.
 # ру́сский
 # язы́к,
@@ -375,7 +376,7 @@ kung-fu;kung~-fu # possible is "kung-" "-fu"
 #ά~τα~κτος
 ]]></artwork>
             </figure>
-            <t>Up to this point the functionality of the previous format for hyphenation patterns as used by patgen2 is similar. Everything described in this format from this point onwards is newly proposed functionality.</t>
+            <t>Up to this point the functionality of the previous format for hyphenation patterns as used by patgen2 is similar. Everything described in this format from this point onward is newly proposed functionality.</t>
             <t>A hyphenation point SHALL be defined by one or more tildes. A hyphenation point of higher priority MUST have at least one additional tilde compared to lower priority hyphenation points. Some examples to illustrate prioritised hyphenation definitions in words are:</t>
             <figure>
 <artwork><![CDATA[# English words with prioritised hyphenation
@@ -634,7 +635,7 @@ Koninginnedag;Ko~nin~gin~.ne=dag
         </section>
     </section>
     <section anchor="dynamic-hyphenation" title="Dynamic hyphenation">
-        <section anchor="alterned_spelling" title="Hyphenation with alterned spelling">
+        <section anchor="altered_spelling" title="Hyphenation with altered spelling">
             <t>Hyphenation can result in a changed spelling of the word. How this affects a word depends on the language, as will be seen later on. A hyphenation definition of this type MUST contain both an unhyphenated and a hyphenated spelling for such word. This is called a substitution cluster. It MUST contain only the particular hyphenation point and adjacent character clusters that altered.</t>
             <t>A substitution cluster MUST be provided between curly brackets LEFT CURLY BRACKET U+007B or '{' and RIGHT CURLY BRACKET U+007D or '}' with SOLIDUS U+002F or '/' as a separator. Left of the separator MUST be the unhyphenated spelling and on the right MUST be the hyphenated spelling. Examples later on will clarify this in detail. The exact rule in EBFN for this is:</t>
             <figure>
@@ -758,10 +759,10 @@ valkuil;val[k=/=k]uil
             </figure>
             <t>Note that there is not a preferred order of mirrored homograph clusters but a fixed order could prove practical for automated processing such as validation.</t>
             <t>Automated hyphenation of homographs poses an interesting challenge. How can the hyphenation recognise which hyphenation pattern to use? This is out of scope for this standard but important to discuss. All other forms of hyphenation can be handled directly by a hyphenation algorithm, but here extra information is need. This could be extracted from the context, but can proof difficult if no context is available or the context is ambiguous. On the other hand, the author of a text could provide the needed information. This could be stored in soft hyphens, for example. The hyphenator could assist the author here by playing an interactive role. Similarly to spell checking the author could be asked which meaning of a homograph is intended by having the author choose between expanded hyphenation patterns.</t>
-            <t>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. TODO homograph!! In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:</t>
+            <t>Something that has not been discussed up to this point, but is illustrated in the previous example with wales and Wales, is case sensitivity of hyphenation patterns. Hyphenation definitions MUST be specified as case sensitive as possible. <!--TODO homograph!!-->In case capitalised, upper case and/or lower case are merged a lower case notation is RECOMMENDED to be used, followed by capitalised and finally upper case. Reasons for this that casting to upper case or capitalised spelling can result in information reduction whereas casting to lower case can not restore the eliminated information. Examples:</t>
             <figure>
-<artwork><![CDATA[# German irreversable up and down casting
-# Maße upvast -> MASSE
+<artwork><![CDATA[# German irreversible up and down casting
+# Maße upcast -> MASSE
 # MASSE ambiguous downcast -> Maße or Masse
 # LATIN CAPITAL LETTER SHARP S U+1E9E is rarely used
 
@@ -778,23 +779,11 @@ valkuil;val[k=/=k]uil
             <t>Nesting of a substitution cluster inside a homograph cluster MAY be done. This is already defined in the grammar for <xref target="homograph">homograph hyphenation</xref>. Here the priority is on the enclosing homograph cluster. Deeper or other ways of nesting clusters is not allowed. This is very rare, but some examples for German are:</t>
             <figure>
 <artwork><![CDATA[# German de-1901 nested hyphenation definitions
-# TODO or
-# TODO
 Bettücher;Be[t=tü~/{tt/tt=t}ü.]cher
-# TODO or
-# TODO
 Druckerzeugnis;Dru[{ck/k~k}er~/ck=er.]zeug~nis
-# TODO or
-# TODO
 Fussballehren;Fuss=ba[ll=/{ll/ll=l}]eh~ren
-# TODO or
-# TODO
 griffest;gri[f~f/{ff/ff=f}]est
-# TODO or
-# TODO
 Irreligion;I[{rr/rr=r}/r|r]e.li~gi-on
-# TODO or
-# TODO
 Staubecken;Stau[~b/b~]e{ck/k~k}en
 ]]></artwork>
             </figure>
@@ -875,7 +864,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
     <references>
         <reference anchor="ISO14977" target="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=26153">
             <front>
-                <title>Information technology -- Syntactic metalanguage -- Extended BNF</title>
+                <title>Information technology - Syntactic metalanguage - Extended BNF</title>
                 <author>
                     <organization abbrev="ISO/IEC">International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC), JTC 1</organization>
                     <address>
@@ -1021,7 +1010,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
         </reference>
         <reference anchor="SS95" target="https://www.tug.org/TUGboat/tb16-3/">
             <front>
-                <title>Hyphenation in TEX — Quo Vadis?</title>
+                <title>Hyphenation in TEX - Quo Vadis?</title>
                 <author initials="P." surname="Sojka" fullname="Petr Sojka">
                     <organization>Faculty of Informatics, Masaryk University</organization>
                     <address>
@@ -1068,7 +1057,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
         </reference>
         <reference anchor="MR08" target="https://www.tug.org/TUGboat/tb29-3/">
             <front>
-                <title>Putting the Cork back in the bottle — Improving Unicode support in TEX</title>
+                <title>Putting the Cork back in the bottle - Improving Unicode support in TEX</title>
                 <author initials="M." surname="Miklavec" fullname="Mojca Miklavec">
                     <organization>Faculty of Mathematics and Physics, University of Ljubljana</organization>
                 </author>
@@ -1191,7 +1180,7 @@ Staubecken;Stau[~b/b~]e{ck/k~k}en
         <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119">
             <front>
                 <title>Key words for use in RFCs to Indicate Requirement Levels</title>
-                <author initials="S." surname="Brander" fullname="Scott Bradner">
+                <author initials="S." surname="Bradner" fullname="Scott Bradner">
                     <organization>Harvard University</organization>
                     <address>
                         <postal>
@@ -1368,14 +1357,70 @@ HomographCluster
         <t>This grammar can be visualised in a railroad diagram by means of http://bottlecaps.de/rr/ui for example.</t>
     </section>
     <section anchor="acknowledgements" title="Acknowledgements">
-        <t>The author gratefully acknowledges, in alphabetical order, the contributions of Ruud Baars, Simon Brouwer, Arnoud van den Eerenbeemt, Bart Knubben, Stephan Hennig, Werner Lemberg, Bob van de Loo, Mojca Miklavec, Günther Milde, Georg Pfeiffer, Kurt Roeckx, Reinout van Schrouwen, Bert Veenhoff, Herbert Voss and Tobias Wendorff. Most of them are contributing to Stichting OpenTaal, Nederlandstalige TeX Gebruikersgroep (NTG) or DANTE's Trennmuster project.</t>
+        <t>The author gratefully acknowledges, in alphabetical order, the contributions of Ruud Baars, Simon Brouwer, Arnoud van den Eerenbeemt, Bart Knubben, Stephan Hennig, László Németh, Werner Lemberg, Bob van de Loo, Mojca Miklavec, Günther Milde, Georg Pfeiffer, Kurt Roeckx, Reinout van Schrouwen, Bert Veenhoff, Herbert Voss and Tobias Wendorff. Most of them are contributing to Stichting OpenTaal, Nederlandstalige TeX Gebruikersgroep (NTG) or DANTE's Trennmuster project.</t>
         <t>This standard is based on a <xref target="Gel14">poster presentation</xref> at the 24th Meeting of Computational Linguistics in The Netherlands (CLIN24), Leiden, Netherlands, January 17th, 2014. Thanks go to the Institute for Dutch Lexicology (INL) and the Dutch-Flemish HLT Agency (TST-Centrale) for the organisation.</t>
     </section>
 </back>
 </rfc>
 <!--TODO Store syllabification also for words that are too short to hyphenate. This information could be used for other goals but also when a word is used in a compound.-->
-<!--TODO Hyphenation patterns cal also be used for automated selection of ligatures. See German and Dutch ligatures of ffi, fff and ll, lli which should not be used in certain compounds or only in a special way.-->
 
+<!--TODO Hyphenation patterns cal also be used for automated selection of typographic ligatures. See German and Dutch ligatures of ffi, fff and ll, lli which should not be used in certain compounds or only in a special way.
+
+Stylistic ligatures
+
+These arose because with the usual type sort for lowercase f, the end of its hood is on a kern, which would be damaged by collision with raised parts of the next letter.
+
+Sometimes, a ligature crossing the morpheme boundary of a composite word (e.g., ff in shelf‌ful[5]) is considered undesirable, and for example official German orthography as outlined in the Duden prohibits ligatures across composition boundaries.[6] Some computer programs (such as TeX) provide a means of suppressing ligatures.
+Ligatures "Th" and "Wh" illustration
+
+Some fonts include an fff ligature (the Requiem font by Jonathan Hoefler even contains an fffl ligature), intended for German compound words like Sauerstoffflasche ("oxygen tank") and Schifffahrt ("boat trip").[note 2] However, since the sequence fff in German occurs only across composition boundaries (Schiff-fahrt, Sauerstoff-flasche) and ligatures are officially prohibited across boundaries, these ligatures cannot be correctly employed for German.[6]
+
+Anwendung im Deutschen
+
+Im Deutschen werden Ligaturen nur gesetzt, wenn die zu verbindenden Buchstaben im gleichen Morphem liegen, also beispielsweise im Wortstamm. Ligaturen werden in der Regel nicht gesetzt, wenn sie eine grammatikalische Fuge (z. B. eine Wortfuge) trennen. „Kaufläche“ (Kau-fläche) wird daher mit ﬂ-Ligatur geschrieben; hingegen wird bei „Kaufleute“ keine Ligatur verwendet, weil die Buchstaben f und l hier in verschiedenen Wortteilen (Kauf-leute) stehen. Eine Ausnahme bilden Nachsilben, die mit i beginnen (-ig, -in, -ich, -isch). Hier werden auch über die grammatikalische Fuge hinweg Ligaturen gesetzt. So wird beispielsweise „häufig“ trotz der Fuge (häuf-ig) mit ﬁ-Ligatur geschrieben.
+
+Die Anwendung von Ligaturen ist nicht verbindlich geregelt, generell folgt man dem Grundsatz: Wenn die einzelnen Buchstaben getrennt gesprochen werden, wird keine Ligatur verwendet.-->
+
+
+<!--TODO https://en.wikipedia.org/wiki/IJ_%28digraph%29 This Dutch shopkeeper wrote 'byoux' instead of 'bijoux', perhaps because he could not imagine 'ij' to exist in a French word
+
+antijudaïsme
+Baijum
+bijou
+bijous
+bijouterie
+bijouterieën
+bijoutje
+Dijon
+dijonmosterd
+Herbaijum
+Hijum
+Tijum
+
+
+dijood-gefunctionaliseerde
+dijood
+Beijing
+Fiji
+Fiji-eilanden
+Meiji-restauratie
+gaijin
+Beijing
+Fijiër
+
+topologie
+
+Heijoshin 平常心
+
+[Heijoshin] In Budo, maybe more specifically in sword/katana related arts, there is an important term/concept which is Heijoshin. Heijoshin is a three kanji word, the first one “Hei” means calm, peaceful, steady. The second one “jo” means always, constant. The third one “Shin” means mind or hearth, the whole inner essence of the individual.
+
+So a final interpretation could be “Keeping your state of mind all the time/in all situation”.
+
+Hiji - Ellbogen
+kimi osae
+kimi nage-->
+
+<!--TODO Add translations for "German de-1901 nested hyphenation definitions" -->
 
 
 
@@ -1407,3 +1452,5 @@ ad-hocbeleid;ad{-/~}hoc=be~leid
 # (in- + (vi + tro)) + (pro + ces) [in vitro process]
 in-vitroproces;in{-/~~}vi~tro=pro~ces
 -->
+
+<!--TODO geen dubbele rules in een kader-->
