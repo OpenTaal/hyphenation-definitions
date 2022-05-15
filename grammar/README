@@ -3,3 +3,5 @@ The grammar for the hyphenation definitions format is specified in a Extended Ba
 In the file `grammar.ebnf` is the grammar defined.. This file can be used to create railroad diagrams, see https://en.wikipedia.org/wiki/Syntax_diagram
 
 A railroad diagram is made from `grammar.ebnf` with the online Railroad Diagram Generator. The result is found in `diagram.xhtml` which contains SVG and can be viewed in a web browser, see http://bottlecaps.de/rr/ui An alternative result with images in PNG can be found in index.html.
+
+Download jar file from https://bottlecaps.de/rr/ui and unzip it.
